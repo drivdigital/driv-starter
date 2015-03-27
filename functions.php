@@ -26,7 +26,7 @@ class Pneumatic_Theme {
     require_once( 'classes/class-pneumatic-theme-widget.php' );
     add_action( 'widgets_init', 'Pneumatic_Theme_Widget::widget_area' );
 
-    // Load the class files
+    // Basic setup for posts
     require_once( 'classes/class-pneumatic-theme-post.php' );
     add_action( 'pneumatic-theme-time', 'Pneumatic_Theme_Post::print_time' );
 
