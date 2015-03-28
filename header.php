@@ -19,7 +19,7 @@
 <div class="container">
 
   <div class="bar-nav nav">
-    <div class="bar-nav--inner w">
+    <div class="bar-nav--inner w cf">
       <p class="screen-reader-text label-bar-nav">Navigation bar:</p>
       <?php
         // Navigation bar.
@@ -33,7 +33,7 @@
   </div>
 
   <header class="header" role="banner">
-    <div class="header--inner w">
+    <div class="header--inner w cf">
       <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
     </div>
     <div class="menu-bar"></div>
@@ -41,7 +41,7 @@
 
   <?php if ( has_nav_menu( 'primary' ) ) : ?>
     <nav class="top-nav nav">
-      <div class="top-nav--inner w">
+      <div class="top-nav--inner w cf">
         <p class="screen-reader-text label-site-nav">Site navigation menu:</p>
         <?php
           // Primary navigation menu.

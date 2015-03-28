@@ -6,7 +6,8 @@ $landscape:        'screen and ( min-width:  481px )';
 $mobile-only:      'screen and ( max-width:  767px )';
 $tablet:           'screen and ( min-width:  768px )';
 $tablet-landscape: 'screen and ( min-width: 1024px )';
-$tablet-down:      'screen and ( max-width: 1025px )';
+$tablet-down:      'screen and ( max-width: 1024px )';
+$laptop:           'screen and ( min-width: 1025px )';
 $desktop:          'screen and ( min-width: 1240px )';
 
 // Normalize: http://necolas.github.io/normalize.css/

@@ -1,4 +1,13 @@
 
+.menu-item a {
+  display: block;
+  color: #666;
+  background: #eee;
+    &:hover, &:focus {
+      color: #000;
+      background: #ddd;
+    }
+}
 
 @media only #{$tablet-down} {
 
@@ -8,17 +17,8 @@
 
   .button-close,
   .menu-item a {
-    color: #666;
-    background: #eee;
-
-    display: block;
     padding: 0.6em 1em 0.5em;
     border-bottom: 1px solid #ccc;
-
-    &:hover, &:focus {
-      color: #000;
-      background: #ddd;
-    }
   }
 
   .bar-nav {
@@ -76,5 +76,48 @@
       background: #DDD;
     }
 
+  }
+}
+
+
+@media only #{$laptop} {
+  .button-close,
+  .menu-bar {
+    display: none;
+  }
+  .sub-menu {
+    position: absolute;
+    display: none;
+    width: 12em;
+    .menu-item {
+      display: block;
+      float: none;
+    }
+    a {
+      padding: 0.6em 1em 0.5em;
+    }
+  }
+  .menu-item {
+    position: relative;
+    float: left;
+    a {
+      display: block;
+      padding: 0.6em 1em 0.5em;
+    }
+    &:hover > .sub-menu {
+      display: block;
+    }
+    .sub-menu .sub-menu {
+      top: 0;
+      left: 12em;
+
+    }
+  }
+  .nav-menu-bar .menu-item {
+    float: right;
+  }
+  .top-nav,
+  .bar-nav {
+    background: #999;
   }
 }
