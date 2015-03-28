@@ -1,0 +1,17 @@
+
+
+@media only #{$tablet-down} {
+  .menu-item a {
+    color: #666;
+    background: #eee;
+
+    display: block;
+    padding: 0.6em 0.5em 0.5em;
+    border-bottom: 1px solid #ccc;
+
+    &:hover, &:focus {
+      color: #000;
+      background: #ccc;
+    }
+  }
+}

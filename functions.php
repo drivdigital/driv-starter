@@ -66,6 +66,7 @@ class Pneumatic_Theme {
     add_theme_support( 'title-tag' );
     // Add HTML5 support
     add_theme_support( 'html5', array(
+      'gallery',
       'comment-list',
       'search-form',
       'comment-form'
@@ -141,7 +142,7 @@ class Pneumatic_Theme {
    */
   function ptag_images( $content ) {
     // Remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
-    return preg_replace( '/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
+    return preg_replace( '/<p[^>]*>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content );
   }
 
   /**

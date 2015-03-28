@@ -26,14 +26,38 @@ img {
   vertical-align: bottom;
 }
 
+// Links (google style)
+a {
+  text-decoration: none;
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
 // Navigation menus
 .nav-menu {
   list-style: none;
   padding: 0;
 }
+// Sub menus
+.sub-menu {
+  padding: 0;
+}
 
+// Lists
+ul, ol {
+  padding-left: 1em;
+}
+
+.wp-post-image {
+  margin: 0 auto;
+}
+
+.screen-reader-text {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
-.screen-reader-text,
 .image-replacement,
 .ir {
     text-indent: 100%;
@@ -49,4 +73,53 @@ http://simplebits.com/notebook/2008/08/14/ampersands-2/
 span.amp {
   font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
   font-style: italic;
+}
+
+
+/**
+ * Articles / Items
+ */
+
+// Header
+.article--header {
+  margin-bottom: 1em;
+}
+// Title [part of article--header]
+.article--title {
+  margin-bottom: 0;
+}
+// Featured Image [part of article--header]
+.wp-post-image {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+// Give images a bit of a margin
+.article--content {
+  img { margin: 0.5em; }
+}
+.wp-caption--inner,
+.article--content {
+  > img { margin: 0.5em 0; }
+}
+
+// Gallery images
+.gallery-item {
+  margin: 0;
+  width: 50%;
+  float: left;
+
+  img {
+    width: 100%;
+    margin: 0;
+  }
+
+  &:nth-child( 2n +1 ) { padding-right: 0.25em; }
+  &:nth-child( 2n ) { padding-left: 0.25em; }
+  padding-bottom: 0.5em;
+}
+
+.gallery {
+  @extend .cf;
+  margin-bottom: 0.5em;
 }

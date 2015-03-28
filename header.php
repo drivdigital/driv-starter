@@ -16,6 +16,8 @@
 <body <?php body_class(); ?>>
 <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'pneumatic-theme' ); ?></a>
 
+<div class="container">
+
   <div class="bar-nav nav">
     <div class="bar-nav--inner w">
       <p class="screen-reader-text label-bar-nav">Navigation bar:</p>
@@ -53,6 +55,10 @@
     </nav>
   <?php endif; ?>
 
-  <?php get_sidebar(); ?>
+  <script type="text/javascript">
+  ( function( $ ) {
+    $( '.container > .nav' ).hide();
+  } ( jQuery ) );
+  </script>
 
-<div class="container">
+  <?php get_sidebar(); ?>

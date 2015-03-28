@@ -22,6 +22,11 @@
   text-align: center;
 }
 
+/**
+ * Image captions
+ * Here I'm using an inner block to let the text (<p>) align itself with the image.
+ * It's useful when the image has a caption and is aligned center or right.
+ */
 .wp-caption--inner {
   display: inline-block;
   text-align: left;

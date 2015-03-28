@@ -1,0 +1,22 @@
+
+/**
+ * Mobile padding
+ * Here I'm using a method to padd all content except images
+ * The result is that images will be edge to edge with the window on mobile devices
+ */
+
+.article-time,
+.article--title {
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.article--content {
+  p, ul, ol, h2, h3, h4, blockquote, pre,
+  .gallery {
+    margin-left: 1em;
+    margin-right: 1em;
+  }
+}
