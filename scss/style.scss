@@ -1,0 +1,23 @@
+/******************************************************************
+Site Name:
+Author:
+******************************************************************/
+
+$landscape: 'screen and (min-width: 481px)';
+$mobile-only: 'screen and (max-width: 767px)';
+$tablet: 'screen and (min-width: 768px)';
+$tablet-landscape: 'screen and (min-width: 1024px)';
+$desktop: 'screen and (min-width: 1240px)';
+
+// normalize: http://necolas.github.io/normalize.css/
+@import "partials/normalize";
+// Do all site-level layout adjustments here
+@import "partials/layout";
+// styles in base.scss
+@import "breakpoints/base";
+
+@media only #{$mobile-only}      { @import "breakpoints/mobile-only"; }
+@media only #{$landscape}        { @import "breakpoints/landscape"; }
+@media only #{$tablet}           { @import "breakpoints/tablet"; }
+@media only #{$tablet-landscape} { @import "breakpoints/tablet-landscape"; }
+@media only #{$desktop}          { @import "breakpoints/desktop"; }

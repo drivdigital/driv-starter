@@ -6,13 +6,13 @@
 
 <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
   <article id="post-<?php the_ID(); ?>" <?php post_class( 'article cf' ); ?> role="article">
-    <div class="article-inner">
-      <header class="article-header">
+    <div class="article--inner w">
+      <header class="article--header">
         <?php the_post_thumbnail( 'large' ); ?>
-        <h1 class="entry-title article-title"><?php the_title(); ?></h1>
-        <?php do_action( 'pneumatic-theme-time', 'updated entry-time' ); ?>
+        <h1 class="article--title"><?php the_title(); ?></h1>
+        <?php do_action( 'pneumatic-theme-time', 'updated article-time' ); ?>
       </header>
-      <div class="entry-content article-content cf">
+      <div class="article--content cf">
         <?php the_content(); ?>
       </div>
     </div>

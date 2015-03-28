@@ -1,0 +1,47 @@
+
+
+ /**
+ * Wrapper for all content
+ * [site-wide]
+ * This is one of the major page elements.
+ */
+.w {
+  max-width: 63.25em;
+  margin: 0 auto;
+}
+
+/**
+ * Column script
+ */
+%col {
+  float: left;
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+$gutter: 1;
+
+@media only #{$landscape} {
+
+}
+@media only #{$tablet} {
+  @for $i from 1 through 12 {
+    .t-#{$i} {
+      $percentage: $i * 100% / 12;
+      width: $percentage - 2%;
+      $percentage: $percentage - 0.01%;
+      $margin-right: ($i * $gutter / ($i+1))+rem;
+      width: calc(#{$percentage} - #{$margin-right});
+      margin-right: 2%;
+      margin-right: calc(#{$gutter+rem});
+      @extend %col;
+    }
+  }
+}
+@media only #{$tablet-landscape} {
+
+}
+
+@media only #{$desktop}  {
+
+}

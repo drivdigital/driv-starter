@@ -1,0 +1,28 @@
+
+
+// Align attachments - left
+.alignleft, img.alignleft {
+  margin-right: 1.5em;
+  display: inline;
+  float: left;
+}
+// Align attachments - right
+.alignright, img.alignright {
+  margin-left: 1.5em;
+  display: inline;
+  float: right;
+  text-align: right;
+}
+// Align attachments - center
+.aligncenter, img.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  clear: both;
+  text-align: center;
+}
+
+.wp-caption--inner {
+  display: inline-block;
+  text-align: left;
+}
