@@ -35,8 +35,8 @@
   <header class="header" role="banner">
     <div class="header--inner w">
       <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-      <p style="display:none;" class="top-nav-toggle toggle-button"><?php _e( 'Menu', 'pneumatic-theme' ); ?></button>
     </div>
+    <div class="menu-bar"></div>
   </header>
 
   <?php if ( has_nav_menu( 'primary' ) ) : ?>
@@ -49,15 +49,17 @@
             'container'      => false,
             'menu_class'     => 'nav-menu-primary nav-menu',
             'theme_location' => 'primary',
+            'depth'          => '5',
           ) );
         ?>
       </div>
     </nav>
   <?php endif; ?>
 
+  <?php require_once "includes/menu-script.php"; ?>
   <script type="text/javascript">
   ( function( $ ) {
-    $( '.container > .nav' ).hide();
+
   } ( jQuery ) );
   </script>
 

@@ -8,9 +8,13 @@ class Pneumatic_Theme {
    * Construct - Set up basic actions for the pneumatic-theme
    */
   public function __construct() {
-    // Add init actions
+    // Add actions
     add_action( 'init', array( $this, 'init' ) );
     add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
+    // Add filters
+    add_filter( 'jpeg_quality', array( $this, 'jpeg_quality' ) );
+    add_filter( 'get_the_excerpt', array( $this, 'fix_excerpt' ), 9, 1 );
+    add_filter( 'tiny_mce_before_init', array( $this, 'tinymce_options' ) );
   }
 
   /**
@@ -105,7 +109,6 @@ class Pneumatic_Theme {
       if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
         wp_enqueue_script( 'comment-reply' );
       }
-
     }
   }
 
@@ -139,6 +142,7 @@ class Pneumatic_Theme {
 
   /**
    * <p> Tag on images - fix
+   * hooked on 'the_content'
    */
   function ptag_images( $content ) {
     // Remove the p from around imgs (http://css-tricks.com/snippets/wordpress/remove-paragraph-tags-from-around-images/)
@@ -146,12 +150,21 @@ class Pneumatic_Theme {
   }
 
   /**
+   * JPEG Quality filter
+   * hooked on 'jpeg_quality'
+   */
+  public function jpeg_quality( $q ) {
+    return $q;
+  }
+
+  /**
    * Include icons file
-   * hooked to wp_head
+   * hooked on 'wp_head'
    */
   public function icons() {
     require_once get_template_directory() .'/includes/icons.php';
   }
+
   /**
    * Return an empty string
    * Useful as a filter
@@ -159,6 +172,49 @@ class Pneumatic_Theme {
   public function return_empty() {
     return '';
   }
+
+  /**
+   * Fix the excerpt
+   * Use the excerpt if it is provided. (meta value)
+   * Use above the fold <!--more--> text if there is no excerpt text.
+   * Use trimmed text if neither alternative above is present.
+   * @param  string $text Excerpt text
+   * @return string       The fixed excerpt text
+   */
+  function fix_excerpt( $text ) {
+    if ( !$text ) {
+      global $page, $pages;
+      if ( $page > count( $pages ) ) // if the requested page doesn't exist
+        $page = count( $pages ); // give them the highest numbered page that DOES exist
+      $content = $pages[$page - 1];
+      if ( preg_match( '/<!--more(.*?)?-->/', $content, $matches ) ) {
+        $content = explode( $matches[0], $content, 2 );
+        return $content[0];
+      }
+    }
+    return $text;
+  }
+
+
+  /**
+   * Adjust options for TinyMCE
+   * hooked on 'tiny_mce_before_init'
+   * @param array $init An array of setup parameters used by TinyMCE
+   */
+  public function tinymce_options( $init ) {
+
+    $plugins = explode( ',', $init['toolbar2'] );
+    foreach( array( 'underline', 'alignjustify', 'forecolor', 'pastetext', 'outdent', 'indent' ) as $undesirable ) {
+      if ( ( $key = array_search( $undesirable, $plugins ) ) !== false ) {
+        unset( $plugins[$key] );
+      }
+    }
+
+    $init['toolbar2'] = implode( ',', $plugins );
+    $init['block_formats'] = 'Paragraph=p;Pre=pre;Heading 2=h2;Heading 3=h3;Heading 4=h4';
+    return $init;
+  }
+
 }
 
 new Pneumatic_Theme();
