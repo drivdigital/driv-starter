@@ -27,6 +27,7 @@
           'container'      => false,
           'menu_class'     => 'nav-menu-bar nav-menu',
           'theme_location' => 'bar',
+          'depth'          => '2',
         ) );
       ?>
     </div>

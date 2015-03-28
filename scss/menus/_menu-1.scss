@@ -1,12 +1,15 @@
 
 .menu-item a {
   display: block;
-  color: #666;
-  background: #eee;
-    &:hover, &:focus {
-      color: #000;
-      background: #ddd;
-    }
+  color: #444;
+  background: #CCC;
+  &:hover, &:focus {
+    color: #000;
+    background: #ddd;
+  }
+}
+.sub-menu a {
+  background: #fff;
 }
 
 @media only #{$tablet-down} {
@@ -85,6 +88,22 @@
   .menu-bar {
     display: none;
   }
+
+  // Make bar nav inner relative to place the menu over the header
+  .bar-nav--inner {
+    position: relative;
+  }
+  .nav-menu-bar {
+    // Position the <ul> over the header
+    position: absolute;
+    right: 0;
+    .menu-item {
+      float: left;
+      .sub-menu {
+        right: 0;
+      }
+    }
+  }
   .sub-menu {
     position: absolute;
     display: none;
@@ -110,14 +129,19 @@
     .sub-menu .sub-menu {
       top: 0;
       left: 12em;
-
     }
-  }
-  .nav-menu-bar .menu-item {
-    float: right;
   }
   .top-nav,
   .bar-nav {
-    background: #999;
+    background: #CCC;
+  }
+
+  .nav-menu-primary {
+    > .menu-item:first-child > a {
+      border-left: 1px solid #999;
+    }
+    > .menu-item > a {
+      border-right: 1px solid #999;
+    }
   }
 }
