@@ -33,6 +33,20 @@ a {
     text-decoration: underline;
   }
 }
+
+// Blockquotes
+blockquote {
+  @extend .cf;
+  margin-left: 0;
+  padding: 1em 1em 0em 1.5em;
+  border-left: 3px solid #C00;
+  cite {
+    display: block;
+    color: #666;
+    margin-top: 0.5rem;
+    font-size: (12/16)+em;
+  }
+}
 // Navigation menus
 .nav-menu {
   list-style: none;
@@ -44,8 +58,54 @@ a {
 }
 
 // Lists
-ul, ol {
+ul {
   padding-left: 1em;
+}
+ol {
+  padding-left: 1.5em;
+}
+
+// Tables
+table {
+  margin-bottom: 1em;
+}
+th {
+  text-align: left;
+}
+th, td {
+  padding: (8/16)+em (10/16)+em (6/16)+em;
+}
+td {
+  border: 1px solid #999;
+}
+
+// Definition lists
+dl {
+  margin-top: 0.5em;
+}
+dt {
+  font-weight: bold;
+  margin-top: 0.5em;
+  margin-bottom: (4/16)+em;
+
+  border-top: 1px solid #999;
+  padding-top: 1em;
+  &:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+  }
+}
+dd {
+  color: #666;
+  margin-left: 1.5em;
+}
+
+tr{
+  &.odd {
+  }
+  &.even {
+    background-color: #eee;
+  }
 }
 
 .wp-post-image {
@@ -76,12 +136,50 @@ span.amp {
 }
 
 
+
+/**
+ * Page elements
+ */
+
+// Site header
+.header {
+  background-color: #eee;
+  // padding: 1em 0;
+  p { margin: 0; }
+}
+
+.site-title {
+  a {
+    display: block;
+    padding: 16px;
+    padding: 1rem;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.25em;
+  }
+}
+//
+#main {
+
+}
+
+
+
 /**
  * Articles / Items
  */
 
+.article {
+  border-bottom: 1px solid #999;
+  &:nth-of-type(2n) {
+    background-color: #eee;
+  }
+}
+
 // Header
 .article--header {
+  margin-top: 1em;
   margin-bottom: 1em;
 }
 // Title [part of article--header]
@@ -97,11 +195,17 @@ span.amp {
 // Give images a bit of a margin
 .article--content {
   img { margin: 0.5em; }
+  margin-bottom: 1em;
 }
 .wp-caption--inner,
 .article--content {
   > img { margin: 0.5em 0; }
 }
+
+/**
+ * Articles / Items - content
+ * Elements appearing inside articles
+ */
 
 // Gallery images
 .gallery-item {
@@ -114,6 +218,7 @@ span.amp {
     margin: 0;
   }
 
+  // Spacing (gutter)
   &:nth-child( 2n +1 ) { padding-right: 0.25em; }
   &:nth-child( 2n ) { padding-left: 0.25em; }
   padding-bottom: 0.5em;
