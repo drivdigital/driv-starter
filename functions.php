@@ -11,10 +11,15 @@ class Pneumatic_Theme {
     // Add actions
     add_action( 'init', array( $this, 'init' ) );
     add_action( 'after_setup_theme', array( $this, 'theme_support' ) );
+
     // Add filters
     add_filter( 'jpeg_quality', array( $this, 'jpeg_quality' ) );
     add_filter( 'get_the_excerpt', array( $this, 'fix_excerpt' ), 9, 1 );
     add_filter( 'tiny_mce_before_init', array( $this, 'tinymce_options' ) );
+
+    // Register widget areas (sidebars[sic])
+    require_once( 'classes/class-pneumatic-theme-widget.php' );
+    add_action( 'widgets_init', 'Pneumatic_Theme_Widget::widget_area' );
   }
 
   /**
@@ -27,9 +32,6 @@ class Pneumatic_Theme {
       return;
     }
 
-    // Register widget areas (sidebars[sic])
-    require_once( 'classes/class-pneumatic-theme-widget.php' );
-    add_action( 'widgets_init', 'Pneumatic_Theme_Widget::widget_area' );
 
     // Basic setup for posts
     require_once( 'classes/class-pneumatic-theme-post.php' );
