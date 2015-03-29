@@ -187,6 +187,11 @@ span.amp {
 .article--title {
   margin-bottom: 0;
 }
+.article--title,
+.article--content {
+  -ms-word-wrap: break-word;
+  word-wrap: break-word;
+}
 // Featured Image [part of article--header]
 .wp-post-image {
   width: 100%;
