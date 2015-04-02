@@ -20,6 +20,10 @@ class Pneumatic_Theme {
     // Register widget areas (sidebars[sic])
     require_once( 'classes/class-pneumatic-theme-widget.php' );
     add_action( 'widgets_init', 'Pneumatic_Theme_Widget::widget_area' );
+
+    // Admin
+    require_once( 'classes/class-pneumatic-theme-admin.php' );
+    new Pneumatic_Theme_Admin();
   }
 
   /**
