@@ -2,3 +2,22 @@
   padding-left: 1em;
   padding-right: 1em;
 }
+
+
+
+/**
+ * Widgets
+ */
+.widget {
+  float: left;
+  width: 25%;
+  padding: 1em;
+}
+.widget_calendar {
+  width: 50%;
+}
+.widget-area--inner {
+  padding-left: 0;
+  padding-right: 0;
+  // overflow: hidden;
+}

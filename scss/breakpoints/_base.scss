@@ -47,6 +47,7 @@ blockquote {
     font-size: (12/16)+em;
   }
 }
+
 // Navigation menus
 .nav-menu {
   list-style: none;
@@ -109,15 +110,18 @@ tr{
   }
 }
 
+// Featured images
 .wp-post-image {
   margin: 0 auto;
 }
 
+// Screen reader only text
 .screen-reader-text {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
 }
+
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 .image-replacement,
 .ir {
@@ -125,7 +129,6 @@ tr{
     white-space: nowrap;
     overflow: hidden;
 }
-
 
 /*
 use the best ampersand
@@ -136,6 +139,34 @@ span.amp {
   font-style: italic;
 }
 
+
+// Searchform
+.widget .woocommerce-product-search .search-field,
+#s {
+  width: 100%;
+  width: calc( 100% - 4.25em );
+  float: left;
+  border: 0;
+  padding: 0.5em 0.5em 0.45em;
+  outline: none;
+}
+.widget .woocommerce-product-search input[type="submit"],
+#searchsubmit {
+  position: absolute;
+  top: 0; right: 0;
+  border-radius: 0;
+  border: 1px solid #000;
+  margin: -1px;
+}
+.widget .woocommerce-product-search,
+.searchform--inner {
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+.woocommerce-product-search {
+  @extend .cf
+}
 
 
 /**
@@ -235,3 +266,34 @@ span.amp {
   @extend .cf;
   margin-bottom: 0.5em;
 }
+
+/**
+ * Widgets
+ */
+.widget {
+  float: left;
+  width: 50%;
+  padding: 1em;
+}
+.widget_calendar {
+  width: 100%;
+}
+
+
+/**
+ * Buttons
+ */
+ .btn, .button, button, input[type="submit"] {
+  background-color: #369;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  border-radius: 3px;
+  outline: 0;
+  border: 0;
+  padding: 0.5em 0.5em 0.45em;
+  text-decoration: none ;
+  &:hover, &:focus {
+    background-color: lighten(#369, 10%);
+    text-decoration: underline;
+  }
+ }

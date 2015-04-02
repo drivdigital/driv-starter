@@ -36,7 +36,6 @@ class Pneumatic_Theme {
       return;
     }
 
-
     // Basic setup for posts
     require_once( 'classes/class-pneumatic-theme-post.php' );
     add_action( 'pneumatic-theme-time', 'Pneumatic_Theme_Post::print_time' );

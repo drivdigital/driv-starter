@@ -19,9 +19,6 @@ class Pneumatic_Theme_Admin {
         right: 1em;
         bottom: 1em;
 
-        background: #fff;
-        padding: 1em;
-
       }
       .show-regions .w {
         outline: 3px solid rgba(100,0,100,0.5);
@@ -46,6 +43,9 @@ class Pneumatic_Theme_Admin {
         background: #FFF;
         outline: 3px solid rgba(53, 142, 31, 0.5);
       }
+      .show-regions .widget {
+        outline: 3px solid rgba(53, 142, 31, 0.5);
+      }
       .show-regions p {
         background: rgba(53, 142, 31, 0.5);
       }
@@ -54,7 +54,7 @@ class Pneumatic_Theme_Admin {
   }
 
   public function footer_toggle() { ?>
-    <div class="region-toggle">toggle regions</div>
+    <div class="region-toggle btn">toggle regions</div>
     <script type="text/javascript">
       jQuery('.region-toggle').click( function() {
         jQuery('body').toggleClass( 'show-regions' );
