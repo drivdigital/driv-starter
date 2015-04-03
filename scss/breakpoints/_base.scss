@@ -163,9 +163,9 @@ span.amp {
   position: relative;
   border: 1px solid #ccc;
 }
-
+// Clearfix the woocommerce search form
 .woocommerce-product-search {
-  @extend .cf
+  @extend .cf;
 }
 
 
@@ -207,6 +207,21 @@ span.amp {
   &:nth-of-type(2n) {
     background-color: #eee;
   }
+
+}
+
+
+.unloading {
+  cursor: wait !important;
+  a {
+    cursor: wait !important;
+  }
+}
+.veil {
+  position: fixed;
+  top: 0; bottom: 0;
+  right: 0; left: 0;
+  background-color: rgba(255,255,255,0.5);
 }
 
 // Header
