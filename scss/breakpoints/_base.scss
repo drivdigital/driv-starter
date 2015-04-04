@@ -7,6 +7,11 @@
   box-sizing:         border-box;
 }
 
+// Basic text settings:
+body {
+  line-height: 125%;
+}
+
 // Contain floats: nicolasgallagher.com/micro-clearfix-hack/
 .clearfix, .cf {
   zoom: 1;
@@ -102,6 +107,21 @@ dd {
   margin-left: 1.5em;
 }
 
+// Pre
+pre {
+  font-size: (12/16)+em;
+  word-wrap: normal;
+  &.hljs, & {
+    padding: 5px 10px 6px 10px;
+    padding: (5/16)+rem (10/16)+rem (6/16)+rem (10/16)+rem;
+  }
+  code {
+    overflow: auto;
+    display: block;
+  }
+}
+
+// Tables
 tr{
   &.odd {
   }
@@ -290,8 +310,13 @@ span.amp {
   width: 50%;
   padding: 1em;
 }
+.widget_search,
 .widget_calendar {
   width: 100%;
+}
+#wp-calendar {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 
