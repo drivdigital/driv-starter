@@ -1,3 +1,4 @@
 *.log
 *.idea
 *.css.map
+sftp-config.json
