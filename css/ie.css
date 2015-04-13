@@ -19,6 +19,20 @@ Author:
   margin-left: 0;
   margin-right: 0; }
 
+/**
+ * Products
+ * [woocommerce]
+ */
+/* line 43, /Users/forsvunnet/htdocs/wcwp/wp-content/themes/pneumatic-theme/scss/breakpoints/_mobile-only.scss */
+.product .thumbnails {
+  padding-left: 1em;
+  padding-right: 1em; }
+
+/* line 56, /Users/forsvunnet/htdocs/wcwp/wp-content/themes/pneumatic-theme/scss/breakpoints/_mobile-only.scss */
+.woocommerce-tabs .panel, .upsells.products, .related.products, .woocommerce-breadcrumb, .product .summary {
+  padding-left: 1em !important;
+  padding-right: 1em !important; }
+
 /* line 4, /Users/forsvunnet/htdocs/wcwp/wp-content/themes/pneumatic-theme/scss/breakpoints/_landscape.scss */
 .alignleft, img.alignleft {
   margin-right: 1.5em;
@@ -54,32 +68,22 @@ Author:
 .widget_search {
   width: 50%; }
 
-/* line 1, /Users/forsvunnet/htdocs/wcwp/wp-content/themes/pneumatic-theme/scss/breakpoints/_tablet.scss */
-.w {
+/* line 3, /Users/forsvunnet/htdocs/wcwp/wp-content/themes/pneumatic-theme/scss/breakpoints/_tablet.scss */
+.content-wrapper, .article--inner {
   padding-left: 1em;
   padding-right: 1em; }
-
-/* line 6, /Users/forsvunnet/htdocs/wcwp/wp-content/themes/pneumatic-theme/scss/breakpoints/_tablet.scss */
-.site-title a {
-  padding-left: 0;
-  padding-right: 0; }
 
 /**
  * Widgets
  */
-/* line 15, /Users/forsvunnet/htdocs/wcwp/wp-content/themes/pneumatic-theme/scss/breakpoints/_tablet.scss */
+/* line 12, /Users/forsvunnet/htdocs/wcwp/wp-content/themes/pneumatic-theme/scss/breakpoints/_tablet.scss */
 .widget {
   float: left;
   width: 25%;
   padding: 1em; }
 
-/* line 20, /Users/forsvunnet/htdocs/wcwp/wp-content/themes/pneumatic-theme/scss/breakpoints/_tablet.scss */
+/* line 17, /Users/forsvunnet/htdocs/wcwp/wp-content/themes/pneumatic-theme/scss/breakpoints/_tablet.scss */
 .widget_calendar {
   width: 50%; }
-
-/* line 23, /Users/forsvunnet/htdocs/wcwp/wp-content/themes/pneumatic-theme/scss/breakpoints/_tablet.scss */
-.widget-area--inner {
-  padding-left: 0;
-  padding-right: 0; }
 
 /*# sourceMappingURL=../../../../styles.css.map */

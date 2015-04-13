@@ -61,9 +61,15 @@
   <?php require_once "includes/menu-script.php"; ?>
   <script type="text/javascript">
   ( function( $ ) {
+    // Expose the "clicked" handler to scripts in the footer
+    window.clicked_handler = function() {
+      $( '.clicked' ).removeClass( 'clicked' );
+      $( this ).addClass( 'clicked' );
+    };
     $(window).on( 'beforeunload', function() {
       $('body').addClass( 'unloading' );
     } );
+    $( '.nav-menu a' ).click( window.clicked_handler );
   } ( jQuery ) );
   </script>
 

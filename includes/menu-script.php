@@ -11,8 +11,8 @@
 
     // Wait for doc ready
     $( function() {
-
-      var content = $('#content, .header, .footer');
+      // @TODO: Figure out a more general way of selecting everything other thant the menu
+      var content = $( '#content, .header, .footer, #widget-area, .content-wrapper' );
       // Show the menu on click
       btn_menu.click( function() {
         content.addClass( 'hide' );
@@ -27,7 +27,7 @@
         content.removeClass( 'hide' );
         navigation.addClass( 'hide' );
       } );
-      navigation.find( '.nav-menu-bar' ).prepend( $( '<li>' ).append( btn_close ) );
+      navigation.find( 'ul:eq(0)' ).prepend( $( '<li>' ).append( btn_close ) );
 
       // Hide sub-menus
       $( '.sub-menu', navigation ).each( function() {

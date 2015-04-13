@@ -32,3 +32,28 @@
     @extend %padd;
   }
 }
+
+
+/**
+ * Products
+ * [woocommerce]
+ */
+.product {
+  // Image thumbnails:
+  .thumbnails {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+}
+// Tabs
+.woocommerce-tabs .panel,
+// List of products ( related / upsells)
+.upsells.products, .related.products,
+// Breadcrumbs
+.woocommerce-breadcrumb,
+// Product summary
+.product .summary {
+  padding-left: 1em !important;
+  padding-right: 1em !important;
+}

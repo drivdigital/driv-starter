@@ -222,21 +222,48 @@ span.amp {
  * Articles / Items
  */
 
+
 .article {
   border-bottom: 1px solid #999;
   &:nth-of-type(2n) {
     background-color: #eee;
   }
-
 }
 
 /**
  * Unloading the document
  */
+@-webkit-keyframes unload-clicked {
+  0% {right: 100%;}
+  100% {right: 0%;}
+}
+@keyframes unload-clicked {
+  0% {right: 100%;}
+  100% {right: 0%;}
+}
 .unloading {
   cursor: wait !important;
   a {
     cursor: wait !important;
+  }
+
+  .clicked {
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 100%;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(255,255,255,0.5);
+      animation-name: unload-clicked;
+      -webkit-animation-name: unload-clicked;
+      animation-duration: 0.2s;
+      -webkit-animation-duration: 0.2s;
+    }
   }
 }
 
@@ -332,4 +359,4 @@ span.amp {
     background-color: lighten(#369, 10%);
     text-decoration: underline;
   }
- }
+}

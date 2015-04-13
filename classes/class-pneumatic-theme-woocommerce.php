@@ -20,10 +20,20 @@ class Pneumatic_Theme_Woocommerce {
     add_action( 'woocommerce_before_main_content', 'Pneumatic_Theme_Woocommerce::wrapper_start' );
     add_action( 'woocommerce_after_main_content', 'Pneumatic_Theme_Woocommerce::wrapper_end' );
   }
-
+  /**
+   * Before woocommerce content
+   */
   static function wrapper_start() {
+    ?>
+    <div class="content-wrapper">
+    <?php
   }
-
+  /**
+   * After woocommerce content
+   */
   static function wrapper_end() {
+    ?>
+    </div>
+    <?php
   }
 }
