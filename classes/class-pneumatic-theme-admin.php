@@ -18,7 +18,11 @@ class Pneumatic_Theme_Admin {
         position: fixed;
         right: 1em;
         bottom: 1em;
-
+        opacity: 0.1;
+      }
+      .region-toggle:focus,
+      .region-toggle:hover {
+        opacity: 1;
       }
       .show-regions .w {
         outline: 3px solid rgba(100,0,100,0.5);
