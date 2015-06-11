@@ -222,4 +222,4 @@ class Pneumatic_Theme {
 
 }
 
-new Pneumatic_Theme();
+$GLOBALS['pneumatic-theme'] = new Pneumatic_Theme();

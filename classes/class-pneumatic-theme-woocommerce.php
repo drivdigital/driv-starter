@@ -19,7 +19,24 @@ class Pneumatic_Theme_Woocommerce {
     // Add theme woocommerce actions
     add_action( 'woocommerce_before_main_content', 'Pneumatic_Theme_Woocommerce::wrapper_start' );
     add_action( 'woocommerce_after_main_content', 'Pneumatic_Theme_Woocommerce::wrapper_end' );
+
+    // Add custom css for woocommerce
+    add_action( 'wp_enqueue_scripts', 'Pneumatic_Theme_Woocommerce::scripts_and_styles', 999 );
   }
+
+  /**
+   * Scripts and styles
+   */
+  static function scripts_and_styles() {
+    if ( !is_admin() ) {
+      // Register styles
+      wp_register_style( 'pneumatic-woocommerce-stylesheet', $GLOBALS['pneumatic-theme']->scry( '/css/woocommerce.css' ), array(), '', 'all' );
+
+      // Enqueue styles
+      wp_enqueue_style( 'pneumatic-woocommerce-stylesheet' );
+    }
+  }
+
   /**
    * Before woocommerce content
    */
