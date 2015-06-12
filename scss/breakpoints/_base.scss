@@ -5,11 +5,13 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing:    border-box;
   box-sizing:         border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
 // Basic text settings:
 body {
-  line-height: 125%;
+  line-height: 150%;
 }
 
 // Contain floats: nicolasgallagher.com/micro-clearfix-hack/
@@ -24,6 +26,10 @@ h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul {
   margin-top: 0;
 }
 
+p, .article-time, li, td {
+  font-size: $paragraph-size;
+}
+
 // Image tags
 img {
   max-width: 100%;
@@ -34,8 +40,10 @@ img {
 // Links (google style)
 a {
   text-decoration: none;
+  color: $link-color;
   &:hover, &:focus {
     text-decoration: underline;
+    color: $link-hover;
   }
 }
 
@@ -193,11 +201,16 @@ span.amp {
  * Page elements
  */
 
-// Site header
+/* Site header */
 .header {
-  background-color: #eee;
-  // padding: 1em 0;
+  //background-color: #eee;
+  background-color: $background-color;
+  padding: 1em 0;
   p { margin: 0; }
+}
+
+#content {
+  background-color: $background-color;
 }
 
 .site-title {
@@ -211,11 +224,6 @@ span.amp {
     font-size: 1.25em;
   }
 }
-
-#main {
-
-}
-
 
 
 /**
@@ -330,17 +338,14 @@ span.amp {
  */
 .widget {
   float: left;
-  width: 50%;
-  padding: 1em;
-}
-.widget_search,
-.widget_calendar {
   width: 100%;
+  padding: 1em;
 }
 #wp-calendar {
   margin-right: auto;
   margin-left: auto;
 }
+
 
 
 /**

@@ -20,6 +20,8 @@
 <?php endwhile; endif; ?>
 
   </main>
+  <?php get_sidebar(); ?>
+
 </div>
 
 <?php get_footer(); ?>

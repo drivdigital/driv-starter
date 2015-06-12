@@ -5,14 +5,17 @@
   padding-right: 1em;
 }
 
+#content {
+  padding-top: 2em;
+}
 
-/**
- * Widgets
- */
+/* Widgets */
+.widget-area {
+width: 100%;
+float: left;
+}
 .widget {
-  float: left;
-  width: 25%;
-  padding: 1em;
+  width: 100%;
 }
 .widget_calendar {
   width: 50%;

@@ -34,6 +34,7 @@
 }
 
 
+
 /**
  * Products
  * [woocommerce]
@@ -56,4 +57,9 @@
 .product .summary {
   padding-left: 1em !important;
   padding-right: 1em !important;
+}
+
+/* The mobile menu */
+.menu-bar {
+  text-align: center;
 }

@@ -2,7 +2,7 @@
 .menu-item a {
   display: block;
   color: #444;
-  background: #CCC;
+  background: $menu-color;
 
   transition: 0.4s;
   &:hover, &:focus {
@@ -146,7 +146,7 @@
   }
   .top-nav,
   .bar-nav {
-    background: #CCC;
+    background: #eee;
   }
 
   .nav-menu-primary {
@@ -154,7 +154,6 @@
       border-left: 1px solid #999;
     }
     > .menu-item > a {
-      border-right: 1px solid #999;
     }
   }
 }
