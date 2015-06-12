@@ -19,6 +19,7 @@ class Pneumatic_Theme_Woocommerce {
     // Add theme woocommerce actions
     add_action( 'woocommerce_before_main_content', 'Pneumatic_Theme_Woocommerce::wrapper_start' );
     add_action( 'woocommerce_after_main_content', 'Pneumatic_Theme_Woocommerce::wrapper_end' );
+    add_action( 'get_footer', 'Pneumatic_Theme_Woocommerce::wrapper_page_end' );
 
     // Add custom css for woocommerce
     add_action( 'wp_enqueue_scripts', 'Pneumatic_Theme_Woocommerce::scripts_and_styles', 999 );
@@ -42,13 +43,25 @@ class Pneumatic_Theme_Woocommerce {
    */
   static function wrapper_start() {
     ?>
-    <div class="content-wrapper">
+    <div id="content" class="cf w">
+    <div id='main' class='t-8'>
     <?php
   }
   /**
    * After woocommerce content
    */
   static function wrapper_end() {
+    ?>
+    </div>
+    <?php
+  }
+
+  /**
+   * After woocommerce content
+   */
+  static function wrapper_page_end( $name ) {
+    if ( 'shop' !== $name )
+      return;
     ?>
     </div>
     <?php

@@ -20,9 +20,8 @@
     <?php endwhile; endif; ?>
 
   </main>
-  <div class="wrapper-sidebar t-4">
-    <?php get_sidebar(); ?>
-  </div>
+
+  <?php get_sidebar(); ?>
 
 </div>
 

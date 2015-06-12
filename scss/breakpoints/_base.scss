@@ -26,6 +26,7 @@ h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul {
   margin-top: 0;
 }
 
+/* If you want to change the text size you should do it in _variable.scss */
 p, .article-time, li, td, address {
   font-size: $paragraph-size;
 }
@@ -37,7 +38,9 @@ img {
   vertical-align: bottom;
 }
 
-// Links (google style)
+/* Links (google style)
+ * If you want to change the link-color you should do it in _variable.scss
+ */
 a {
   text-decoration: none;
   color: $link-color;
@@ -130,7 +133,7 @@ pre {
 }
 
 // Tables
-tr{
+tr {
   &.odd {}
   &.even {
     background-color: #eee;
@@ -170,14 +173,16 @@ span.amp {
  * Page elements
  */
 
-/* Site header */
+/* Site header
+ * If you want to change the bg-color you should do so in _variable.scss
+ */
 .header {
-  //background-color: #eee;
   background-color: $background-color;
   padding: 1em 0;
   p { margin: 0; }
 }
 
+/* If you want to change the bg-color you should do so in _variable.scss */
 #content {
   background-color: $background-color;
 }

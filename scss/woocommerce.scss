@@ -74,7 +74,8 @@ Pneumatic theme  woocommerce styles
  * if you want to change the button colors you should do it in _variable.scss
  */
 .woocommerce a.button,
-.woocommerce button.button.alt {
+.woocommerce button.button.alt,
+.woocommerce input.button.alt {
   background-color: $button-color;
   color: $button-text;
   &:hover {
@@ -83,9 +84,13 @@ Pneumatic theme  woocommerce styles
   }
 }
 
-
 /* If you want to change the price-color you should do it in _variable.scss */
 .woocommerce ul.products li.product .price,
 .amount {
   color: $price-color;
+}
+
+.woocommerce table.shop_table td {
+  border-right: 1px solid rgba(0,0,0,.1);
+  border-left: 0;
 }
