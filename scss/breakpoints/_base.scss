@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul {
   margin-top: 0;
 }
 
-p, .article-time, li, td {
+p, .article-time, li, td, .address {
   font-size: $paragraph-size;
 }
 
@@ -52,7 +52,7 @@ blockquote {
   @extend .cf;
   margin-left: 0;
   padding: 1em 1em 0em 1.5em;
-  border-left: 3px solid #C00;
+  border-left: 3px solid #999999;
   cite {
     display: block;
     color: #666;
@@ -321,7 +321,7 @@ span.amp {
  * Buttons
  */
  .btn, .button, button, input[type="submit"] {
-  background-color: #369;
+  background-color: $button-color;
   color: #fff;
   -webkit-font-smoothing: antialiased;
   border-radius: 3px;
@@ -330,7 +330,6 @@ span.amp {
   padding: 0.5em 0.5em 0.45em;
   text-decoration: none ;
   &:hover, &:focus {
-    background-color: lighten(#369, 10%);
-    text-decoration: underline;
+    background-color: $button-hover;
   }
 }

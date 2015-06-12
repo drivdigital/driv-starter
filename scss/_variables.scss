@@ -14,6 +14,8 @@ $desktop:          'screen and ( min-width: 1240px )';
 /* Colors */
 $link-color: #bdbdbd;
 $link-hover: #999999;
+$button-color: #4e4e4e;
+$button-hover: darken($button-color, 5%);
 $background-color: #fefefe;
 $menu-color: #eee;
 
