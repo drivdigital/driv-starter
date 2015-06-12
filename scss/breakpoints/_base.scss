@@ -131,8 +131,7 @@ pre {
 
 // Tables
 tr{
-  &.odd {
-  }
+  &.odd {}
   &.even {
     background-color: #eee;
   }
@@ -153,9 +152,9 @@ tr{
 // http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
 .image-replacement,
 .ir {
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /*
@@ -166,36 +165,6 @@ span.amp {
   font-family: Baskerville,'Goudy Old Style',Palatino,'Book Antiqua',serif !important;
   font-style: italic;
 }
-
-
-// Searchform
-.widget .woocommerce-product-search .search-field,
-#s {
-  width: 100%;
-  width: calc( 100% - 4.25em );
-  float: left;
-  border: 0;
-  padding: 0.5em 0.5em 0.45em;
-  outline: none;
-}
-.widget .woocommerce-product-search input[type="submit"],
-#searchsubmit {
-  position: absolute;
-  top: 0; right: 0;
-  border-radius: 0;
-  border: 1px solid #000;
-  margin: -1px;
-}
-.widget .woocommerce-product-search,
-.searchform--inner {
-  position: relative;
-  border: 1px solid #ccc;
-}
-// Clearfix the woocommerce search form
-.woocommerce-product-search {
-  @extend .cf;
-}
-
 
 /**
  * Page elements
