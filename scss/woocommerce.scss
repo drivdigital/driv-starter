@@ -4,7 +4,7 @@ Pneumatic theme  woocommerce styles
 // Various variables used across stylesheets
 @import "variables";
 
-/* mobile only styles only */
+/* mobile only styles only in this media query */
 @media screen and (max-width: 767px) {
   /**
    * Products
@@ -68,4 +68,24 @@ Pneumatic theme  woocommerce styles
 // Clearfix the woocommerce search form
 .woocommerce-product-search {
   @extend .cf;
+}
+
+/* Overriding the WooCommerse's default button colors with Pneumatic color variables,
+ * if you want to change the button colors you should do it in _variable.scss
+ */
+.woocommerce a.button,
+.woocommerce button.button.alt {
+  background-color: $button-color;
+  color: $button-text;
+  &:hover {
+    background: $button-hover;
+    color: $button-text;
+  }
+}
+
+
+/* If you want to change the price-color you should do it in _variable.scss */
+.woocommerce ul.products li.product .price,
+.amount {
+  color: $price-color;
 }
