@@ -5,13 +5,13 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing:    border-box;
   box-sizing:         border-box;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
 }
 
 // Basic text settings:
 body {
   line-height: 150%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
 // Contain floats: nicolasgallagher.com/micro-clearfix-hack/
@@ -26,7 +26,7 @@ h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul {
   margin-top: 0;
 }
 
-p, .article-time, li, td, .address {
+p, .article-time, li, td, address {
   font-size: $paragraph-size;
 }
 
