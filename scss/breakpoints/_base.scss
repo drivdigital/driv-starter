@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul {
   margin-top: 0;
 }
 
-/* If you want to change the text size you should do it in _variable.scss */
+/* If you want to change the text size you should do it in _variables.scss */
 p, .article-time, li, td, address {
   font-size: $paragraph-size;
 }
@@ -43,7 +43,7 @@ img {
 }
 
 /* Links (google style)
- * If you want to change the link-color you should do it in _variable.scss
+ * If you want to change the link-color you should do it in _variables.scss
  */
 a {
   text-decoration: none;
@@ -178,7 +178,7 @@ span.amp {
  */
 
 /* Site header
- * If you want to change the bg-color you should do so in _variable.scss
+ * If you want to change the bg-color you should do so in _variables.scss
  */
 .header {
   background-color: $background-color;
@@ -190,7 +190,7 @@ span.amp {
   padding: 1em 0;
 }
 
-/* If you want to change the bg-color you should do so in _variable.scss */
+/* If you want to change the bg-color you should do so in _variables.scss */
 #content {
   background-color: $background-color;
 }
@@ -351,7 +351,7 @@ span.amp {
   }
 }
 
-/* If you want to change the footer color you should do it in _variable.scss */
+/* If you want to change the footer color you should do it in _variables.scss */
 footer {
   background-color: $footer-color;
   padding: 4em 0;
