@@ -15,7 +15,11 @@ float: left;
   width: 50%;
 }
 
-footer .widget {
-  float: left;
-  width: 33.3%;
+footer {
+  padding: 4em 0;
+  margin-top: 5.5em;
+  .widget {
+    float: left;
+    width: 33.3%;
+  }
 }
