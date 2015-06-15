@@ -350,3 +350,14 @@ span.amp {
     background-color: $button-hover;
   }
 }
+
+/* If you want to change the footer color you should do it in _variable.scss */
+footer {
+  background-color: $footer-color;
+  padding: 4em 0;
+  margin-top: 2em;
+  .widget {
+    float: left;
+    width: 33.3%;
+  }
+}
