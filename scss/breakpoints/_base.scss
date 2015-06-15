@@ -178,8 +178,12 @@ span.amp {
  */
 .header {
   background-color: $background-color;
-  padding: 1em 0;
+  padding-bottom: 0.75em;
   p { margin: 0; }
+}
+
+.header--inner {
+  padding: 1em 0;
 }
 
 /* If you want to change the bg-color you should do so in _variable.scss */
@@ -320,7 +324,11 @@ span.amp {
   margin-left: auto;
 }
 
-
+.input-text {
+  border-radius: 0.25em;
+  border: 1px solid rgba(0,0,0,.1);
+  padding: 0.5em;
+}
 
 /**
  * Buttons
