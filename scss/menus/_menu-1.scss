@@ -3,11 +3,10 @@
   display: block;
   color: #444;
   background: $menu-color;
-
   transition: 0.4s;
   &:hover, &:focus {
     color: #000;
-    background: #ddd;
+    background: $menu-current;
   }
   // Non-clickable <a> tags
   &[href="#"] {
@@ -17,6 +16,11 @@
 }
 .sub-menu a {
   background: #fff;
+}
+
+/* Main navigation, menu item for current page */
+.current-menu-item a {
+  background: $menu-current;
 }
 
 @media only #{$tablet-down} {

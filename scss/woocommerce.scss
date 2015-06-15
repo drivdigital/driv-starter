@@ -93,7 +93,11 @@ Pneumatic theme  woocommerce styles
   .home .woocommerce ul.products {
     padding: 0 0.75em;
   }
+  .woocommerce table.shop_table .product-subtotal {
+    border-right: 0 !important;
+  }
 }
+
 
 /* You order table, Checkout page */
 .woocommerce #order_review {
