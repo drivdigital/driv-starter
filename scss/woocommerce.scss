@@ -22,16 +22,8 @@ Pneumatic theme  woocommerce styles
   .woocommerce-tabs .panel,
   // List of products ( related / upsells)
   .upsells.products, .related.products,
-  // Breadcrumbs
-  .woocommerce-breadcrumb,
-  // Product summary
-  .product .summary {
-    padding-left: 1em !important;
-    padding-right: 1em !important;
-  }
-
+  /* Edit links for blocks that are editable, for example address fields */
   .edit {
-    padding: 0 1em;
     font-size: $paragraph-size;
   }
 
@@ -68,9 +60,6 @@ Pneumatic theme  woocommerce styles
   .woocommerce-cart table.cart th {
     padding: 6px;
   }
-  .woocommerce-cart .article--content .woocommerce {
-    padding: 0 0.5em;
-  }
   /* Content on Cart page */
   .woocommerce-shipping-calculator p,
   .cart_totals h2 {
@@ -89,15 +78,30 @@ Pneumatic theme  woocommerce styles
   .post-type-archive-product .woocommerce-breadcrumb {
     padding-left: 0 !important;
   }
-  /* Extra padding for WooCommerce products on front page */
-  .home .woocommerce ul.products {
-    padding: 0 0.75em;
-  }
   .woocommerce table.shop_table .product-subtotal {
     border-right: 0 !important;
   }
+  /* Order info, Order received page */
+  .woocommerce .order_details li {
+    margin: 0.75em 0;
+    float: none;
+    clear: left;
+    border-right: 0;
+  }
+
+} /* End of mobile styles */
+
+
+/* Tables, Order received page */
+.woocommerce table.order_details td,
+.woocommerce table.customer_details td {
+  border-bottom: 0;
 }
 
+/* My account page */
+.my_account_orders td {
+  border-bottom: 0;
+}
 
 /* You order table, Checkout page */
 .woocommerce #order_review {

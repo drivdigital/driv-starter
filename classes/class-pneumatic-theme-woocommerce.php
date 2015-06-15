@@ -17,9 +17,18 @@ class Pneumatic_Theme_Woocommerce {
     remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
     // Add theme woocommerce actions
+    // Main content
     add_action( 'woocommerce_before_main_content', 'Pneumatic_Theme_Woocommerce::wrapper_start' );
     add_action( 'woocommerce_after_main_content', 'Pneumatic_Theme_Woocommerce::wrapper_end' );
     add_action( 'get_footer', 'Pneumatic_Theme_Woocommerce::wrapper_page_end' );
+
+    // Archive pages
+    // add_action( 'woocommerce_before_shop_loop', 'Pneumatic_Theme_Woocommerce::wrapper_loop_start' );
+    // add_action( 'woocommerce_after_shop_loop', 'Pneumatic_Theme_Woocommerce::wrapper_loop_end' );
+
+    // Archive pages
+    // add_action( 'pneumatic_archive_before', 'Pneumatic_Theme_Woocommerce::wrapper_loop_start' );
+    // add_action( 'pneumatic_archive_after', 'Pneumatic_Theme_Woocommerce::wrapper_loop_end' );
 
     // Add custom css for woocommerce
     add_action( 'wp_enqueue_scripts', 'Pneumatic_Theme_Woocommerce::scripts_and_styles', 999 );
@@ -54,6 +63,21 @@ class Pneumatic_Theme_Woocommerce {
     ?>
     </div>
     <?php
+  }
+
+  /**
+   * Before woocommerce content
+   */
+  static function wrapper_loop_start() {
+    ?>
+    <div class='t-8'>
+    <?php
+  }
+  /**
+   * After woocommerce content
+   */
+  static function wrapper_loop_end() {
+    self::wrapper_end();
   }
 
   /**

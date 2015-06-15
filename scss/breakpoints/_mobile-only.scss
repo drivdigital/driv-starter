@@ -12,13 +12,13 @@
 }
 .article-time,
 .article--title {
-  @extend %padd;
+  //@extend %padd;
 }
 
 .article--content {
   p, ul, ol, blockquote, pre, table, dl,
   .gallery {
-    @extend %padd;
+    //@extend %padd;
   }
   blockquote p,
   ol ul,
@@ -29,14 +29,9 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @extend %padd;
+    //@extend %padd;
   }
 }
-
-address {
-  padding: 0 1em;
-}
-
 
 /* The mobile menu */
 .menu-bar {
