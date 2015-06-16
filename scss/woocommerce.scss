@@ -184,7 +184,7 @@ Pneumatic theme  woocommerce styles
 }
 
 /* Overriding the WooCommerse's default button colors with Pneumatic color variables,
- * if you want to change the button colors you should do it in _variable.scss
+ * if you want to change the button colors you should do so in _variables.scss
  */
 .woocommerce a.button,
 .woocommerce button.button.alt,
@@ -198,27 +198,25 @@ Pneumatic theme  woocommerce styles
   }
 }
 
-/* If you want to change the price-color you should do it in _variable.scss */
+/* If you want to change the price-color you should do so in _variables.scss */
 .woocommerce ul.products li.product .price,
-.amount {
+.amount,
+.woocommerce div.product p.price {
   color: $price-color;
 }
 
-/* Cart page */
+/* Table, Cart page */
 .woocommerce table.shop_table td {
   border-right: 1px solid rgba(0,0,0,.1);
   border-left: 0;
 }
 
-/* On sale badge, product pages, single and lists */
+/* On sale badge, product pages, single and lists, if you want to change the star-color you should do so in _variables.scss */
 .woocommerce span.onsale {
   background: $badge-color;
 }
 
-.woocommerce div.product p.price {
-  color: $price-color;
-}
-
+/* If you want to change the star-color you should do so in _variables.scss */
 .woocommerce .star-rating span,
 .woocommerce .star-rating:before,
 .woocommerce p.stars a.star-1,
