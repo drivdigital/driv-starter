@@ -209,3 +209,17 @@ Pneumatic theme  woocommerce styles
   border-right: 1px solid rgba(0,0,0,.1);
   border-left: 0;
 }
+
+/* On sale badge, product pages, single and lists */
+.woocommerce span.onsale {
+  background: $badge-color;
+}
+
+.woocommerce div.product p.price {
+  color: $price-color;
+}
+
+.woocommerce .star-rating span,
+.woocommerce .star-rating:before {
+  color: $star-color;
+}

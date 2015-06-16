@@ -328,7 +328,8 @@ span.amp {
   margin-left: auto;
 }
 
-.input-text {
+.input-text,
+textarea {
   border-radius: 0.25em;
   border: 1px solid rgba(0,0,0,.1);
   padding: 0.5em;
@@ -350,6 +351,7 @@ span.amp {
     background-color: $button-hover;
   }
 }
+
 
 /* If you want to change the footer color you should do it in _variables.scss */
 footer {
