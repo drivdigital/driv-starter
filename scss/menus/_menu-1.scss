@@ -16,9 +16,14 @@
 }
 
 /* Sub menu items */
-.sub-menu a {
-  background: #fff;
+.sub-menu {
+  position: relative;
+  z-index: 2;
+  a {
+    background: #fff;
+  }
 }
+
 
 /* Main navigation, menu item for current page */
 .current-menu-item a {
