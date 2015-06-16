@@ -15,6 +15,11 @@
   }
 }
 
+/* Main navigation, menu item for current page */
+.current-menu-item a {
+  background: $menu-current;
+}
+
 /* Sub menu items */
 .sub-menu {
   position: relative;
@@ -25,10 +30,6 @@
 }
 
 
-/* Main navigation, menu item for current page */
-.current-menu-item a {
-  background: $menu-current;
-}
 
 @media only #{$tablet-down} {
 
