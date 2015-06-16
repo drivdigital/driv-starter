@@ -220,6 +220,11 @@ Pneumatic theme  woocommerce styles
 }
 
 .woocommerce .star-rating span,
-.woocommerce .star-rating:before {
+.woocommerce .star-rating:before,
+.woocommerce p.stars a.star-1,
+.woocommerce p.stars a.star-2,
+.woocommerce p.stars a.star-3,
+.woocommerce p.stars a.star-4,
+.woocommerce p.stars a.star-5 {
   color: $star-color;
 }
