@@ -1,13 +1,12 @@
 
-
-// Box sizing
+/* Box sizing */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing:    border-box;
   box-sizing:         border-box;
 }
 
-// Basic text settings:
+/* Basic text settings: */
 body {
   line-height: 150%;
   font-family: 'Open Sans', sans-serif;
@@ -18,14 +17,16 @@ body {
   padding: 0 0.75em;
 }
 
-// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+/*
+ * Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+ */
 .clearfix, .cf {
   zoom: 1;
     &:before, &:after { content: ""; display: table; }
     &:after { clear: both; }
 }
 
-// Resets for removing margin top on various elements
+/* Resets for removing margin top on various elements */
 h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul {
   margin-top: 0;
 }
@@ -35,7 +36,7 @@ p, .article-time, li, td, address {
   font-size: $paragraph-size;
 }
 
-// Image tags
+/* Image tags */
 img {
   max-width: 100%;
   height: auto;
@@ -54,7 +55,7 @@ a {
   }
 }
 
-// Blockquotes
+/* Blockquotes */
 blockquote {
   @extend .cf;
   margin-left: 0;
@@ -68,18 +69,18 @@ blockquote {
   }
 }
 
-// Navigation menus
+/* Navigation menus */
 .nav-menu {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-// Sub menus
+/* Sub menus */
 .sub-menu {
   padding: 0;
 }
 
-// Lists
+/* Lists */
 ul {
   padding-left: 1em;
 }
@@ -87,7 +88,7 @@ ol {
   padding-left: 1.5em;
 }
 
-// Tables
+/* Tables */
 table {
   margin-bottom: 1em;
 }
@@ -101,7 +102,7 @@ td {
   border: 1px solid #999;
 }
 
-// Definition lists
+/* Definition lists */
 dl {
   margin-top: 0.5em;
 }
@@ -122,7 +123,7 @@ dd {
   margin-left: 1.5em;
 }
 
-// Pre
+/* Pre */
 pre {
   font-size: (12/16)+em;
   word-wrap: normal;
@@ -136,7 +137,7 @@ pre {
   }
 }
 
-// Tables
+/* Tables */
 tr {
   &.odd {}
   &.even {
@@ -144,19 +145,21 @@ tr {
   }
 }
 
-// Featured images
+/* Featured images */
 .wp-post-image {
   margin: 0 auto;
 }
 
-// Screen reader only text
+/* Screen reader only text */
 .screen-reader-text {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+/*
+ * http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+ */
 .image-replacement,
 .ir {
   text-indent: 100%;
@@ -208,7 +211,7 @@ span.amp {
 }
 
 
-/**
+/*
  * Articles / Items
  */
 
@@ -257,28 +260,31 @@ span.amp {
   }
 }
 
-// Header
+/* Header */
 .article--header {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-// Title [part of article--header]
+
+/* Title [part of article--header] */
 .article--title {
   margin-bottom: 0.25em;
 }
-// Fix super-long titles and words
+
+/* Fix super-long titles and words */
 .article--title,
 .article--content {
   -ms-word-wrap: break-word;
   word-wrap: break-word;
 }
-// Featured Image [part of article--header]
+
+/* Featured Image [part of article--header] */
 .wp-post-image {
   width: 100%;
   margin-bottom: 1em;
 }
 
-// Give images a bit of a margin
+/* Give images a bit of a margin */
 .article--content {
   img { margin: 0.5em; }
   margin-bottom: 1em;
@@ -288,12 +294,12 @@ span.amp {
   > img { margin: 0.5em 0; }
 }
 
-/**
+/*
  * Articles / Items - content
  * Elements appearing inside articles
  */
 
-// Gallery images
+/* Gallery images */
 .gallery-item {
   margin: 0;
   width: 50%;
@@ -304,7 +310,7 @@ span.amp {
     margin: 0;
   }
 
-  // Spacing (gutter)
+  /* Spacing (gutter) */
   &:nth-child( 2n +1 ) { padding-right: 0.25em; }
   &:nth-child( 2n ) { padding-left: 0.25em; }
   padding-bottom: 0.5em;
@@ -315,7 +321,7 @@ span.amp {
   margin-bottom: 0.5em;
 }
 
-/**
+/*
  * Widgets
  */
 .widget {
@@ -328,6 +334,7 @@ span.amp {
   margin-left: auto;
 }
 
+/* Styling the input fields such as address fields on My account page etc. */
 .input-text,
 textarea {
   border-radius: 0.25em;
@@ -335,9 +342,7 @@ textarea {
   padding: 0.5em;
 }
 
-/**
- * Buttons
- */
+/* Buttons */
  .btn, .button, button, input[type="submit"] {
   background-color: $button-color;
   color: #fff;
@@ -352,8 +357,7 @@ textarea {
   }
 }
 
-
-/* If you want to change the footer color you should do it in _variables.scss */
+/* If you want to change the footer color you should do so in _variables.scss */
 footer {
   background-color: $footer-color;
   padding: 3.25em 0;

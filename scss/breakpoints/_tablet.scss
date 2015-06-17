@@ -18,6 +18,7 @@ float: left;
 footer {
   padding: 4em 0;
   margin-top: 5.5em;
+  /* In desktop each widget uses a third of the footer width */
   .widget {
     float: left;
     width: 33.3%;

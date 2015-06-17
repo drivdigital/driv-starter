@@ -8,7 +8,7 @@
     color: #000;
     background: $menu-current;
   }
-  // Non-clickable <a> tags
+  /* Non-clickable <a> tags */
   &[href="#"] {
     text-decoration: none;
     cursor: default;
@@ -131,12 +131,12 @@
     border-bottom: 1px solid rgba(0,0,0,.1);
   }
 
-  // Make bar nav inner relative to place the menu over the header
+  /* Make bar nav inner relative to place the menu over the header */
   .bar-nav--inner {
     position: relative;
   }
   .nav-menu-bar {
-    // Position the <ul> over the header
+    /* Position the <ul> over the header */
     position: absolute;
     right: 1em;
     .menu-item {

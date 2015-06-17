@@ -1,7 +1,8 @@
 /******************************************************************
 Pneumatic theme  woocommerce styles
 ******************************************************************/
-// Various variables used across stylesheets
+
+/* Various variables used across stylesheets */
 @import "variables";
 
 /* mobile only styles only in this media query */
@@ -11,16 +12,16 @@ Pneumatic theme  woocommerce styles
    * [woocommerce]
    */
   .product {
-    // Image thumbnails:
+    /* Image thumbnails: */
     .thumbnails {
       padding-left: 1em;
       padding-right: 1em;
     }
 
   }
-  // Tabs
+  /* Tabs */
   .woocommerce-tabs .panel,
-  // List of products ( related / upsells)
+  /* List of products ( related / upsells) */
   .upsells.products, .related.products,
   /* Edit links for blocks that are editable, for example address fields */
   .edit {
@@ -178,7 +179,7 @@ Pneumatic theme  woocommerce styles
   position: relative;
   border: 1px solid #ccc;
 }
-// Clearfix the woocommerce search form
+/* Clearfix the woocommerce search form */
 .woocommerce-product-search {
   @extend .cf;
 }
