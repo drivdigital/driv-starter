@@ -33,7 +33,7 @@
       $( '.sub-menu', navigation ).each( function() {
         var item = $( this );
         item.addClass( 'hide' ).prev().one( 'click', function( e ) {
-          if ( Modernizr.touch || !min_width( '64em' ) ) {
+          if ( Modernizr.touch || !min_width( 64 ) ) {
             e.preventDefault();
             $( this ).addClass( 'open' );
             item.removeClass( 'hide' );
