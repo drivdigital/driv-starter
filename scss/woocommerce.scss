@@ -90,6 +90,7 @@ Pneumatic theme  woocommerce styles
     border-right: 0;
   }
 
+
 } /* End of mobile styles */
 
 
@@ -103,6 +104,11 @@ Pneumatic theme  woocommerce styles
 .woocommerce table.order_details td,
 .woocommerce table.customer_details td {
   border-bottom: 0;
+}
+
+/* Tables, Order review page */
+.woocommerce table.order_details tr td {
+  border-right: 0;
 }
 
 /* My account page */
@@ -155,6 +161,14 @@ Pneumatic theme  woocommerce styles
   vertical-align: middle;
 }
 
+/* Table, Cart page, Order review page */
+.woocommerce table.shop_table td {
+  border-right: 1px solid rgba(0,0,0,.1);
+  border-left: 0;
+  &:last-of-type {
+    border-right: 0;
+  }
+}
 
 /* Searchform */
 .widget .woocommerce-product-search .search-field,
@@ -204,12 +218,6 @@ Pneumatic theme  woocommerce styles
 .amount,
 .woocommerce div.product p.price {
   color: $price-color;
-}
-
-/* Table, Cart page */
-.woocommerce table.shop_table td {
-  border-right: 1px solid rgba(0,0,0,.1);
-  border-left: 0;
 }
 
 /* On sale badge, product pages, single and lists, if you want to change the star-color you should do so in _variables.scss */
