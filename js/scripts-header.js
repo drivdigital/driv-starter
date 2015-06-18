@@ -69,3 +69,4 @@
   // Expose:
   w.min_width = min_width;
 } (jQuery, window) );
+

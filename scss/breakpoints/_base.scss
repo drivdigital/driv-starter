@@ -1,50 +1,66 @@
 
-
-// Box sizing
+/* Box sizing */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing:    border-box;
   box-sizing:         border-box;
 }
 
-// Basic text settings:
+/* Basic text settings: */
 body {
-  line-height: 125%;
+  line-height: 150%;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
 }
 
-// Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+#main {
+  padding: 0 0.75em;
+}
+
+/*
+ * Contain floats: nicolasgallagher.com/micro-clearfix-hack/
+ */
 .clearfix, .cf {
   zoom: 1;
     &:before, &:after { content: ""; display: table; }
     &:after { clear: both; }
 }
 
-// Resets for removing margin top on various elements
+/* Resets for removing margin top on various elements */
 h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul {
   margin-top: 0;
 }
 
-// Image tags
+/* If you want to change the text size you should do it in _variables.scss */
+p, .article-time, li, td, address {
+  font-size: $paragraph-size;
+}
+
+/* Image tags */
 img {
   max-width: 100%;
   height: auto;
   vertical-align: bottom;
 }
 
-// Links (google style)
+/* Links (google style)
+ * If you want to change the link-color you should do it in _variables.scss
+ */
 a {
   text-decoration: none;
+  color: $link-color;
   &:hover, &:focus {
     text-decoration: underline;
+    color: $link-hover;
   }
 }
 
-// Blockquotes
+/* Blockquotes */
 blockquote {
   @extend .cf;
   margin-left: 0;
   padding: 1em 1em 0em 1.5em;
-  border-left: 3px solid #C00;
+  border-left: 3px solid #999999;
   cite {
     display: block;
     color: #666;
@@ -53,18 +69,18 @@ blockquote {
   }
 }
 
-// Navigation menus
+/* Navigation menus */
 .nav-menu {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-// Sub menus
+/* Sub menus */
 .sub-menu {
   padding: 0;
 }
 
-// Lists
+/* Lists */
 ul {
   padding-left: 1em;
 }
@@ -72,7 +88,7 @@ ol {
   padding-left: 1.5em;
 }
 
-// Tables
+/* Tables */
 table {
   margin-bottom: 1em;
 }
@@ -86,7 +102,7 @@ td {
   border: 1px solid #999;
 }
 
-// Definition lists
+/* Definition lists */
 dl {
   margin-top: 0.5em;
 }
@@ -107,7 +123,7 @@ dd {
   margin-left: 1.5em;
 }
 
-// Pre
+/* Pre */
 pre {
   font-size: (12/16)+em;
   word-wrap: normal;
@@ -121,33 +137,34 @@ pre {
   }
 }
 
-// Tables
-tr{
-  &.odd {
-  }
+/* Tables */
+tr {
+  &.odd {}
   &.even {
     background-color: #eee;
   }
 }
 
-// Featured images
+/* Featured images */
 .wp-post-image {
   margin: 0 auto;
 }
 
-// Screen reader only text
+/* Screen reader only text */
 .screen-reader-text {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+/*
+ * http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+ */
 .image-replacement,
 .ir {
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 /*
@@ -159,45 +176,26 @@ span.amp {
   font-style: italic;
 }
 
-
-// Searchform
-.widget .woocommerce-product-search .search-field,
-#s {
-  width: 100%;
-  width: calc( 100% - 4.25em );
-  float: left;
-  border: 0;
-  padding: 0.5em 0.5em 0.45em;
-  outline: none;
-}
-.widget .woocommerce-product-search input[type="submit"],
-#searchsubmit {
-  position: absolute;
-  top: 0; right: 0;
-  border-radius: 0;
-  border: 1px solid #000;
-  margin: -1px;
-}
-.widget .woocommerce-product-search,
-.searchform--inner {
-  position: relative;
-  border: 1px solid #ccc;
-}
-// Clearfix the woocommerce search form
-.woocommerce-product-search {
-  @extend .cf;
-}
-
-
 /**
  * Page elements
  */
 
-// Site header
+/* Site header
+ * If you want to change the bg-color you should do so in _variables.scss
+ */
 .header {
-  background-color: #eee;
-  // padding: 1em 0;
+  background-color: $background-color;
+  padding-bottom: 0.75em;
   p { margin: 0; }
+}
+
+.header--inner {
+  padding: 1em 0;
+}
+
+/* If you want to change the bg-color you should do so in _variables.scss */
+#content {
+  background-color: $background-color;
 }
 
 .site-title {
@@ -211,14 +209,9 @@ span.amp {
     font-size: 1.25em;
   }
 }
-//
-#main {
-
-}
 
 
-
-/**
+/*
  * Articles / Items
  */
 
@@ -267,28 +260,31 @@ span.amp {
   }
 }
 
-// Header
+/* Header */
 .article--header {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-// Title [part of article--header]
+
+/* Title [part of article--header] */
 .article--title {
-  margin-bottom: 0;
+  margin-bottom: 0.25em;
 }
-// Fix super-long titles and words
+
+/* Fix super-long titles and words */
 .article--title,
 .article--content {
   -ms-word-wrap: break-word;
   word-wrap: break-word;
 }
-// Featured Image [part of article--header]
+
+/* Featured Image [part of article--header] */
 .wp-post-image {
   width: 100%;
   margin-bottom: 1em;
 }
 
-// Give images a bit of a margin
+/* Give images a bit of a margin */
 .article--content {
   img { margin: 0.5em; }
   margin-bottom: 1em;
@@ -298,12 +294,12 @@ span.amp {
   > img { margin: 0.5em 0; }
 }
 
-/**
+/*
  * Articles / Items - content
  * Elements appearing inside articles
  */
 
-// Gallery images
+/* Gallery images */
 .gallery-item {
   margin: 0;
   width: 50%;
@@ -314,7 +310,7 @@ span.amp {
     margin: 0;
   }
 
-  // Spacing (gutter)
+  /* Spacing (gutter) */
   &:nth-child( 2n +1 ) { padding-right: 0.25em; }
   &:nth-child( 2n ) { padding-left: 0.25em; }
   padding-bottom: 0.5em;
@@ -325,29 +321,30 @@ span.amp {
   margin-bottom: 0.5em;
 }
 
-/**
+/*
  * Widgets
  */
 .widget {
   float: left;
-  width: 50%;
-  padding: 1em;
-}
-.widget_search,
-.widget_calendar {
   width: 100%;
+  padding: 1em;
 }
 #wp-calendar {
   margin-right: auto;
   margin-left: auto;
 }
 
+/* Styling the input fields such as address fields on My account page etc. */
+.input-text,
+textarea {
+  border-radius: 0.25em;
+  border: 1px solid rgba(0,0,0,.1);
+  padding: 0.5em;
+}
 
-/**
- * Buttons
- */
+/* Buttons */
  .btn, .button, button, input[type="submit"] {
-  background-color: #369;
+  background-color: $button-color;
   color: #fff;
   -webkit-font-smoothing: antialiased;
   border-radius: 3px;
@@ -356,7 +353,13 @@ span.amp {
   padding: 0.5em 0.5em 0.45em;
   text-decoration: none ;
   &:hover, &:focus {
-    background-color: lighten(#369, 10%);
-    text-decoration: underline;
+    background-color: $button-hover;
   }
+}
+
+/* If you want to change the footer color you should do so in _variables.scss */
+footer {
+  background-color: $footer-color;
+  padding: 3.25em 0;
+  margin-top: 2em;
 }

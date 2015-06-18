@@ -1,25 +1,55 @@
-
+/* Main navigation, all menu items */
 .menu-item a {
   display: block;
   color: #444;
-  background: #CCC;
-
+  background: $menu-color;
   transition: 0.4s;
   &:hover, &:focus {
     color: #000;
-    background: #ddd;
+    background: $menu-current;
   }
-  // Non-clickable <a> tags
+  /* Non-clickable <a> tags */
   &[href="#"] {
     text-decoration: none;
     cursor: default;
   }
 }
-.sub-menu a {
-  background: #fff;
+
+/* Main navigation, menu item for current page */
+.current-menu-item a {
+  background: $menu-current;
 }
 
+/* Sub menu items */
+.sub-menu {
+  position: relative;
+  z-index: 2;
+  a {
+    background: #fff;
+  }
+}
+
+
+/*
+ * Media query for mobile and tablet
+ */
 @media only #{$tablet-down} {
+
+  /* Menu items that has children */
+  .menu-item-has-children {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      display: block;
+      width: 1.5em;
+      height: 1.5em;
+      background: url(/wp-content/themes/pneumatic-theme/images/plus-icon.svg);
+      background-size: 100%;
+    }
+  }
 
   .button-close {
     cursor: pointer;
@@ -27,7 +57,7 @@
 
   .button-close,
   .menu-item a {
-    padding: 0.6em 1em 0.5em;
+    padding: 1em;
     border-bottom: 1px solid #ccc;
   }
 
@@ -66,10 +96,10 @@
           a {
             padding-left: 5em;
           }
-        } // - Level 4
-      } // - Level 3
-    } // - Level 2
-  } // - Level 1
+        } /* - Level 4 */
+      } /* - Level 3 */
+    } /* - Level 2 */
+  } /* - Level 1 */
 
   .menu-bar .button-menu {
     cursor: pointer;
@@ -77,7 +107,7 @@
     background: #eee;
 
     display: block;
-    padding: 0.6em 1em 0.5em;
+    padding: 0.75em 1em 0.75em;
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
 
@@ -85,23 +115,33 @@
       color: #000;
       background: #DDD;
     }
-
   }
 }
 
-
+/*
+ * Media query for desktop and larger devices
+ */
 @media only #{$laptop} {
   .button-close,
   .menu-bar {
     display: none;
   }
+  /* Sub menu items */
+  .sub-menu a {
+    border: 1px solid rgba(0,0,0,.1);
+    border-bottom: 0;
+  }
+  /* Setting a bottom border for the submenu at the bottom of the sub menu li's */
+  .sub-menu:last-child {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
 
-  // Make bar nav inner relative to place the menu over the header
+  /* Make bar nav inner relative to place the menu over the header */
   .bar-nav--inner {
     position: relative;
   }
   .nav-menu-bar {
-    // Position the <ul> over the header
+    /* Position the <ul> over the header */
     position: absolute;
     right: 1em;
     .menu-item {
@@ -146,15 +186,11 @@
   }
   .top-nav,
   .bar-nav {
-    background: #CCC;
+    background: #eee;
   }
 
   .nav-menu-primary {
-    > .menu-item:first-child > a {
-      border-left: 1px solid #999;
-    }
-    > .menu-item > a {
-      border-right: 1px solid #999;
-    }
+    > .menu-item:first-child > a {}
+    > .menu-item > a {}
   }
 }

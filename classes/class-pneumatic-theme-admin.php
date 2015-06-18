@@ -18,7 +18,7 @@ class Pneumatic_Theme_Admin {
         position: fixed;
         right: 1em;
         bottom: 1em;
-        opacity: 0.1;
+        opacity: 0.5;
       }
       .region-toggle:focus,
       .region-toggle:hover {

@@ -1,8 +1,6 @@
 
 /**
  * Mobile padding
- * Here I'm using a method to padd all content except images
- * The result is that images will be edge to edge with the window on mobile devices
  */
 %padd {
   margin-left: 16px;
@@ -12,13 +10,13 @@
 }
 .article-time,
 .article--title {
-  @extend %padd;
+  //@extend %padd;
 }
 
 .article--content {
   p, ul, ol, blockquote, pre, table, dl,
   .gallery {
-    @extend %padd;
+    //@extend %padd;
   }
   blockquote p,
   ol ul,
@@ -29,31 +27,15 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @extend %padd;
+    //@extend %padd;
   }
 }
 
-
-/**
- * Products
- * [woocommerce]
- */
-.product {
-  // Image thumbnails:
-  .thumbnails {
-    padding-left: 1em;
-    padding-right: 1em;
-  }
-
+/* The mobile menu */
+.menu-bar {
+  text-align: center;
 }
-// Tabs
-.woocommerce-tabs .panel,
-// List of products ( related / upsells)
-.upsells.products, .related.products,
-// Breadcrumbs
-.woocommerce-breadcrumb,
-// Product summary
-.product .summary {
-  padding-left: 1em !important;
-  padding-right: 1em !important;
+
+#main  {
+  width: 100%;
 }

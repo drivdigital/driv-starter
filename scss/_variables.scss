@@ -1,0 +1,29 @@
+/******************************************************************
+Pneumatic theme variables
+******************************************************************/
+
+$landscape:        'screen and ( min-width:  481px )';
+$mobile-only:      'screen and ( max-width:  767px )';
+$tablet:           'screen and ( min-width:  768px )';
+$tablet-landscape: 'screen and ( min-width: 1024px )';
+$tablet-down:      'screen and ( max-width: 1024px )';
+$laptop:           'screen and ( min-width: 1025px )';
+$desktop:          'screen and ( min-width: 1240px )';
+
+
+/* Colors */
+$link-color: #999999;
+$link-hover: darken($link-color, 10%);
+$button-color: #4e4e4e;
+$button-hover: darken($button-color, 5%);
+$button-text: #fff;
+$background-color: #fefefe;
+$menu-color: #eee;
+$menu-current: #ddd;
+$price-color: #c00;
+$footer-color: #eee;
+$badge-color: #4e4e4e;
+$star-color: #c00;
+
+/* Misc */
+$paragraph-size: 14px;
