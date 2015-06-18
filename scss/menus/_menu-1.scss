@@ -1,4 +1,4 @@
-
+/* Main navigation, all menu items */
 .menu-item a {
   display: block;
   color: #444;
@@ -30,6 +30,9 @@
 }
 
 
+/*
+ * Media query for mobile and tablet
+ */
 @media only #{$tablet-down} {
 
   /* Menu items that has children */
@@ -93,10 +96,10 @@
           a {
             padding-left: 5em;
           }
-        } // - Level 4
-      } // - Level 3
-    } // - Level 2
-  } // - Level 1
+        } /* - Level 4 */
+      } /* - Level 3 */
+    } /* - Level 2 */
+  } /* - Level 1 */
 
   .menu-bar .button-menu {
     cursor: pointer;
@@ -104,7 +107,7 @@
     background: #eee;
 
     display: block;
-    padding: 0.6em 1em 0.5em;
+    padding: 0.75em 1em 0.75em;
     border-bottom: 1px solid #ccc;
     border-top: 1px solid #ccc;
 
@@ -115,7 +118,9 @@
   }
 }
 
-
+/*
+ * Media query for desktop and larger devices
+ */
 @media only #{$laptop} {
   .button-close,
   .menu-bar {
@@ -185,10 +190,7 @@
   }
 
   .nav-menu-primary {
-    > .menu-item:first-child > a {
-      border-left: 1px solid #999;
-    }
-    > .menu-item > a {
-    }
+    > .menu-item:first-child > a {}
+    > .menu-item > a {}
   }
 }
