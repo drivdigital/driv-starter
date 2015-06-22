@@ -1,4 +1,4 @@
-# Pneumatic theme
+# Driv starter
 
 Goals:
 * Non-intrusive, theme-only
