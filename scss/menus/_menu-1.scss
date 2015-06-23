@@ -1,4 +1,6 @@
-/* Main navigation, all menu items */
+/* Main navigation, all menu items
+ * If you want to change the bg-color for the menu you should do so in _variables.scss
+ */
 .menu-item a {
   display: block;
   color: #444;
@@ -184,9 +186,10 @@
       left: 6em;
     }
   }
+  /* If you want to change the bg-color for the menu you should do so in _variables.scss */
   .top-nav,
   .bar-nav {
-    background: #eee;
+    background: $menu-color;
   }
 
   .nav-menu-primary {

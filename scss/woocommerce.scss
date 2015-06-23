@@ -5,9 +5,13 @@ Pneumatic theme  woocommerce styles
 /* Various variables used across stylesheets */
 @import "variables";
 
-/* mobile only styles only in this media query */
+
+
+/*
+ * mobile only styles only in this media query
+ */
 @media screen and (max-width: 767px) {
-  /**
+  /*
    * Products
    * [woocommerce]
    */
@@ -88,6 +92,22 @@ Pneumatic theme  woocommerce styles
     float: none;
     clear: left;
     border-right: 0;
+  }
+
+  /* Expanding the product tabs in mobile */
+  .woocommerce-tabs {
+    .tabs {
+      display: none;
+    }
+    .panel {
+      display: block !important;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 2em;
+    }
+  }
+  /* Adding padding to product tabs in mobile */
+  .woocommerce div.product .woocommerce-tabs .panel {
+    padding-bottom: 2em;
   }
 
 

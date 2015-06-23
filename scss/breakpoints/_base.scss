@@ -210,11 +210,22 @@ span.amp {
   }
 }
 
+/* Removing padding on posts and adding padding to hentry instead */
+/* @TODO: Check if there are more pages than blog and archive that needs to be targeted */
+.blog,
+.archive {
+  #main {
+    padding: 0;
+  }
+  .hentry {
+    padding: 0 0.75em;
+  }
+}
+
 
 /*
  * Articles / Items
  */
-
 
 .article {
   border-bottom: 1px solid #999;

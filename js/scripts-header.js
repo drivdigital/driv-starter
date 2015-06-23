@@ -70,3 +70,21 @@
   w.min_width = min_width;
 } (jQuery, window) );
 
+/* Removing padding for product images, so they will go from edge to edge in mobile devices */
+jQuery( function( $ ) {
+
+  // Create a clone of the image
+  var img = $( '.product .images img' );
+  var clone = img.clone().addClass( 'mo' );
+
+  // Position the clone over the image
+  clone.css( {
+    position: 'absolute',
+    left: '-0.75em', right: '-0.75em',
+    width: $('#main').outerWidth(),
+    'max-width': 'none'
+  } ).insertBefore( img );
+
+  $('#main').outerWidth()
+
+} );
