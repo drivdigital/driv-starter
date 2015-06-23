@@ -10,7 +10,7 @@ Pneumatic theme  woocommerce styles
 /*
  * mobile only styles only in this media query
  */
-@media screen and (max-width: 767px) {
+@media only #{$mobile-only} {
   /*
    * Products
    * [woocommerce]
