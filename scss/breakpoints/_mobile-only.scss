@@ -40,3 +40,11 @@
   width: 100%;
 }
 
+/* Removing padding on posts */
+/* @TODO: Check if there are more pages than blog and archive that needs to be targeted */
+.blog,
+.archive {
+  #main {
+    padding: 0;
+  }
+}

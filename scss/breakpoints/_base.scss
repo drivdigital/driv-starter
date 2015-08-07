@@ -29,6 +29,7 @@ body {
 /* Resets for removing margin top on various elements */
 h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul {
   margin-top: 0;
+  line-height: 120%;
 }
 
 /* If you want to change the text size you should do it in _variables.scss */
@@ -210,13 +211,10 @@ span.amp {
   }
 }
 
-/* Removing padding on posts and adding padding to hentry instead */
+/* Adding padding to hentry after having removed it from posts (mobile-only stylesheet) */
 /* @TODO: Check if there are more pages than blog and archive that needs to be targeted */
 .blog,
 .archive {
-  #main {
-    padding: 0;
-  }
   .hentry {
     padding: 0 0.75em;
   }

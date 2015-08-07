@@ -109,7 +109,14 @@ Pneumatic theme  woocommerce styles
   .woocommerce div.product .woocommerce-tabs .panel {
     padding-bottom: 2em;
   }
-
+  /* Star rating on product single page */
+  .woocommerce .star-rating {
+    float: none;
+    display: block;
+  }
+    .woocommerce #reviews #comments ol.commentlist li .comment-text .meta {
+    margin-top: 1em;
+  }
 
 } /* End of mobile styles */
 
@@ -240,9 +247,10 @@ Pneumatic theme  woocommerce styles
   color: $price-color;
 }
 
-/* On sale badge, product pages, single and lists, if you want to change the star-color you should do so in _variables.scss */
+/* On sale badge, product pages, single and lists, if you want to change the badge-color you should do so in _variables.scss */
 .woocommerce span.onsale {
   background: $badge-color;
+  z-index: 5;
 }
 
 /* If you want to change the star-color you should do so in _variables.scss */
