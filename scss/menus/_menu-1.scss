@@ -110,8 +110,10 @@
 
     display: block;
     padding: 0.75em 1em 0.75em;
-    border-bottom: 1px solid #ccc;
-    border-top: 1px solid #ccc;
+    border: 1px solid #ccc;
+    position: absolute;
+    top: 1rem;
+    right: 0.75rem;
 
     &:hover, &:focus {
       color: #000;
@@ -119,6 +121,7 @@
     }
   }
 }
+
 
 /*
  * Media query for desktop and larger devices
