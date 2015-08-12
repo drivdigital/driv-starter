@@ -276,7 +276,8 @@ Pneumatic theme  woocommerce styles
 .woocommerce a.button,
 .woocommerce button.button.alt,
 .woocommerce input.button.alt,
-.woocommerce a.button.alt {
+.woocommerce a.button.alt,
+.woocommerce button.button.alt:disabled[disabled] {
   background-color: $button-color;
   color: $button-text;
   &:hover {
