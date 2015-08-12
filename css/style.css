@@ -711,8 +711,13 @@ span.amp {
 
 /* Give images a bit of a margin */
 .article--content {
+  /**
+   * Only direct ascendandts..
+   * Giving all images margin causes problems for pages using grid where
+   * the images should fill the column. @See issue #11 for examples of markup.
+   */
   margin-bottom: 1em; }
-  .article--content img {
+  .article--content > img {
     margin: 0.5em; }
 
 .wp-caption--inner > img,
