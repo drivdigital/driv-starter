@@ -6,21 +6,21 @@
   margin: 0 auto;
 }
 
-/**
- * Column script
- */
-%col {
-  float: left;
-  &:last-of-type {
-    margin-right: 0;
-  }
-}
 $gutter: 1;
 
 @media only #{$landscape} {
 
 }
 @media only #{$tablet} {
+  /**
+   * Column script
+   */
+  %col {
+    float: left;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
   @for $i from 1 through 12 {
     .t-#{$i} {
       $percentage: $i * 100% / 12;
@@ -33,6 +33,9 @@ $gutter: 1;
       margin-right: calc(#{$gutter+rem});
       @extend %col;
     }
+  }
+  .t-l {
+    margin-right: 0;
   }
 }
 @media only #{$tablet-landscape} {

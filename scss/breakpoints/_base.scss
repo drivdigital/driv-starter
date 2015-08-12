@@ -94,6 +94,9 @@ ol {
   padding-left: 1.5em;
 }
 
+/* Figures */
+figure { margin: 0; }
+
 /* Tables */
 table {
   margin-bottom: 1em;
@@ -301,7 +304,12 @@ span.amp {
 
 /* Give images a bit of a margin */
 .article--content {
-  img { margin: 0.5em; }
+  /**
+   * Only direct ascendandts..
+   * Giving all images margin causes problems for pages using grid where
+   * the images should fill the column. @See issue #11 for examples of markup.
+   */
+  > img { margin: 0.5em; }
   margin-bottom: 1em;
 }
 .wp-caption--inner,
