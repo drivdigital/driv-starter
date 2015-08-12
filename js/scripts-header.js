@@ -85,6 +85,4 @@ jQuery( function( $ ) {
     'max-width': 'none'
   } ).insertBefore( img );
 
-  $('#main').outerWidth()
-
 } );
