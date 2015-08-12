@@ -74,6 +74,7 @@ Pneumatic theme  woocommerce styles
   .woocommerce-page .woocommerce-ordering {
     clear: left;
     float: none;
+    //margin-bottom: 0rem;
   }
   /* Shop page */
   .post-type-archive-product #main {
@@ -127,11 +128,6 @@ Pneumatic theme  woocommerce styles
   .woocommerce .woocommerce-result-count {
     //margin-bottom: 0.75rem;
     display: none;
-  }
-
-  /* The sorting drop down menu on product archive page */
-  .woocommerce .woocommerce-ordering {
-    margin-bottom: 0rem;
   }
 
 
