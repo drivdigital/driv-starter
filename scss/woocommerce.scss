@@ -114,9 +114,26 @@ Pneumatic theme  woocommerce styles
     float: none;
     display: block;
   }
-    .woocommerce #reviews #comments ol.commentlist li .comment-text .meta {
+  .woocommerce #reviews #comments ol.commentlist li .comment-text .meta {
     margin-top: 1em;
   }
+
+  /* Breadcrumbs on woocommerce pages */
+  .woocommerce .woocommerce-breadcrumb {
+    margin-bottom: 0.25rem;
+  }
+
+  /* Result count on woocommerce pages, product archive page */
+  .woocommerce .woocommerce-result-count {
+    //margin-bottom: 0.75rem;
+    display: none;
+  }
+
+  /* The sorting drop down menu on product archive page */
+  .woocommerce .woocommerce-ordering {
+    margin-bottom: 0rem;
+  }
+
 
 } /* End of mobile styles */
 

@@ -38,7 +38,7 @@
 @media only #{$tablet-down} {
 
   /* Menu items that has children */
-  .menu-item-has-children {
+  .menu-item-has-children>a {
     position: relative;
     &:after {
       content: '';
@@ -52,7 +52,6 @@
       background-size: 100%;
     }
   }
-
   .button-close {
     cursor: pointer;
   }
