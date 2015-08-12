@@ -81,6 +81,11 @@ blockquote {
   padding: 0;
 }
 
+/* searchform in mobile and tablet menu */
+.searchform-header {
+  padding: 0.5em 0.25em;
+}
+
 /* Lists */
 ul {
   padding-left: 1em;
@@ -343,12 +348,26 @@ span.amp {
   margin-left: auto;
 }
 
-/* Styling the input fields such as address fields on My account page etc. */
+/* Styling the input fields such as address fields on My account page, Product single page etc. */
 .input-text,
-textarea {
+textarea,
+input {
   border-radius: 0.25em;
   border: 1px solid rgba(0,0,0,.1);
   padding: 0.5em;
+}
+
+/* Making it only possible to resize the textarea in vertical direction */
+textarea {
+  resize:vertical;
+}
+
+.box {
+  width: 2rem;
+  height: 2rem;
+  background-color: #cc0;
+  display: block;
+  margin: 1rem;
 }
 
 /* Buttons */

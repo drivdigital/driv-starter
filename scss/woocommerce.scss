@@ -122,6 +122,34 @@ Pneumatic theme  woocommerce styles
 
 
 
+/* Adding margin bottom to 'add a review'/'be the first to review this product' on product single page */
+.woocommerce #reviews .comment-reply-title {
+  margin-bottom: 1rem;
+}
+
+/* Comment form on Product single page */
+#commentform {
+  label {
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  label[for="email"],
+  label[for="author"] {
+    width: 4rem;
+    display: inline-block;
+  }
+}
+
+/* Qty on product single page */
+.woocommerce .qty {
+  padding: 0.4rem;
+}
+
+/* Additional information table on product single page */
+.woocommerce table.shop_attributes td {
+  padding: 0.25rem;
+}
+
 /* Order received page */
 .order_details {
   padding-left: 0;
