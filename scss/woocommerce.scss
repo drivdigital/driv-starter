@@ -74,6 +74,7 @@ Pneumatic theme  woocommerce styles
   .woocommerce-page .woocommerce-ordering {
     clear: left;
     float: none;
+    //margin-bottom: 0rem;
   }
   /* Shop page */
   .post-type-archive-product #main {
@@ -109,11 +110,58 @@ Pneumatic theme  woocommerce styles
   .woocommerce div.product .woocommerce-tabs .panel {
     padding-bottom: 2em;
   }
+  /* Star rating on product single page */
+  .woocommerce .star-rating {
+    float: none;
+    display: block;
+  }
+  .woocommerce #reviews #comments ol.commentlist li .comment-text .meta {
+    margin-top: 1em;
+  }
+
+  /* Breadcrumbs on woocommerce pages */
+  .woocommerce .woocommerce-breadcrumb {
+    margin-bottom: 0.25rem;
+  }
+
+  /* Result count on woocommerce pages, product archive page */
+  .woocommerce .woocommerce-result-count {
+    //margin-bottom: 0.75rem;
+    display: none;
+  }
 
 
 } /* End of mobile styles */
 
 
+
+/* Adding margin bottom to 'add a review'/'be the first to review this product' on product single page */
+.woocommerce #reviews .comment-reply-title {
+  margin-bottom: 1rem;
+}
+
+/* Comment form on Product single page */
+#commentform {
+  label {
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  label[for="email"],
+  label[for="author"] {
+    width: 4rem;
+    display: inline-block;
+  }
+}
+
+/* Qty on product single page */
+.woocommerce .qty {
+  padding: 0.4rem;
+}
+
+/* Additional information table on product single page */
+.woocommerce table.shop_attributes td {
+  padding: 0.25rem;
+}
 
 /* Order received page */
 .order_details {
@@ -224,7 +272,8 @@ Pneumatic theme  woocommerce styles
 .woocommerce a.button,
 .woocommerce button.button.alt,
 .woocommerce input.button.alt,
-.woocommerce a.button.alt {
+.woocommerce a.button.alt,
+.woocommerce button.button.alt:disabled[disabled] {
   background-color: $button-color;
   color: $button-text;
   &:hover {
@@ -240,9 +289,10 @@ Pneumatic theme  woocommerce styles
   color: $price-color;
 }
 
-/* On sale badge, product pages, single and lists, if you want to change the star-color you should do so in _variables.scss */
+/* On sale badge, product pages, single and lists, if you want to change the badge-color you should do so in _variables.scss */
 .woocommerce span.onsale {
   background: $badge-color;
+  z-index: 5;
 }
 
 /* If you want to change the star-color you should do so in _variables.scss */

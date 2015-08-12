@@ -56,6 +56,11 @@
             'fallback_cb'    => false,
           ) );
         ?>
+
+        <div class="tpo searchform-header">
+          <?php get_search_form() ?>
+        </div>
+
       </div>
     </nav>
   <?php endif; ?>

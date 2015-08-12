@@ -29,6 +29,7 @@ body {
 /* Resets for removing margin top on various elements */
 h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul {
   margin-top: 0;
+  line-height: 120%;
 }
 
 /* If you want to change the text size you should do it in _variables.scss */
@@ -78,6 +79,11 @@ blockquote {
 /* Sub menus */
 .sub-menu {
   padding: 0;
+}
+
+/* searchform in mobile and tablet menu */
+.searchform-header {
+  padding: 0.5em 0.25em;
 }
 
 /* Lists */
@@ -186,6 +192,7 @@ span.amp {
 .header {
   background-color: $background-color;
   padding-bottom: 0.75em;
+  position: relative;
   p { margin: 0; }
 }
 
@@ -210,13 +217,10 @@ span.amp {
   }
 }
 
-/* Removing padding on posts and adding padding to hentry instead */
+/* Adding padding to hentry after having removed it from posts (mobile-only stylesheet) */
 /* @TODO: Check if there are more pages than blog and archive that needs to be targeted */
 .blog,
 .archive {
-  #main {
-    padding: 0;
-  }
   .hentry {
     padding: 0 0.75em;
   }
@@ -345,12 +349,26 @@ span.amp {
   margin-left: auto;
 }
 
-/* Styling the input fields such as address fields on My account page etc. */
+/* Styling the input fields such as address fields on My account page, Product single page etc. */
 .input-text,
-textarea {
+textarea,
+input {
   border-radius: 0.25em;
   border: 1px solid rgba(0,0,0,.1);
   padding: 0.5em;
+}
+
+/* Making it only possible to resize the textarea in vertical direction */
+textarea {
+  resize:vertical;
+}
+
+.box {
+  width: 2rem;
+  height: 2rem;
+  background-color: #cc0;
+  display: block;
+  margin: 1rem;
 }
 
 /* Buttons */
