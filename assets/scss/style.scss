@@ -1,24 +1,21 @@
-@import 'bourbon';
+/******************************************************************
+Pneumatic theme styles
+******************************************************************/
 
-// THIS CONVERTS ALL REMS TO PX
-$px-only: false;
-$ie: false;
-
+// Various variables used across stylesheets
+@import "variables";
+// Normalize: http://necolas.github.io/normalize.css/
 @import "partials/normalize";
-@import "partials/functions"; // Functions u() etc
-@import "partials/breakpoints"; // Breakpoints
-@import "partials/mixins"; // Mixins
-@import 'partials/columns'; // Columns
-@import "partials/svgs"; // SVGs
+// Layout / grid
+@import "partials/layout";
+// Base styles
+@import "breakpoints/base";
+// Use menu-1 (default)
+@import "menus/menu-1";
 
-/* All Elements */ 
-@import "components";
-
-// Extra fancy shit.
-@import "partials/animations";	// Animations
-@import "partials/alerts"; // Alerts
-@import "partials/buttons"; // buttons
-@import "partials/forms"; // forms (inputs & labels)
-
-/* Print Styles */
-@media print { @import "print/print"; }
+// Import breakpoints
+@media only #{$mobile-only}      { @import "breakpoints/mobile-only"; }
+@media only #{$landscape}        { @import "breakpoints/landscape"; }
+@media only #{$tablet}           { @import "breakpoints/tablet"; }
+@media only #{$tablet-landscape} { @import "breakpoints/tablet-landscape"; }
+@media only #{$desktop}          { @import "breakpoints/desktop"; }

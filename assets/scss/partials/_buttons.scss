@@ -1,5 +1,0 @@
-.btn.brand {			@include btn($brand-colour, true);		}
-.btn.highlight { 	@include btn($brand-highlight, true); 	}
-.btn.white {			@include btn($white, true); 				}
-.btn.black {			@include btn($black, true);				}
-.btn.accent {		  @include btn($brand-accent, true);	}

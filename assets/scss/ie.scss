@@ -1,24 +1,10 @@
-@import 'bourbon';
+/******************************************************************
+Site Name:
+Author:
+******************************************************************/
 
-// THIS CONVERTS ALL REMS TO PX
-$px-only: true;
-$ie: true;
-
-@import "partials/normalize";
-@import "partials/functions"; // Functions u() etc
-@import "partials/breakpoints"; // Breakpoints
-@import "partials/mixins"; // Mixins
-@import 'partials/columns'; // Columns
-@import "partials/svgs"; // SVGs
-
-/* All Elements */ 
-@import "components";
-
-// Extra fancy shit.
-@import "partials/animations";	// Animations
-@import "partials/alerts"; // Alerts
-@import "partials/buttons"; // buttons
-@import "partials/forms"; // forms (inputs & labels)
-
-/* Print Styles */
-@media print { @import "print/print"; }
+@import "breakpoints/mobile-only";
+@import "breakpoints/landscape";
+@import "breakpoints/tablet";
+@import "breakpoints/tablet-landscape";
+@import "breakpoints/desktop";
