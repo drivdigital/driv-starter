@@ -40,7 +40,7 @@ class Pneumatic_Theme_Woocommerce {
   static function scripts_and_styles() {
     if ( !is_admin() ) {
       // Register styles
-      wp_register_style( 'pneumatic-woocommerce-stylesheet', $GLOBALS['pneumatic-theme']->scry( '/css/woocommerce.css' ), array(), '', 'all' );
+      wp_register_style( 'pneumatic-woocommerce-stylesheet', $GLOBALS['pneumatic-theme']->scry( '/assets/css/woocommerce.css' ), array(), '', 'all' );
 
       // Enqueue styles
       wp_enqueue_style( 'pneumatic-woocommerce-stylesheet' );

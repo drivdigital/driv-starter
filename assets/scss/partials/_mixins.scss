@@ -1,0 +1,21 @@
+* { box-sizing: border-box; }
+
+/* This mixins file was starting to get way too big. So I've cut it down into fragments. */
+
+@import 'mixins/clearfix';
+@import 'mixins/blend-mode';
+@import 'mixins/gradient';
+@import 'mixins/placeholder';
+@import 'mixins/screen-readers';
+@import 'mixins/vertical-align';
+@import 'mixins/flush-columns';
+@import 'mixins/padding';
+@import 'mixins/button';
+@import 'mixins/element-counting';
+@import 'mixins/grids';
+@import 'mixins/inline-block';
+@import 'mixins/content-order';
+@import 'mixins/modular';
+@import 'mixins/mediaqueries';
+@import 'mixins/font-smoothing';
+@import 'mixins/brightness';

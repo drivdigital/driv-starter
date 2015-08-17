@@ -1,0 +1,74 @@
+// ========================================
+
+// Extend the columns
+.col2-set{
+  @include ib;
+}
+
+// Make these two columns.
+.col-1, .col-2{
+  padding: u(1rem);
+		width: 100%;
+		@media( min-width: $phablet) { width: 50%; }
+}
+
+// Remove that padding on the edges.
+.col-1{ padding-left: 0;}
+.col-2{ padding-right: 0;}
+
+
+// ========================================
+
+// Forms are 100% width? Waaaht?
+.woocommerce-account{
+  .woocommerce > form:only-child {
+    @include wider-than(tablet){
+      width: 40%;
+    }
+  }
+}
+
+
+// The account page forms..
+
+form {
+	.form-row {
+		@include clearfix;
+
+		label {
+			display: block;
+
+			&.checkbox {
+				display: inline;
+			}
+		}
+
+		select {
+			width: 100%;
+		}
+
+		.input-text {
+			box-sizing: border-box;
+			width: 100%;
+		}
+	}
+
+	.form-row-first,
+	.form-row-last {
+		float: left;
+		width: 47%;
+		overflow: visible;
+	}
+
+	.form-row-last {
+		float: right;
+	}
+
+	.form-row-wide {
+		clear: both;
+	}
+	
+	.button{
+  	@include btn($brand-highlight, true);
+	}
+}

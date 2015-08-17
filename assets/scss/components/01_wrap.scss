@@ -1,0 +1,21 @@
+/*
+	Wrapping the entire site
+	------------------------
+	We use a .wrap class on areas that we want
+	to restrict the width of. So this loop
+	goes through our breakpoints located in
+	_breakpoints.scss
+*/
+
+.wrap, .w {
+	width: 96%;
+	margin: 0 auto;
+
+	/* For each breakpoint listed here, 
+  	make a mediaquiery and a max-width of that breakpoint. */
+	@each $size in $breakpoints {
+		@include wider-than(#{nth($size, 1)}){ 
+  		max-width: nth($size, 2); 
+    }
+	}
+}

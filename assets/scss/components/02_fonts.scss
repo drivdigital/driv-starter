@@ -1,0 +1,113 @@
+// font stacks
+$sans-serif:   "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$serif:       "Georgia", Cambria, Times New Roman, Times, serif;
+
+// Larger Headings are lighter
+h1, h2, .h1, .h2, {
+	font-weight: 200;
+	font-family: $sans-serif;
+  color: $brand-colour;
+}
+
+// Smaller headings become bolder
+h3, h4, h5, h6, .h3, .h4, .h5, .h6{
+  font-weight: 400;
+  color: $text;
+}
+
+// Headers
+
+h1, .h1{ @include modular(3rem); }
+
+h2, .h2{ @include modular(2.125rem); }
+
+h3, .h3{ @include modular(1.8125rem); }
+
+h4, .h4{ @include modular(1.25rem); }
+
+h5, .h5, h6, .h6{ @include modular(1.1rem); }
+
+
+// This is used on the sections of content.
+.page-title, 
+.section-title{
+	display: block;
+	text-align: left;
+  @include modular(2.125rem);
+	color: $brand-colour;
+	width: 86%;
+}
+
+
+input{
+  font-weight: 200;
+  font-family: $sans-serif;
+}
+
+
+// Text alignment in classes	
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+
+// This forces divs to be center aligned
+.marginauto, .mu { 
+	margin: 0 auto !important; 
+	float: none !important; 
+}
+
+
+
+/*
+	Selections
+	----------
+*/	
+
+// White background, red text
+h1, h2, h3, h4, h5, h6, p, li, ul, span, div{
+	@include selection(){
+		background-color: $white;
+		color: $brand-colour;
+	}
+}
+	
+// Red backgroung, white text
+a, img, blockquote{
+	@include selection(){
+		background-color: $brand-colour;
+		color: $white;
+	}
+}
+
+
+
+/*
+	Hyphenation + Selections
+	-----------------------
+*/
+
+p {
+	
+	// Hyphenation
+	-ms-word-break: normal;
+	-ms-word-wrap: 	normal;
+	word-break: 	normal;
+	word-break: 	normal;
+
+	// cleaning up the ragged lines and breaks
+	-webkit-hyphens: 	none;
+	-moz-hyphens: 	none;
+	hyphens: 	none;
+
+	// sets a minimum number of characters before and after the break
+	-webkit-hyphenate-before: 2;
+	-webkit-hyphenate-after: 3;
+	hyphenate-lines: 3;
+
+	// enabling fancy ligatures when available
+	-webkit-font-feature-settings: 	"liga", "dlig";
+	-moz-font-feature-settings: 	"liga=1, dlig=1";
+	-ms-font-feature-settings: 	"liga", "dlig";
+	-o-font-feature-settings: 	"liga", "dlig";
+	font-feature-settings: 	"liga", "dlig";
+}

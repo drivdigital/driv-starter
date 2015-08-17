@@ -1,0 +1,185 @@
+.shop_table{
+  width: 100%;
+  margin-bottom: u(1rem);
+  
+  th{
+    text-align: left;
+    color: $brand-highlight;
+    
+    @include not-wider-than(tablet){
+      display: none;
+    }
+  }
+    
+  td{
+    @include wider-than(tablet){
+      padding-right: u(1rem);
+      border-bottom: 1px solid;
+      padding-bottom: u(1rem);
+      padding-top: u(1rem);
+    }
+  }
+
+  // Mobile cart?
+  .th, td{
+    @include not-wider-than(tablet){
+     display: inline-block; 
+    }
+  }
+
+  .remove{
+    @include btn($brand-highlight, true);
+  }
+
+  .wp-post-image{
+    border: 5px solid $brand-grey-light;
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+// Sorting out the cart shape / width
+.product-thumbnail{  width: 20%;}
+  .product-name{     width: 40%;}
+  .product-price{    width: 20%;}
+  .product-quantity{ width: 10%;}
+  .product-subtotal{ width: 20%;}
+  .product-remove{   width: 20%;}
+
+// Headigns on mobile
+
+
+
+@include not-wider-than(tablet){
+  %bf{
+    color: $brand-colour;
+  }
+  
+  // Sorting out the cart shape / width
+  .product-thumbnail{  
+    width:20%; 
+  }
+    
+  .product-name{     
+    width: 78%;
+    font-size: u(0.9rem); 
+  }
+  
+  .product-price{ display: none !important; }
+  
+  .product-quantity{ 
+    width: 23%; 
+    &:before { 
+      @extend %bf; 
+      content: ""; 
+    }
+    
+    input{
+      padding: u(0.125rem 0.3rem) !important;
+    }
+  }
+  
+  .product-subtotal{ 
+    width: 50%; 
+    &:before { 
+      @extend %bf; 
+      content: "Total"; 
+    }
+  }
+  
+  .product-remove{   
+    width:24%;
+    font-size: u(0.6rem);
+    text-align: right;
+    
+    .remove{
+      padding: 5px;  
+    }
+  }
+}
+
+dl{
+  margin: 0;
+  display: block;
+  p{
+    margin: 0;
+    padding: 0;
+  }
+}
+
+dd, dt{
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.woocommerce-cart{
+  .quantity{
+    width: 100%;
+    margin: 0;
+  }
+}
+
+
+// coupon in the table
+
+.actions{
+  padding-top: u(1rem);
+  padding-right: 0 !important;  
+}
+
+.coupon{
+  display: inline-block;
+  
+  & ~ .button{
+    float: right;
+  }
+}
+
+// Nasty fix here for a design that doesn't know woocommerce
+
+.cart-collaterals{
+
+  table{ 
+    background-color: $brand-grey-light;
+    padding: u(1rem 0);
+    display: block;
+  }
+  
+  tbody{
+    @extend .wrap;
+    text-align: right;
+    display: block;
+  }
+  
+  h2{ display: none; }
+  tr{
+    display: inline-block;
+    vertical-align: top;
+    padding-left: u(1rem);
+    
+    td{
+      padding-left: u(0.5rem);
+    }
+  }
+  
+  span.amount{
+    color: $brand-colour;
+    @include not-wider-than(mobile){
+      font-size: u(1rem);
+    }
+  }
+  
+  .wc-proceed-to-checkout{
+    display: block;
+    text-align: right;
+    padding: u(1rem 0);
+    
+    // push the button over
+    a{
+      display: inline-block;
+      @include modular(1rem);
+    }
+  }
+}

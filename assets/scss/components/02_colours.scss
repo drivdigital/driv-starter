@@ -1,0 +1,32 @@
+// Newsprint, black and white
+
+$black:		#000;
+$white:		#fff;
+
+$text: #393839;
+$grey: fade-out(#ccc, 0.7); // From photoshop, 30% opacity on #ccc
+$grey: #f0f0f0;
+$grey-dark: #9f9d9d;
+
+$lime: #8bc13f;
+$lime-dark: #73a52c;
+
+
+// Branding the website
+
+$brand-colour: $lime;
+
+$brand-highlight:	tint($brand-colour, 10%);
+$brand-accent:		$lime-dark;
+$brand-grey:      $grey;
+
+$text-colour:		  $text;
+$disabled-grey:	  $grey;
+
+// Alerts
+$alert-yellow:		#eb7209;
+$alert-red:			#be3333;
+$alert-green:		#a8c923;
+$alert-blue:		#209dd6;
+
+$shadow: 	0 15px 5px -8px fade-out($black, 0.95), 0 9px 6px -7px fade-out($black, 0.55);

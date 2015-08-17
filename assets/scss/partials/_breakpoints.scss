@@ -1,0 +1,46 @@
+/*
+	These are the breakpoints for your website. These can be customised to your design. The 
+	more that I think about it, the more I'm starting to realise that these breakpoints 
+	need to change for the design, and not for the sizes they are. They're just a guide. 
+	In fact, I insist, you MUST change these.
+*/
+
+	// Rems
+	$base:		20rem;
+	$mobile: 	30.063rem; 
+	$phablet:	37rem;
+	$tablet: 	47.9rem;
+	$desklet: 55.5rem; 
+	$desktop: 68.5rem; 	
+	$cinema: 	87.5rem;
+	$thin: 		42.500rem;
+
+/* 
+	This is for something special. If px-only is defined in the u() function, 
+	then all rems are replaced with these breakpoints instead.
+*/
+
+@if ($px-only){
+	$base:		20 * 16px;
+	$mobile: 	30.063 * 16px; 
+	$phablet:	37 * 16px;
+	$tablet: 	47.9 * 16px;
+	$desklet: 62.5 * 16px; 
+	$desktop: 77.5 * 16px; 	
+	$cinema: 	87.5 * 16px;
+	$thin: 		42.500 * 16px;
+}
+
+/*
+	This is a breakpoint map. It allows us to use a loop of the breakpoints throughout
+	the site inside other loops and @each's. Mostly in _mixins.scss and _wrap.scss
+*/
+
+$breakpoints: (
+	mobile:		$mobile,
+	phablet:	$phablet,
+	tablet:		$tablet,
+	desklet:	$desklet,
+	desktop:	$desktop,
+	cinema:		$cinema
+);

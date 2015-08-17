@@ -1,0 +1,22 @@
+// Sizing
+
+*{ @include font-smoothing(); }
+
+html { font-size: 16px; }
+
+//Body
+body {
+	font-family: $sans-serif;
+	background-color: $white;
+	color: $text-colour;
+	font-size: 100%;
+	line-height: 1.4;
+	font-weight: 300;
+
+  // When you click between pages, you have the ability
+  // to transition if you want. This can be done with
+  // anything. opacity. blur. greyscale etc.
+  &.unloading{
+    opacity: 0;
+  }
+}

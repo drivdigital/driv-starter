@@ -1,0 +1,43 @@
+/************************************
+		B U T T O N   C O L O U R S
+	This mixin gives you a button in any
+	colour that you want. It then decides
+	if the background is dark or light and
+	gives you white or dark grey text colour.
+*************************************/
+
+@mixin btn($colour, $style: false){
+
+	@if ($style) {
+		// Standard styles
+		border: 0;
+		text-indent:0;
+		display: inline-block;
+		font-weight: 400;
+		font-style: normal;
+		text-decoration: none;
+		text-align: center;
+		cursor: pointer;
+		outline: none; 
+		border-radius: 0;
+		-webkit-font-smoothing: antialiased;
+		@include appearance(none);
+		
+		padding: u(0.25rem 0.75rem);
+		@include wider-than(phablet){padding: u(0.3rem 0.8rem);}
+		@include wider-than(tablet){padding: u(0.5rem 1rem);}
+	}
+	
+	/**********************************
+	 This determines the background colour
+	 in a greyscale manner, if it's lighter
+	 than 40% lightness, the text colour
+	 becomes dark to compensate.
+	**********************************/
+
+	color: $white;
+	background-color: $colour;
+
+  &:hover, &:focus, &:active  { background-color: darken($colour, 10%); }
+	
+}

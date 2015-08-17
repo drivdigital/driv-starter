@@ -1,0 +1,42 @@
+
+//======================================================
+// Add to cart message
+
+.woocommerce-message {
+  $background: $brand-colour;
+  background-color: $background;
+  border-left: u(0.5rem) solid tint($background, 20%);
+
+  color: white;
+  padding: u(0.5rem);
+  margin-top: u(1rem);
+  
+  @include wider-than(tablet){
+    border-left: u(1rem) solid tint($background, 20%);
+    padding: u(1rem);
+    line-height: 3;
+    @include clearfix(); // Includes floats within the height
+
+  }
+  
+  // Button
+  .wc-forward{
+    text-align: center;
+    color: $white;
+    border-radius: 4px;
+    border: 2px solid white;
+    text-decoration: none;
+    padding: u(0.5rem 1rem);
+    display: block;
+    margin: u(0.5rem) auto u(1rem);
+    width: 50%;
+    
+    @include wider-than(tablet){
+      width: auto;
+      float: right;
+      line-height: 1.5;
+      margin: 0;
+      margin-right: u(1rem);
+    }
+  }
+}
