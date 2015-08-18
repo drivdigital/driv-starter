@@ -89,9 +89,9 @@ class Pneumatic_Theme {
     if (!is_admin()) {
 
       // Register scripts
-      wp_register_script( 'modernizr', $this->scry( '/js/libs/modernizr.custom.min.js' ), array(), '2.5.3', false );
-      wp_register_script( 'pneumatic-js-header', $this->scry( '/js/scripts-header.js' ), array( 'jquery' ), '', false );
-      wp_register_script( 'pneumatic-js-footer', $this->scry( '/js/scripts-footer.js' ), array( 'jquery' ), '', true );
+      wp_register_script( 'modernizr', $this->scry( '/assets/js/libs/modernizr.custom.min.js' ), array(), '2.5.3', false );
+      wp_register_script( 'pneumatic-js-header', $this->scry( '/assets/js/scripts-header.js' ), array( 'jquery' ), '', false );
+      wp_register_script( 'pneumatic-js-footer', $this->scry( '/assets/js/scripts-footer.js' ), array( 'jquery' ), '', true );
 
       // Enqueue scripts
       wp_enqueue_script( 'modernizr' );
@@ -100,8 +100,8 @@ class Pneumatic_Theme {
       wp_enqueue_script( 'pneumatic-js-footer' );
 
       // Register styles
-      wp_register_style( 'pneumatic-stylesheet', $this->scry( '/css/style.css' ), array(), '', 'all' );
-      wp_register_style( 'pneumatic-ie-only', $this->scry( '/css/ie.css' ), array(), '' );
+      wp_register_style( 'pneumatic-stylesheet', $this->scry( '/assets/css/style.css' ), array(), '', 'all' );
+      wp_register_style( 'pneumatic-ie-only', $this->scry( '/assets/css/ie.css' ), array(), '' );
 
       // Add a conditional wrapper around the ie stylesheet
       $GLOBALS['wp_styles']->add_data( 'pneumatic-ie-only', 'conditional', 'lt IE 9' );
