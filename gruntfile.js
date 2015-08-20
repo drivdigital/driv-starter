@@ -11,7 +11,8 @@ module.exports = function(grunt) {
       },
       js: {
         files: {
-          'assets/js/scripts.js': ['assets/js/scripts.js']
+          'assets/js/scripts-header.min.js': ['assets/js/scripts-header.js'],
+          'assets/js/scripts-footer.min.js': ['assets/js/scripts-footer.js']
         }
       }
     },
@@ -21,7 +22,7 @@ module.exports = function(grunt) {
       dynamic: {
         files: [{
           expand: true,
-          cwd: 'assets/img',
+          cwd: 'assets/images',
           src: ['**/*.{png,jpg,gif,svg}'],
           dest: 'assets/img'
         }]
@@ -47,9 +48,7 @@ module.exports = function(grunt) {
     combine_mq: {
       target: {
         files: {
-          'assets/css/ie.css': ['assets/css/ie.css'],
-          'assets/css/style.css': ['assets/css/style.css'],
-          'assets/css/login.css': ['assets/css/login.css']
+          'assets/css/style.css': ['assets/css/style.css']
         },
         options: {
           beautify: false
@@ -106,7 +105,7 @@ module.exports = function(grunt) {
         tasks: ['uglify:js']
       },
       css: {
-        // Watch sass changes, then process new images and merge mqs
+        // Watch sass changes, merge mqs & run bs
         files: ['assets/scss/*.scss', 'assets/scss/**/*.scss'],
         tasks: ['sass_globbing:target', 'sass', 'combine_mq:target', 'postcss:dist', 'browserSync' ]
       },
