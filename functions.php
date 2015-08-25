@@ -47,6 +47,10 @@ class Pneumatic_Theme {
 
     // Fix p tag around images
     add_filter( 'the_content', array( $this, 'ptag_images' ) );
+
+    // Remove Emoji functionality
+    require_once( 'classes/class-pneumatic-theme-emoji.php' );
+    Pneumatic_Theme_Emoji::disable_wp_emojicons();
   }
 
   /**
