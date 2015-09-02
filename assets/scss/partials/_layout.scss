@@ -1,47 +1,72 @@
-
-
 // Wrapper
 .w {
   max-width: 63.25em;
   margin: 0 auto;
 }
 
+// Gutter in rems
 $gutter: 1;
 
+@mixin column-calc ( $i, $max ){
+  $percentage: $i * 100% / $max;
+  width: $percentage - 2%;
+  $percentage: $percentage - 0.01%;
+  $num: $max / $i - 1;
+  $margin-right: ($num * $gutter / ($num +1))+rem;
+  width: calc(#{$percentage} - #{$margin-right});
+  margin-right: 2%;
+  margin-right: calc(#{$gutter+rem});
+  float: left;
+}
+
+// Mobile devices
+@for $i from 1 through 12 {
+  .m-#{$i} {
+    @include column-calc( $i, 12 );
+  }
+}
+.m-l {
+  margin-right: 0;
+}
+/*
 @media only #{$landscape} {
 
 }
+*/
+
 @media only #{$tablet} {
-  /**
-   * Column script
-   */
-  %col {
-    float: left;
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
   @for $i from 1 through 12 {
     .t-#{$i} {
-      $percentage: $i * 100% / 12;
-      width: $percentage - 2%;
-      $percentage: $percentage - 0.01%;
-      $num: 12 / $i - 1;
-      $margin-right: ($num * $gutter / ($num +1))+rem;
-      width: calc(#{$percentage} - #{$margin-right});
-      margin-right: 2%;
-      margin-right: calc(#{$gutter+rem});
-      @extend %col;
+      @include column-calc( $i, 12 );
     }
   }
   .t-l {
     margin-right: 0;
   }
 }
+
+/*
+// Tablet landscape
 @media only #{$tablet-landscape} {
 
 }
+*/
 
+// Laptop / Above tablets
+@media only #{$laptop} {
+  @for $i from 1 through 12 {
+    .d-#{$i} {
+      @include column-calc( $i, 12 );
+    }
+  }
+  .d-l {
+    margin-right: 0;
+  }
+}
+
+/*
+// Desktop / Wide
 @media only #{$desktop}  {
 
 }
+*/
