@@ -4,7 +4,7 @@
     // Add a class to the body to allow css targeting. @see issue #8
     var body = $( 'body' ).addClass( 'menu-inactive' );
     // Hide the menu and cart
-    var navigation = $( '.container > .nav' );
+    var navigation = $( '.top-nav' );
     navigation.addClass( 'hide' );
 
     // Create menu and cart buttons with a wrapper
@@ -13,27 +13,15 @@
 
     // Wait for doc ready
     $( function() {
-      // @TODO: Figure out a more general way of selecting everything other thant the menu
-      var content = $( '#content, .header, .footer, #widget-area, .content-wrapper' );
       // Show the menu on click
       btn_menu.click( function() {
-        content.addClass( 'hide' );
-        navigation.removeClass( 'hide' );
+        $(this).toggleClass('open');
+        navigation.toggleClass( 'hide' );
         // Add a class to the body to allow css targeting. @see issue #8
-        body.addClass( 'menu-active' ).removeClass( 'menu-active' );
+        body.toggleClass( 'menu-active' ).toggleClass( 'menu-inactive' );
       } );
       // Add the buttons to the wrapper
       menu_bar.append( btn_menu );
-
-      // Create a close button for the menu
-      var btn_close = $( '<div>' ).addClass( 'button-close' ).text( '<?php _e( "Close" ); ?>' );
-      btn_close.click( function() {
-        content.removeClass( 'hide' );
-        navigation.addClass( 'hide' );
-        // Add a class to the body to allow css targeting. @see issue #8
-        body.addClass( 'menu-inactive' ).removeClass( 'menu-inactive' );
-      } );
-      navigation.find( 'ul:eq(0)' ).prepend( $( '<li>' ).append( btn_close ) );
 
       // Hide sub-menus
       $( '.sub-menu', navigation ).each( function() {
