@@ -3,10 +3,46 @@ Pneumatic theme  woocommerce styles
 ******************************************************************/
 /* Various variables used across stylesheets */
 /******************************************************************
-Pneumatic theme variables
+/* Breakpoints
+
+Written as just the size. This allows combining of these queries
+into something like "only screen and landscape and tablet-down"
 ******************************************************************/
-/* Colors */
+/******************************************************************
+/* Colours
+
+Variables written throughout the site. Everything on this page
+should decide every colour on the site.
+******************************************************************/
+/* Link colours */
+/* Element colours */
+/* Alerts */
 /* Misc */
+/* General colours */
+/* Brand colours */
+/* Using these doesn't tie us down to naming conventions */
+/******************************************************************
+/* Animation
+
+Pre-defined cubic-beziers adds life to animations. Subtle eases that
+enhance the qwuality of an animation.
+******************************************************************/
+/******************************************************************
+/* For the sake of testing, hr styles
+******************************************************************/
+hr {
+  margin: 4rem auto;
+  display: block;
+  border: 0;
+  max-width: 80;
+  border-top: 1px solid #ddd; }
+  @media only screen and (min-width: 768px) {
+    hr {
+      max-width: 75%; } }
+  @media only screen and (min-width: 1240px) {
+    hr {
+      max-width: 60%; } }
+
 /*
  * mobile only styles only in this media query
  */
@@ -25,7 +61,7 @@ Pneumatic theme variables
   .woocommerce-tabs .panel,
   .upsells.products, .related.products,
   .edit {
-    font-size: 0.875rem; }
+    font-size: 1rem; }
 
   /* address on My account page */
   .address {
@@ -194,6 +230,7 @@ Pneumatic theme variables
 .widget .woocommerce-product-search .search-field,
 #s {
   width: 100%;
+  width: -webkit-calc( 100% - 4.25em );
   width: calc( 100% - 4.25em );
   float: left;
   border: 0;
@@ -205,7 +242,8 @@ Pneumatic theme variables
   position: absolute;
   top: 0;
   right: 0;
-  border-radius: 0;
+  -webkit-border-radius: 0;
+          border-radius: 0;
   border: 1px solid #000;
   margin: -1px; }
 
@@ -231,25 +269,25 @@ Pneumatic theme variables
 .woocommerce input.button.alt,
 .woocommerce a.button.alt,
 .woocommerce button.button.alt:disabled[disabled] {
-  background-color: #4e4e4e;
-  color: #fff; }
+  background-color: #f40236;
+  color: #222; }
   .woocommerce a.button:hover,
   .woocommerce button.button.alt:hover,
   .woocommerce input.button.alt:hover,
   .woocommerce a.button.alt:hover,
   .woocommerce button.button.alt:disabled[disabled]:hover {
-    background: #414141;
-    color: #fff; }
+    background: #d00732;
+    color: #222; }
 
 /* If you want to change the price-color you should do so in _variables.scss */
 .woocommerce ul.products li.product .price,
 .amount,
 .woocommerce div.product p.price {
-  color: #c00; }
+  color: #1D59A1; }
 
 /* On sale badge, product pages, single and lists, if you want to change the badge-color you should do so in _variables.scss */
 .woocommerce span.onsale {
-  background: #4e4e4e;
+  background: #1D59A1;
   z-index: 5; }
 
 /* If you want to change the star-color you should do so in _variables.scss */
@@ -260,6 +298,4 @@ Pneumatic theme variables
 .woocommerce p.stars a.star-3,
 .woocommerce p.stars a.star-4,
 .woocommerce p.stars a.star-5 {
-  color: #c00; }
-
-/*# sourceMappingURL=woocommerce.css.map */
+  color: #0bfdc9; }

@@ -1,0 +1,188 @@
+/**********
+VARIABLES
+***********/
+
+// Various variables used across stylesheets
+@import "variables",						// Colours and Variables
+				"partials/normalize", 	// Normalize: http://necolas.github.io/normalize.css/
+				"partials/layout", 			// Layout / grid
+				"breakpoints/base", 		// Base styles
+				"partials/mixins", 			// Various variables used across stylesheets
+				"partials/type",				// Typography for everything
+				"partials/forms", 			// Form Styles
+				"partials/components";	// Individual elements
+
+
+
+/***********/
+
+html, body {
+	background-color: white;
+}
+
+#login {
+
+	h1 a {
+
+		background: url('../images/login-title.svg') no-repeat top center; /* make sure to replace this! */
+		.no-svg & {
+			@extend %h1;
+			background: none;
+			text-indent: 0;
+			color: $text;
+
+			&:hover{
+				color: $brand-colour;
+			}
+		} /* make sure to replace this! */
+
+		text-indent: -9999px;
+		overflow: hidden;
+		padding-bottom: 0;
+		display: block;
+	}
+
+
+	form {
+		margin-left: 8px;
+		padding: 1.5rem 1.5rem 2rem;
+		font-weight: normal;
+		background: white;
+		border: 0;
+		border-radius: 0;
+		box-shadow: none;
+
+		label{
+			@extend %h4;
+		}
+
+		.input {
+		  @extend %inputs;
+		}
+
+		.forgetmenot{ display: none; }
+
+	}
+}
+
+#login #nav, #login #backtoblog{
+	text-align: center;
+	a{
+		color: $text;
+		@extend %h4;
+	}
+}
+
+.submit{
+	width: 100%;
+	display: inline-block;
+	clear: both;
+	text-align: center;
+}
+
+.button.button-primary {
+  padding: 0.8125rem 2rem !important;
+  line-height: 1.25rem !important;
+  font-size: 0.9375rem !important;
+  height: 2.625rem !important;
+  box-shadow: none;
+  float: none;
+  width: 100%;
+  margin-top: 1rem;
+	@include btn($blue);
+
+}
+
+/*
+You'll have to override some of the default styles
+but since we're referencing the id, it should be easy.
+*/
+#wp-submit {} /* login button*/
+
+
+
+
+.text-center{
+	text-align: center;
+}
+
+
+
+
+
+.header, .breadcrumbs, .footer{
+	@media only screen and #{$desktop-down}{
+		display: none;
+	}
+}
+
+/* Login Revamp */
+
+$wrap: 0%;
+
+#login{ 
+
+	.message{ text-align: center;}
+
+	width: 100%; 
+	@include clearfix;
+	padding-top: 2%;
+	p { padding: 1rem 0 0; }
+	br { display: block; line-height: 2 } 
+	input{ width: 100%; }
+
+	@media only screen and #{$tablet}{
+		width: 50%;
+		max-width: 25rem;
+		margin: 12% auto;
+		text-align: center;
+		
+	}
+
+	@media only screen and #{$desktop}{
+		width: 39%;
+		margin: 0 auto;
+		padding-left: $wrap;
+		display: inline-block;
+
+		#loginform{ 
+			width: 80%; 
+			display: block; 
+			margin: 0 auto 2rem; 
+			padding: 0;
+		}
+	}
+}
+
+.additional{ 
+
+	#wp-auth-check-frame &{ display: none; }
+	width: 100%;
+	@include clearfix;
+
+	.quote .quote__avatar, 
+	.quote .quote--mark{
+		z-index: 1;
+	}
+	display: none;
+
+	@media only screen and #{$desktop}{
+		border-left: 1px solid $grey-dark; 
+		width: 59%;
+		padding-right: $wrap;
+		padding-left: 5%;
+		vertical-align: top;
+		display: inline-block;
+		clear: right;
+	}
+}
+
+
+
+
+
+
+
+
+
+

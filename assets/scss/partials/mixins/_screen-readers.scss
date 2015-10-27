@@ -1,0 +1,34 @@
+// http://www.zeldman.com/2012/03/01/replacing-the-9999px-hack-new-image-replacement/
+.image-replacement {
+	text-indent: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+
+// Screen Reader Hiding of Text
+@mixin visuallyhidden($value: on) {
+    @if $value == on {
+    	margin: -1px;
+    	padding: 0;
+    	width: 1px;
+    	height: 1px;
+    	overflow: hidden;
+    	clip: rect(0 0 0 0);
+    	clip: rect(0, 0, 0, 0);
+    	position: absolute;
+    }
+    @else {
+      margin: 0;
+      width: inherit;
+      height: inherit;
+      clip: inherit;
+      position: relative;
+    }
+}
+
+.screen-reader-text{
+  @include visuallyhidden();
+}
+
+

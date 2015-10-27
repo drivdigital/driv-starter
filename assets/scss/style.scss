@@ -2,20 +2,20 @@
 Pneumatic theme styles
 ******************************************************************/
 
+
 // Various variables used across stylesheets
-@import "variables";
-// Normalize: http://necolas.github.io/normalize.css/
-@import "partials/normalize";
-// Layout / grid
-@import "partials/layout";
-// Base styles
-@import "breakpoints/base";
-// Use menu-1 (default)
-@import "menus/menu-1";
+@import "variables",						// Colours and Variables
+				"partials/normalize", 	// Normalize: http://necolas.github.io/normalize.css/
+				"partials/layout", 			// Layout / grid
+				"breakpoints/base", 		// Base styles
+				"partials/mixins", 			// Various variables used across stylesheets
+				"partials/type",				// Typography for everything
+				"partials/forms", 			// Form Styles
+				"partials/components";	// Individual elements
 
 // Import breakpoints
-@media only #{$mobile-only}      { @import "breakpoints/mobile-only"; }
-@media only #{$landscape}        { @import "breakpoints/landscape"; }
-@media only #{$tablet}           { @import "breakpoints/tablet"; }
-@media only #{$tablet-landscape} { @import "breakpoints/tablet-landscape"; }
-@media only #{$desktop}          { @import "breakpoints/desktop"; }
+@media only screen and #{$mobile-only}      { @import "breakpoints/mobile-only"; }
+@media only screen and #{$landscape}        { @import "breakpoints/landscape"; }
+@media only screen and #{$tablet}           { @import "breakpoints/tablet"; }
+@media only screen and #{$tablet-landscape} { @import "breakpoints/tablet-landscape"; }
+@media only screen and #{$desktop}          { @import "breakpoints/desktop"; }

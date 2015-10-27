@@ -1,0 +1,225 @@
+/*********************
+COLOR FUNCTIONS
+These are helpful when you're working
+with shadows and such things. It's essentially
+a quicker way to write RGBA.
+
+Example:
+box-shadow: 0 0 4px black(0.3);
+compiles to:
+box-shadow: 0 0 4px rgba(0,0,0,0.3);
+*********************/
+
+// black
+@function black($opacity) {
+    @return rgba(0,0,0,$opacity);
+}
+
+// white
+@function white($opacity) {
+    @return rgba(255,255,255,$opacity);
+}
+
+
+// String to Number for Math (used with padding in mixin)
+
+	@function number($string) {
+	  // Matrices
+	  $strings: '0' '1' '2' '3' '4' '5' '6' '7' '8' '9';
+	  $numbers:  0   1   2   3   4   5   6   7   8   9;
+	  
+	  // Result
+	  $result: 0;
+	
+		@for $i from 1 through str-length($string) {
+		  $character: str-slice($string, $i, $i);
+		  $index: index($strings, $character);
+		    
+		  @if not $index {
+		    @warn "Unknown character `#{$character}`.";
+		    @return false;
+		  }
+		      
+		  $number: nth($numbers, $index);
+		  $result: $result * 10 + $number;
+		}
+	  
+	  @return $result;
+	}
+
+
+
+
+// Strip out units from anything
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+/* 
+
+Rems for the future, PX for the past.
+
+This is a function that has been created to
+remove the need to write everything twice when it comes to REMs and PX.
+
+Basically, when you use u(3rem), the px-only variable on the style, 
+android and ie page tells the preprocessor to either change all 
+values in the breakpoint stylesheets to be either REM or PX, 
+and it'll do the math around it. So what you're left with is more hair
+at the end of the day.
+
+Source: http://davidwalsh.name/rem-px-browser-function-sass
+@Useage: u(3rem); 
+ 
+*/
+
+
+$pxBase : 16; /* 1 */
+
+@function parseInt($n) {
+	@return $n / ($n * 0 + 1); /* 2 */
+}
+
+/* This solves an issue with 1px == 1 and 1em == 1, thus 1px == 1em */
+@function _true-is-equal($one, $two) {
+  @if type-of($one) == number and type-of($two) == number {
+	@if unit($one) == unit($two) {
+	  @return $one == $two;
+	} @else {
+	  @return false;
+	}
+  } @else {
+	@return $one == $two;
+  }
+}
+
+
+@function u($values){ /* 3 */
+
+      $list: (); /* 4 */
+
+      @each $value in $values { /* 5 */
+
+            $unit : unit($value); /* 6 */
+            $val  : parseInt($value); /* 2 */
+			
+			/* 11.11.14 - Changed from $value to $val for sass depreciation */
+			@if _true-is-equal($val,0) or type-of($value) != "number" {
+				$list: append($list, $value);
+			}
+			
+            @else if ($px-only) and ($unit == 'rem') { /* 7 */
+				$list: append($list, ($val * $pxBase) + px); /* 7 */
+            }
+
+            @else if($unit == 'px') or ($unit == 'rem'){ /* 8 */
+				$list: append($list, $value); /* 8 */
+            }
+
+            @else {
+				@warn "Somewhere, you\'ve used em or pt or some other units other than rem or px";
+            }
+      }
+
+      @return $list(); /* 10 */
+}
+
+
+
+
+
+
+/************************
+	SQUARE ROOTS
+*************************/
+
+$pi: 	3.1415926535897932384626433832795028841971693993751;
+$e: 	2.71828182845904523536028747135266249775724709369995;
+$iter: 	50;
+
+//////////////////////////////
+// Random Number
+// Working from http://xkcd.com/221/
+// Chosen by fair dice roll.
+// Guarenteed to be random.
+//////////////////////////////
+
+@function rand() {
+	@return 4;
+}
+
+/*/////////////////////////////
+// Exponent
+/////////////////////////////*/
+
+@function exponent($base, $exponent) {
+	// reset value
+	$value: $base;
+	
+	// positive intergers get multiplied
+	@if $exponent > 1 {
+		@for $i from 2 through $exponent {
+			$value: $value * $base; 
+		}
+	}
+			
+	// negitive intergers get divided. A number divided by itself is 1
+	@if $exponent < 1 {
+		@for $i from 0 through -$exponent {
+			$value: $value / $base;
+		}
+	}
+	// return the last value written
+	@return $value;
+}
+
+
+@function pow($base, $exponent) {
+	@return exponent($base, $exponent);
+}
+
+
+@function sqrt($number) {
+	$guess: rand();
+	$root: $guess;
+	@for $i from 1 through $iter {
+		$root: $root - (pow($root, 2) - $number) / (2 * $root);
+	}
+	@return $root;
+}
+
+
+
+/*************************************
+This converts columns to pixels based 
+on the $content width 
+*************************************/
+
+@function column-px( $content, $column){
+	$container: $content / 12;
+	@return ($container * $column);
+}
+
+
+
+/*********************
+RESPONSIVE HELPER FUNCTION
+If you're creating a responsive site, then
+you've probably already read
+Responsive Web Design: http://www.abookapart.com/products/responsive-web-design
+
+Here's a nice little helper function for calculating
+target / context
+as mentioned in that book.
+
+Example:
+width: cp(650px, 1000px);
+or
+width: calc-percent(650px, 1000px);
+both compile to:
+width: 65%;
+*********************/
+
+@function cp($target, $container) {
+  @return calc-percent($target, $container);
+}

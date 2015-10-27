@@ -1,6 +1,6 @@
-/******************************************************************
-Pneumatic theme styles
-******************************************************************/
+/**********
+VARIABLES
+***********/
 /******************************************************************
 /* Breakpoints
 
@@ -1180,6 +1180,31 @@ Background colour based on brightness
 	if the background is dark or light and
 	gives you white or dark grey text colour.
 *************************************/
+.button.button-primary {
+  border: 0;
+  text-indent: 0;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  font-weight: 600;
+  font-style: normal;
+  text-decoration: none;
+  text-align: center;
+  -webkit-border-radius: 4rem;
+          border-radius: 4rem;
+  font-smoothing: antialiased;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding: 0.844rem 1.5rem;
+  line-height: 1.125rem;
+  font-size: 0.875rem; }
+  @media only screen and (min-width: 768px) {
+    .button.button-primary {
+      padding: 0.8125rem 2rem;
+      line-height: 1.25rem;
+      font-size: 0.9375rem; } }
+
 /*********************
 CLEARFIXIN'
 *********************/
@@ -1436,10 +1461,34 @@ p {
       hyphens: aunoneto; }
 
 /* Placeholders. Theeeyyyyyyyyy'rrreeee great! */
+.no-svg #login h1 a {
+  color: #222;
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 2rem; }
+  @media only screen and (min-width: 768px) {
+    .no-svg #login h1 a {
+      font-size: 2.625rem;
+      line-height: 3.125rem; } }
+  @media only screen and (min-width: 1025px) {
+    .no-svg #login h1 a {
+      font-size: 2.625rem;
+      line-height: 3.125rem; } }
+
+#login form label, #login #nav a, #login #backtoblog a {
+  color: #222;
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.4375rem; }
+  @media only screen and (min-width: 1025px) {
+    #login form label, #login #nav a, #login #backtoblog a {
+      font-size: 1.25rem;
+      line-height: 1.4; } }
+
 /*********************
 INPUTS
 *********************/
-input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], select, textarea, .field {
+input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], select, textarea, .field, #login form .input {
   padding: 0.65rem 1.125rem;
   color: #222;
   vertical-align: top;
@@ -1457,11 +1506,11 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none; }
-  input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, select:focus, textarea:focus, .field:focus, input[type="text"]:active, input[type="password"]:active, input[type="datetime"]:active, input[type="datetime-local"]:active, input[type="date"]:active, input[type="month"]:active, input[type="time"]:active, input[type="week"]:active, input[type="number"]:active, input[type="email"]:active, input[type="url"]:active, input[type="search"]:active, input[type="tel"]:active, input[type="color"]:active, select:active, textarea:active, .field:active {
+  input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, select:focus, textarea:focus, .field:focus, #login form .input:focus, input[type="text"]:active, input[type="password"]:active, input[type="datetime"]:active, input[type="datetime-local"]:active, input[type="date"]:active, input[type="month"]:active, input[type="time"]:active, input[type="week"]:active, input[type="number"]:active, input[type="email"]:active, input[type="url"]:active, input[type="search"]:active, input[type="tel"]:active, input[type="color"]:active, select:active, textarea:active, .field:active, #login form .input:active {
     -webkit-box-shadow: 0 0 5px #f40236;
             box-shadow: 0 0 5px #f40236;
     outline: 0; }
-  input.error[type="text"], input.error[type="password"], input.error[type="datetime"], input.error[type="datetime-local"], input.error[type="date"], input.error[type="month"], input.error[type="time"], input.error[type="week"], input.error[type="number"], input.error[type="email"], input.error[type="url"], input.error[type="search"], input.error[type="tel"], input.error[type="color"], select.error, textarea.error, .error.field, input.is-invalid[type="text"], input.is-invalid[type="password"], input.is-invalid[type="datetime"], input.is-invalid[type="datetime-local"], input.is-invalid[type="date"], input.is-invalid[type="month"], input.is-invalid[type="time"], input.is-invalid[type="week"], input.is-invalid[type="number"], input.is-invalid[type="email"], input.is-invalid[type="url"], input.is-invalid[type="search"], input.is-invalid[type="tel"], input.is-invalid[type="color"], select.is-invalid, textarea.is-invalid, .is-invalid.field {
+  input.error[type="text"], input.error[type="password"], input.error[type="datetime"], input.error[type="datetime-local"], input.error[type="date"], input.error[type="month"], input.error[type="time"], input.error[type="week"], input.error[type="number"], input.error[type="email"], input.error[type="url"], input.error[type="search"], input.error[type="tel"], input.error[type="color"], select.error, textarea.error, .error.field, #login form .error.input, input.is-invalid[type="text"], input.is-invalid[type="password"], input.is-invalid[type="datetime"], input.is-invalid[type="datetime-local"], input.is-invalid[type="date"], input.is-invalid[type="month"], input.is-invalid[type="time"], input.is-invalid[type="week"], input.is-invalid[type="number"], input.is-invalid[type="email"], input.is-invalid[type="url"], input.is-invalid[type="search"], input.is-invalid[type="tel"], input.is-invalid[type="color"], select.is-invalid, textarea.is-invalid, .is-invalid.field, #login form .is-invalid.input {
     color: #EB5453;
     border-color: #EB5453;
     background-color: white;
@@ -1469,7 +1518,7 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
     background-repeat: no-repeat;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NDM0NDREQkYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NDM0NDREQ0YwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ3ODRGRkE2RjA0QTExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjY0MzQ0NERBRjA0QjExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+U8iT5wAAAedJREFUeNqk1U9I02Ecx/HtV3aIFAc1hcRDUoGXRAq0oNLA2CrsEFmHbikZu0iQYIFGYAiegkCpLipBxPpDEBMUzB0EhSG2LhG7hMR2GviPgUTvB57Bw8P3+U23B16HPX8+e/b8nt93wezZSMCnhXETF3AcB5BDCnH8Dq98ExcGHcFn8Ah3cdDni+fxnPDv9oAnTB7CKu6VCFXtChZy56LxUjt+jfuB8toSOth9wd7xWAWhqrUjYR/FRTwWJm+iIPT/w7bQf5ljiZnBg45dtKFX6H+LU8gIY8OEV6vgTkStwXWE8BPTGDHGPqNPz2mCfSOOYkA99TvCt1bhGPL68zMcwmncMuape10jrI+q4BbHi/FLn31S9z2x5tRhTc+1W506ipM+T3oRD4X+8+qtc4SqFvL0z/Fr14S+Szjis8bz9Lvvaq8cwS/wwGfdlqfPSWqTiFlX77o13u9Ym1PBs8JAytpRoy44X9Ft9E/gvbA+rYKn8NcaaMVc8UHgBw4b9/iqUQZ6hOAJFbyDcUflmsEX4a6+wTtHGfhAIUqa1U29Zc2BytouThD8x6xuN5CtMPi2CrXLZkZf/HyZoRFCP7n+QVR4PV7uI/AjGghN7OU/r1ilnqILtfpNC+o6vIFljBKYlhb/F2AAgaBsWR5wRiIAAAAASUVORK5CYII=);
     outline-color: #EB5453; }
-  input.success[type="text"], input.success[type="password"], input.success[type="datetime"], input.success[type="datetime-local"], input.success[type="date"], input.success[type="month"], input.success[type="time"], input.success[type="week"], input.success[type="number"], input.success[type="email"], input.success[type="url"], input.success[type="search"], input.success[type="tel"], input.success[type="color"], select.success, textarea.success, .success.field, input.is-valid[type="text"], input.is-valid[type="password"], input.is-valid[type="datetime"], input.is-valid[type="datetime-local"], input.is-valid[type="date"], input.is-valid[type="month"], input.is-valid[type="time"], input.is-valid[type="week"], input.is-valid[type="number"], input.is-valid[type="email"], input.is-valid[type="url"], input.is-valid[type="search"], input.is-valid[type="tel"], input.is-valid[type="color"], select.is-valid, textarea.is-valid, .is-valid.field {
+  input.success[type="text"], input.success[type="password"], input.success[type="datetime"], input.success[type="datetime-local"], input.success[type="date"], input.success[type="month"], input.success[type="time"], input.success[type="week"], input.success[type="number"], input.success[type="email"], input.success[type="url"], input.success[type="search"], input.success[type="tel"], input.success[type="color"], select.success, textarea.success, .success.field, #login form .success.input, input.is-valid[type="text"], input.is-valid[type="password"], input.is-valid[type="datetime"], input.is-valid[type="datetime-local"], input.is-valid[type="date"], input.is-valid[type="month"], input.is-valid[type="time"], input.is-valid[type="week"], input.is-valid[type="number"], input.is-valid[type="email"], input.is-valid[type="url"], input.is-valid[type="search"], input.is-valid[type="tel"], input.is-valid[type="color"], select.is-valid, textarea.is-valid, .is-valid.field, #login form .is-valid.input {
     color: #02951E;
     border-color: #02951E;
     background-color: white;
@@ -1477,23 +1526,23 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
     background-repeat: no-repeat;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NDM0NDRERkYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NDM0NDRFMEYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjY0MzQ0NERERjA0QjExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjY0MzQ0NERFRjA0QjExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+7olkTQAAAfhJREFUeNqklU9oE0EUhzdroWjw0tBeWlDxkEaIp55TsCU9VKIgCrHBelA8CQ1Kr1WPbZrQ3gqtQqvGqxpQc2jBk6BIIaAGD4qNCKURpDSKiPi98gLDsJt//uBjsztvfnk7895sIPAw6/joGMThFJyAXn2+A+9gA57/TaY/eU0OeBgfhGm4DiGnsb7DAszxBz/NAdcKjMJLuNWCqagHbsscN5+L+hmH4QkMOe1L5jzFfNA2PgT34ajTuY7AGuZB0/hmh5m+gS0r8xv1zRvg+gGCHZiOwnF4DP3iB3sQkYxPd2C6CWfhB9Xwlus5+K1j4jXuaq3a+gM1H9OPcAa+7q9lPidZJqHbiIm7Wg22rsEI7FrPSzAMX/T+ADyAKSsu7Fr1KplehLvwCs5DvfBf65p+MypqRbO1FXK9utH4/QKuaqYTsG3E3INJv00Q46px3+XxanJ/Ute2/vqP4FKDza2KcdljIKdnhS0xXYULTaqmLMZFn8FFSFtvt6x70ExFCS5oUXspq2ssa7oEl1swFa+CGFdgtkHgPDyDKy02zyxNU6lXRUZb1EuHYayNNs+Yh5B0WQo+/8fpJnNTZFuzz2OpjoQ2QruSOQlMy35fEGmEGMxY9e1brxobw7TkWA1h6xfckUPb+JhGoE/Hpfvew7qUld/H9J8AAwDpw3WYrxcZ3QAAAABJRU5ErkJggg==);
     outline-color: #02951E; }
-  input[disabled][type="text"], input[disabled][type="password"], input[disabled][type="datetime"], input[disabled][type="datetime-local"], input[disabled][type="date"], input[disabled][type="month"], input[disabled][type="time"], input[disabled][type="week"], input[disabled][type="number"], input[disabled][type="email"], input[disabled][type="url"], input[disabled][type="search"], input[disabled][type="tel"], input[disabled][type="color"], select[disabled], textarea[disabled], [disabled].field, input.is-disabled[type="text"], input.is-disabled[type="password"], input.is-disabled[type="datetime"], input.is-disabled[type="datetime-local"], input.is-disabled[type="date"], input.is-disabled[type="month"], input.is-disabled[type="time"], input.is-disabled[type="week"], input.is-disabled[type="number"], input.is-disabled[type="email"], input.is-disabled[type="url"], input.is-disabled[type="search"], input.is-disabled[type="tel"], input.is-disabled[type="color"], select.is-disabled, textarea.is-disabled, .is-disabled.field {
+  input[disabled][type="text"], input[disabled][type="password"], input[disabled][type="datetime"], input[disabled][type="datetime-local"], input[disabled][type="date"], input[disabled][type="month"], input[disabled][type="time"], input[disabled][type="week"], input[disabled][type="number"], input[disabled][type="email"], input[disabled][type="url"], input[disabled][type="search"], input[disabled][type="tel"], input[disabled][type="color"], select[disabled], textarea[disabled], [disabled].field, #login form [disabled].input, input.is-disabled[type="text"], input.is-disabled[type="password"], input.is-disabled[type="datetime"], input.is-disabled[type="datetime-local"], input.is-disabled[type="date"], input.is-disabled[type="month"], input.is-disabled[type="time"], input.is-disabled[type="week"], input.is-disabled[type="number"], input.is-disabled[type="email"], input.is-disabled[type="url"], input.is-disabled[type="search"], input.is-disabled[type="tel"], input.is-disabled[type="color"], select.is-disabled, textarea.is-disabled, .is-disabled.field, #login form .is-disabled.input {
     cursor: not-allowed;
     border-color: #f9f9f9;
     opacity: 0.6; }
-    input[disabled][type="text"]:focus, input[disabled][type="password"]:focus, input[disabled][type="datetime"]:focus, input[disabled][type="datetime-local"]:focus, input[disabled][type="date"]:focus, input[disabled][type="month"]:focus, input[disabled][type="time"]:focus, input[disabled][type="week"]:focus, input[disabled][type="number"]:focus, input[disabled][type="email"]:focus, input[disabled][type="url"]:focus, input[disabled][type="search"]:focus, input[disabled][type="tel"]:focus, input[disabled][type="color"]:focus, select[disabled]:focus, textarea[disabled]:focus, [disabled].field:focus, input[disabled][type="text"]:active, input[disabled][type="password"]:active, input[disabled][type="datetime"]:active, input[disabled][type="datetime-local"]:active, input[disabled][type="date"]:active, input[disabled][type="month"]:active, input[disabled][type="time"]:active, input[disabled][type="week"]:active, input[disabled][type="number"]:active, input[disabled][type="email"]:active, input[disabled][type="url"]:active, input[disabled][type="search"]:active, input[disabled][type="tel"]:active, input[disabled][type="color"]:active, select[disabled]:active, textarea[disabled]:active, [disabled].field:active, input.is-disabled[type="text"]:focus, input.is-disabled[type="password"]:focus, input.is-disabled[type="datetime"]:focus, input.is-disabled[type="datetime-local"]:focus, input.is-disabled[type="date"]:focus, input.is-disabled[type="month"]:focus, input.is-disabled[type="time"]:focus, input.is-disabled[type="week"]:focus, input.is-disabled[type="number"]:focus, input.is-disabled[type="email"]:focus, input.is-disabled[type="url"]:focus, input.is-disabled[type="search"]:focus, input.is-disabled[type="tel"]:focus, input.is-disabled[type="color"]:focus, select.is-disabled:focus, textarea.is-disabled:focus, .is-disabled.field:focus, input.is-disabled[type="text"]:active, input.is-disabled[type="password"]:active, input.is-disabled[type="datetime"]:active, input.is-disabled[type="datetime-local"]:active, input.is-disabled[type="date"]:active, input.is-disabled[type="month"]:active, input.is-disabled[type="time"]:active, input.is-disabled[type="week"]:active, input.is-disabled[type="number"]:active, input.is-disabled[type="email"]:active, input.is-disabled[type="url"]:active, input.is-disabled[type="search"]:active, input.is-disabled[type="tel"]:active, input.is-disabled[type="color"]:active, select.is-disabled:active, textarea.is-disabled:active, .is-disabled.field:active {
+    input[disabled][type="text"]:focus, input[disabled][type="password"]:focus, input[disabled][type="datetime"]:focus, input[disabled][type="datetime-local"]:focus, input[disabled][type="date"]:focus, input[disabled][type="month"]:focus, input[disabled][type="time"]:focus, input[disabled][type="week"]:focus, input[disabled][type="number"]:focus, input[disabled][type="email"]:focus, input[disabled][type="url"]:focus, input[disabled][type="search"]:focus, input[disabled][type="tel"]:focus, input[disabled][type="color"]:focus, select[disabled]:focus, textarea[disabled]:focus, [disabled].field:focus, #login form [disabled].input:focus, input[disabled][type="text"]:active, input[disabled][type="password"]:active, input[disabled][type="datetime"]:active, input[disabled][type="datetime-local"]:active, input[disabled][type="date"]:active, input[disabled][type="month"]:active, input[disabled][type="time"]:active, input[disabled][type="week"]:active, input[disabled][type="number"]:active, input[disabled][type="email"]:active, input[disabled][type="url"]:active, input[disabled][type="search"]:active, input[disabled][type="tel"]:active, input[disabled][type="color"]:active, select[disabled]:active, textarea[disabled]:active, [disabled].field:active, #login form [disabled].input:active, input.is-disabled[type="text"]:focus, input.is-disabled[type="password"]:focus, input.is-disabled[type="datetime"]:focus, input.is-disabled[type="datetime-local"]:focus, input.is-disabled[type="date"]:focus, input.is-disabled[type="month"]:focus, input.is-disabled[type="time"]:focus, input.is-disabled[type="week"]:focus, input.is-disabled[type="number"]:focus, input.is-disabled[type="email"]:focus, input.is-disabled[type="url"]:focus, input.is-disabled[type="search"]:focus, input.is-disabled[type="tel"]:focus, input.is-disabled[type="color"]:focus, select.is-disabled:focus, textarea.is-disabled:focus, .is-disabled.field:focus, #login form .is-disabled.input:focus, input.is-disabled[type="text"]:active, input.is-disabled[type="password"]:active, input.is-disabled[type="datetime"]:active, input.is-disabled[type="datetime-local"]:active, input.is-disabled[type="date"]:active, input.is-disabled[type="month"]:active, input.is-disabled[type="time"]:active, input.is-disabled[type="week"]:active, input.is-disabled[type="number"]:active, input.is-disabled[type="email"]:active, input.is-disabled[type="url"]:active, input.is-disabled[type="search"]:active, input.is-disabled[type="tel"]:active, input.is-disabled[type="color"]:active, select.is-disabled:active, textarea.is-disabled:active, .is-disabled.field:active, #login form .is-disabled.input:active {
       background-color: #1D59A1; }
-  input[type="text"]:placeholder, input[type="password"]:placeholder, input[type="datetime"]:placeholder, input[type="datetime-local"]:placeholder, input[type="date"]:placeholder, input[type="month"]:placeholder, input[type="time"]:placeholder, input[type="week"]:placeholder, input[type="number"]:placeholder, input[type="email"]:placeholder, input[type="url"]:placeholder, input[type="search"]:placeholder, input[type="tel"]:placeholder, input[type="color"]:placeholder, select:placeholder, textarea:placeholder, .field:placeholder {
+  input[type="text"]:placeholder, input[type="password"]:placeholder, input[type="datetime"]:placeholder, input[type="datetime-local"]:placeholder, input[type="date"]:placeholder, input[type="month"]:placeholder, input[type="time"]:placeholder, input[type="week"]:placeholder, input[type="number"]:placeholder, input[type="email"]:placeholder, input[type="url"]:placeholder, input[type="search"]:placeholder, input[type="tel"]:placeholder, input[type="color"]:placeholder, select:placeholder, textarea:placeholder, .field:placeholder, #login form .input:placeholder {
     color: #222; }
-  input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="datetime"]::-webkit-input-placeholder, input[type="datetime-local"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, input[type="month"]::-webkit-input-placeholder, input[type="time"]::-webkit-input-placeholder, input[type="week"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder, input[type="url"]::-webkit-input-placeholder, input[type="search"]::-webkit-input-placeholder, input[type="tel"]::-webkit-input-placeholder, input[type="color"]::-webkit-input-placeholder, select::-webkit-input-placeholder, textarea::-webkit-input-placeholder, .field::-webkit-input-placeholder {
+  input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder, input[type="datetime"]::-webkit-input-placeholder, input[type="datetime-local"]::-webkit-input-placeholder, input[type="date"]::-webkit-input-placeholder, input[type="month"]::-webkit-input-placeholder, input[type="time"]::-webkit-input-placeholder, input[type="week"]::-webkit-input-placeholder, input[type="number"]::-webkit-input-placeholder, input[type="email"]::-webkit-input-placeholder, input[type="url"]::-webkit-input-placeholder, input[type="search"]::-webkit-input-placeholder, input[type="tel"]::-webkit-input-placeholder, input[type="color"]::-webkit-input-placeholder, select::-webkit-input-placeholder, textarea::-webkit-input-placeholder, .field::-webkit-input-placeholder, #login form .input::-webkit-input-placeholder {
     color: #222; }
-  input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder, input[type="datetime"]:-moz-placeholder, input[type="datetime-local"]:-moz-placeholder, input[type="date"]:-moz-placeholder, input[type="month"]:-moz-placeholder, input[type="time"]:-moz-placeholder, input[type="week"]:-moz-placeholder, input[type="number"]:-moz-placeholder, input[type="email"]:-moz-placeholder, input[type="url"]:-moz-placeholder, input[type="search"]:-moz-placeholder, input[type="tel"]:-moz-placeholder, input[type="color"]:-moz-placeholder, select:-moz-placeholder, textarea:-moz-placeholder, .field:-moz-placeholder {
+  input[type="text"]:-moz-placeholder, input[type="password"]:-moz-placeholder, input[type="datetime"]:-moz-placeholder, input[type="datetime-local"]:-moz-placeholder, input[type="date"]:-moz-placeholder, input[type="month"]:-moz-placeholder, input[type="time"]:-moz-placeholder, input[type="week"]:-moz-placeholder, input[type="number"]:-moz-placeholder, input[type="email"]:-moz-placeholder, input[type="url"]:-moz-placeholder, input[type="search"]:-moz-placeholder, input[type="tel"]:-moz-placeholder, input[type="color"]:-moz-placeholder, select:-moz-placeholder, textarea:-moz-placeholder, .field:-moz-placeholder, #login form .input:-moz-placeholder {
     /* Firefox 18- */
     color: #222; }
-  input[type="text"]::-moz-placeholder, input[type="password"]::-moz-placeholder, input[type="datetime"]::-moz-placeholder, input[type="datetime-local"]::-moz-placeholder, input[type="date"]::-moz-placeholder, input[type="month"]::-moz-placeholder, input[type="time"]::-moz-placeholder, input[type="week"]::-moz-placeholder, input[type="number"]::-moz-placeholder, input[type="email"]::-moz-placeholder, input[type="url"]::-moz-placeholder, input[type="search"]::-moz-placeholder, input[type="tel"]::-moz-placeholder, input[type="color"]::-moz-placeholder, select::-moz-placeholder, textarea::-moz-placeholder, .field::-moz-placeholder {
+  input[type="text"]::-moz-placeholder, input[type="password"]::-moz-placeholder, input[type="datetime"]::-moz-placeholder, input[type="datetime-local"]::-moz-placeholder, input[type="date"]::-moz-placeholder, input[type="month"]::-moz-placeholder, input[type="time"]::-moz-placeholder, input[type="week"]::-moz-placeholder, input[type="number"]::-moz-placeholder, input[type="email"]::-moz-placeholder, input[type="url"]::-moz-placeholder, input[type="search"]::-moz-placeholder, input[type="tel"]::-moz-placeholder, input[type="color"]::-moz-placeholder, select::-moz-placeholder, textarea::-moz-placeholder, .field::-moz-placeholder, #login form .input::-moz-placeholder {
     /* Firefox 19+ */
     color: #222; }
-  input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, input[type="datetime"]:-ms-input-placeholder, input[type="datetime-local"]:-ms-input-placeholder, input[type="date"]:-ms-input-placeholder, input[type="month"]:-ms-input-placeholder, input[type="time"]:-ms-input-placeholder, input[type="week"]:-ms-input-placeholder, input[type="number"]:-ms-input-placeholder, input[type="email"]:-ms-input-placeholder, input[type="url"]:-ms-input-placeholder, input[type="search"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholder, input[type="color"]:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder, .field:-ms-input-placeholder {
+  input[type="text"]:-ms-input-placeholder, input[type="password"]:-ms-input-placeholder, input[type="datetime"]:-ms-input-placeholder, input[type="datetime-local"]:-ms-input-placeholder, input[type="date"]:-ms-input-placeholder, input[type="month"]:-ms-input-placeholder, input[type="time"]:-ms-input-placeholder, input[type="week"]:-ms-input-placeholder, input[type="number"]:-ms-input-placeholder, input[type="email"]:-ms-input-placeholder, input[type="url"]:-ms-input-placeholder, input[type="search"]:-ms-input-placeholder, input[type="tel"]:-ms-input-placeholder, input[type="color"]:-ms-input-placeholder, select:-ms-input-placeholder, textarea:-ms-input-placeholder, .field:-ms-input-placeholder, #login form .input:-ms-input-placeholder {
     color: #222; }
 
 textarea {
@@ -1521,96 +1570,139 @@ select {
     color: transparent; }
 
 /* generated with grunt-sass-globbing */
-@media only screen and (max-width: 767px) {
-  /**
-   * Mobile padding
-   */
-  .article--content blockquote p,
-  .article--content ol ul,
-  .article--content ul ol,
-  .article--content ul ul {
-    margin-left: 0;
-    margin-right: 0; }
+/***********/
+html, body {
+  background-color: white; }
 
-  /* The mobile menu */
-  .menu-bar {
+#login h1 a {
+  background: url("../images/login-title.svg") no-repeat top center;
+  /* make sure to replace this! */
+  /* make sure to replace this! */
+  text-indent: -9999px;
+  overflow: hidden;
+  padding-bottom: 0;
+  display: block; }
+  .no-svg #login h1 a {
+    background: none;
+    text-indent: 0;
+    color: #222; }
+    .no-svg #login h1 a:hover {
+      color: #f40236; }
+#login form {
+  margin-left: 8px;
+  padding: 1.5rem 1.5rem 2rem;
+  font-weight: normal;
+  background: white;
+  border: 0;
+  -webkit-border-radius: 0;
+          border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none; }
+  #login form .forgetmenot {
+    display: none; }
+
+#login #nav, #login #backtoblog {
+  text-align: center; }
+  #login #nav a, #login #backtoblog a {
+    color: #222; }
+
+.submit {
+  width: 100%;
+  display: inline-block;
+  clear: both;
+  text-align: center; }
+
+.button.button-primary {
+  padding: 0.8125rem 2rem !important;
+  line-height: 1.25rem !important;
+  font-size: 0.9375rem !important;
+  height: 2.625rem !important;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  float: none;
+  width: 100%;
+  margin-top: 1rem;
+  color: white;
+  background-color: #1D59A1;
+  -webkit-transition: background-color 0.1s cubic-bezier(0.84, 0.1, 0.83, 0.67);
+          transition: background-color 0.1s cubic-bezier(0.84, 0.1, 0.83, 0.67); }
+  .button.button-primary:hover {
+    background-color: #1c4b83;
+    color: white;
+    text-decoration: none; }
+  .button.button-primary:focus, .button.button-primary:active {
+    background-color: #113560;
+    color: white; }
+
+/*
+You'll have to override some of the default styles
+but since we're referencing the id, it should be easy.
+*/
+/* login button*/
+.text-center {
+  text-align: center; }
+
+@media only screen and (max-width: 1240px) {
+  .header, .breadcrumbs, .footer {
+    display: none; } }
+
+/* Login Revamp */
+#login {
+  width: 100%;
+  zoom: 1;
+  padding-top: 2%; }
+  #login .message {
     text-align: center; }
-
-  #main {
-    width: 100%; }
-
-  /* Removing padding on posts */
-  /* @TODO: Check if there are more pages than blog and archive that needs to be targeted */
-  .blog #main,
-  .archive #main {
-    padding: 0; }
-
-  .page-title {
-    margin-bottom: 0.75rem; } }
-@media only screen and (min-width: 481px) {
-  .alignleft, img.alignleft {
-    margin-right: 1.5em;
-    display: inline;
-    float: left; }
-
-  .alignright, img.alignright {
-    margin-left: 1.5em;
-    display: inline;
-    float: right;
-    text-align: right; }
-
-  .aligncenter, img.aligncenter {
-    margin-right: auto;
-    margin-left: auto;
+  #login:before, #login:after {
+    content: "";
+    display: table; }
+  #login:after {
+    clear: both; }
+  #login p {
+    padding: 1rem 0 0; }
+  #login br {
     display: block;
-    clear: both;
-    text-align: center; }
-
-  /**
-   * Image captions
-   * Here I'm using an inner block to let the text (<p>) align itself with the image.
-   * It's useful when the image has a caption and is aligned center or right.
-   */
-  .wp-caption--inner {
-    display: inline-block;
-    text-align: left; }
-
-  /* Widgets */
-  .widget_search {
-    width: 50%; } }
-@media only screen and (min-width: 768px) {
-  #content {
-    padding-top: 2em; }
-
-  /* Widgets */
-  .widget-area {
-    width: 100%;
-    float: left; }
-
-  .widget {
+    line-height: 2; }
+  #login input {
     width: 100%; }
+  @media only screen and (min-width: 768px) {
+    #login {
+      width: 50%;
+      max-width: 25rem;
+      margin: 12% auto;
+      text-align: center; } }
+  @media only screen and (min-width: 1240px) {
+    #login {
+      width: 39%;
+      margin: 0 auto;
+      padding-left: 0%;
+      display: inline-block; }
+      #login #loginform {
+        width: 80%;
+        display: block;
+        margin: 0 auto 2rem;
+        padding: 0; } }
 
-  .widget_calendar {
-    width: 50%; }
-
-  footer {
-    padding: 4em 0;
-    margin-top: 5.5em;
-    /* In desktop each widget uses a third of the footer width */ }
-    footer .widget {
-      float: left;
-      width: 33.3%; }
-
-  /*
-  Hide anything mobile only
-  */
-  .mo {
-    display: none !important; } }
-@media only screen and (min-width: 1024px) {
-  /* Utility class, this class is only visible up to Tablet portrait */
-  .tpo {
-    display: none !important; } }
-@media only screen and (min-width: 1240px) {
-  /* Removing left paddning for all archive pages that are not woocommerce pages */
-  .archive:not(.woocommerce) #main {
-    padding-left: 0 !important; } }
+.additional {
+  width: 100%;
+  zoom: 1;
+  display: none; }
+  #wp-auth-check-frame .additional {
+    display: none; }
+  .additional:before, .additional:after {
+    content: "";
+    display: table; }
+  .additional:after {
+    clear: both; }
+  .additional .quote .quote__avatar,
+  .additional .quote .quote--mark {
+    z-index: 1; }
+  @media only screen and (min-width: 1240px) {
+    .additional {
+      border-left: 1px solid #ddd;
+      width: 59%;
+      padding-right: 0%;
+      padding-left: 5%;
+      vertical-align: top;
+      display: inline-block;
+      clear: right; } }

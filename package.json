@@ -1,6 +1,6 @@
 {
-  "name": "new-project",
-  "version": "0.0.1",
+  "name": "Driv_Starter",
+  "version": "0.0.2",
   "private": true,
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
@@ -13,8 +13,11 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-newer": "^1.1.1",
+    "grunt-pixrem": "^0.1.2",
     "grunt-postcss": "^0.5.5",
     "grunt-sass-globbing": "^1.4.0",
+    "grunt-stripmq": "0.0.6",
+    "grunt-svg-sprite": "^1.2.10",
     "matchdep": "^0.3.0",
     "node-bourbon": "^4.2.3"
   }

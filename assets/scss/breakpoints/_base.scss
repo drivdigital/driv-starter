@@ -381,7 +381,7 @@ textarea {
 
 /* Buttons */
  .btn, .button, button, input[type="submit"] {
-  background-color: $button-color;
+  background-color: $brand-colour;
   color: #fff;
   -webkit-font-smoothing: antialiased;
   border-radius: 3px;
@@ -390,13 +390,12 @@ textarea {
   padding: 0.5em 0.5em 0.45em;
   text-decoration: none ;
   &:hover, &:focus {
-    background-color: $button-hover;
+    background-color: desaturate(darken($brand-colour, 6%), 5%);
   }
 }
 
 /* If you want to change the footer color you should do so in _variables.scss */
 footer {
-  background-color: $footer-color;
   padding: 3.25em 0;
   margin-top: 2em;
 }

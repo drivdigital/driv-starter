@@ -10,7 +10,7 @@ Pneumatic theme  woocommerce styles
 /*
  * mobile only styles only in this media query
  */
-@media only #{$mobile-only} {
+@media only screen and #{$mobile-only} {
   /*
    * Products
    * [woocommerce]
@@ -277,11 +277,12 @@ Pneumatic theme  woocommerce styles
 .woocommerce input.button.alt,
 .woocommerce a.button.alt,
 .woocommerce button.button.alt:disabled[disabled] {
-  background-color: $button-color;
-  color: $button-text;
+  background-color: $brand-colour;
+  color: $text;
+
   &:hover {
-    background: $button-hover;
-    color: $button-text;
+    background: desaturate(darken($brand-colour, 6%), 5%);;
+    color: $text;
   }
 }
 
@@ -289,12 +290,12 @@ Pneumatic theme  woocommerce styles
 .woocommerce ul.products li.product .price,
 .amount,
 .woocommerce div.product p.price {
-  color: $price-color;
+  color: $brand-alt
 }
 
 /* On sale badge, product pages, single and lists, if you want to change the badge-color you should do so in _variables.scss */
 .woocommerce span.onsale {
-  background: $badge-color;
+  background: $brand-alt;
   z-index: 5;
 }
 
@@ -306,5 +307,5 @@ Pneumatic theme  woocommerce styles
 .woocommerce p.stars a.star-3,
 .woocommerce p.stars a.star-4,
 .woocommerce p.stars a.star-5 {
-  color: $star-color;
+  color: invert($brand-colour);
 }

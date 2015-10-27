@@ -1,29 +1,103 @@
 /******************************************************************
-Pneumatic theme variables
+/* Breakpoints
+
+Written as just the size. This allows combining of these queries
+into something like "only screen and landscape and tablet-down"
 ******************************************************************/
 
-$landscape:        'screen and ( min-width:  481px )';
-$mobile-only:      'screen and ( max-width:  767px )';
-$tablet:           'screen and ( min-width:  768px )';
-$tablet-landscape: 'screen and ( min-width: 1024px )';
-$tablet-down:      'screen and ( max-width: 1024px )';
-$laptop:           'screen and ( min-width: 1025px )';
-$desktop:          'screen and ( min-width: 1240px )';
+$landscape:        '( min-width:  481px )';
+$mobile-only:      '( max-width:  767px )';
 
+$tablet:           '( min-width:  768px )';
+$tablet-down:      '( max-width:  767px )';
+$tablet-landscape: '( min-width: 1024px )';
 
-/* Colors */
-$link-color: #999999;
-$link-hover: darken($link-color, 10%);
-$button-color: #4e4e4e;
-$button-hover: darken($button-color, 5%);
-$button-text: #fff;
-$background-color: #fefefe;
-$menu-color: #eee;
-$menu-current: #ddd;
-$price-color: #c00;
-$footer-color: #eee;
-$badge-color: #4e4e4e;
-$star-color: #c00;
+$laptop:           '( min-width: 1025px )';
+$laptop-down:      '( max-width: 1025px )';
+
+$desktop:          '( min-width: 1240px )';
+$desktop-down:     '( max-width: 1240px )';
+
+$cinema:           '( min-width: 1440px )';
+$cinema-down:      '( max-width: 1440px )';
+
+$small-device-only: 'only screen and '$landscape' and '$laptop-down;
+
+/******************************************************************
+/* Colours
+
+Variables written throughout the site. Everything on this page
+should decide every colour on the site.
+******************************************************************/
+
+/* Link colours */
+$link-color: 				#999999;
+$link-hover: 				darken($link-color, 10%);
+
+/* Element colours */
+$background-color: 	#fefefe;
+$menu-color: 				#fff;
+$menu-current: 			#ddd;
+$price-color: 			#c00;
+$footer-color: 			#eee;
+$badge-color: 			#4e4e4e;
+$star-color: 				#f2a536;
+
+/* Alerts */
+$alert-green:     	#02951E; 	// Alert state green
+$alert-red:       	#EB5453; 	// Alert state red
+$alert-grey:      	#999999; 	// Alert state grey
+$alert-blue:      	#1D59A1; 	// Alert state blue
 
 /* Misc */
-$paragraph-size: (14/16)+rem;
+$paragraph-size: 		1rem;
+
+$grey:							#f3f3f3;
+$grey-light:				#f9f9f9;
+$grey-dark:					#ddd;
+$grey-darker:				#aaa;
+
+/* General colours */
+$text:            	#222; 		// Deep grey
+$text-light:      	#444; 		// Lighter grey
+$text-overprint:  	#595959; 	// A strange dark muddy grey
+
+/* Brand colours */
+$red: 							#f40236;
+$blue:            	#1D59A1; 	// Faceobook colour
+
+/* Using these doesn't tie us down to naming conventions */
+$brand-colour:			$red;
+$brand-alt:					$blue;
+
+
+/******************************************************************
+/* Animation
+
+Pre-defined cubic-beziers adds life to animations. Subtle eases that
+enhance the qwuality of an animation.
+******************************************************************/
+
+$curve: 							cubic-bezier(0.84, 0.1, 0.83, 0.67);
+
+
+
+/******************************************************************
+/* For the sake of testing, hr styles
+******************************************************************/
+
+hr{
+	margin: 4rem auto;
+	display: block;
+	border: 0;
+	max-width: 80;
+	border-top: 1px solid $grey-dark;
+
+	@media only screen and #{$tablet}{
+		max-width: 75%;
+	}	
+
+	@media only screen and #{$desktop}{
+		max-width: 60%;
+	}
+}

@@ -1,0 +1,21 @@
+/* 
+	Blend Modes
+	===========
+	http://caniuse.com/#feat=css-backgroundblendmode
+	@usage:  
+		@include blended("url", $colour);
+		@include blended("url", $grad: $love);
+
+*/
+
+@mixin blended($img, $color: null, $grad: null, $blend: multiply) {
+	$img-path: url('img/#{$img}');
+	// Are we using a gradient?
+	@if $grad {
+		background: $grad, $img-path;
+	} @else {
+		background-image: $img-path;
+		background-color: $color;
+	}
+	background-blend-mode: $blend;
+}

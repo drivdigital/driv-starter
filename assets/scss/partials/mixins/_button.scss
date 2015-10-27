@@ -1,0 +1,59 @@
+/************************************
+		B U T T O N   C O L O U R S
+	This mixin gives you a button in any
+	colour that you want. It then decides
+	if the background is dark or light and
+	gives you white or dark grey text colour.
+*************************************/
+
+%btn{
+  // Basic button styles
+	border: 0;
+	text-indent:0;
+	display: inline-block;
+	cursor: pointer;
+	outline: none; 
+  font-weight: 600;
+  // Font style within button
+	font-style: normal;
+	text-decoration: none;
+	text-align: center;
+
+  // Button appearance
+	border-radius: 4rem;
+	font-smoothing: antialiased;
+	appearance: none;
+
+	// Sizing
+	padding: 0.844rem 1.5rem;		// THIS
+	line-height: 1.125rem; 			// IS
+	font-size: 0.875rem; 				// 45PX!
+
+	@media only screen and #{$tablet}{
+		padding: 0.8125rem 2rem;			// THIS
+		line-height: 1.25rem; 		// IS
+		font-size: 0.9375rem; 		// 50PX!
+	}
+
+}
+
+@mixin btn($colour){
+	@extend %btn;
+
+  // Colouring
+	color: white;
+	background-color: $colour;
+	transition: background-color 0.1s $curve;
+	
+  &:hover{ 
+  	background-color: desaturate(darken($colour, 6%), 5%);
+  	color: white; 
+  	text-decoration: none;
+  }
+  
+  &:focus, 
+  &:active  { 
+  	background-color: darken($colour, 15%);
+  	color: white;
+  }
+}

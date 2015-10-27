@@ -1,0 +1,29 @@
+/*********************
+C O N T E N T   C H O R E O G R A P H Y
+Something that will reorder your content if used correctly.
+And on the right browser, of course.
+**********************/
+
+// This is a mixin for making the PARENT box ready.
+// Usage:	@include boxed(vertical);
+ 
+@mixin boxed ($dir) {
+	display:box;
+	display:-moz-box;
+	display:-webkit-box;
+	box-orient:$dir;
+	-moz-box-orient:$dir;
+	-webkit-box-orient:$dir;
+}
+
+// This is the lever ordering part.
+// Usage:	@include order(1);
+
+@mixin order ($num) {
+	box-ordinal-group: 1;
+	-moz-box-ordinal-group: 1;
+	-webkit-box-ordinal-group: 1;
+	box-ordinal-group: #{$num};
+	-moz-box-ordinal-group: #{$num};
+	-webkit-box-ordinal-group: #{$num};
+}
