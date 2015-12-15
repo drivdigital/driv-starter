@@ -1,6 +1,6 @@
 {
-  "name": "Driv_Starter",
-  "version": "0.0.2",
+  "name": "DrivDigital",
+  "version": "2.0.0",
   "private": true,
   "devDependencies": {
     "autoprefixer-core": "^5.2.1",
@@ -17,8 +17,6 @@
     "grunt-postcss": "^0.5.5",
     "grunt-sass-globbing": "^1.4.0",
     "grunt-stripmq": "0.0.6",
-    "grunt-svg-sprite": "^1.2.10",
-    "matchdep": "^0.3.0",
-    "node-bourbon": "^4.2.3"
+    "matchdep": "^0.3.0"
   }
 }

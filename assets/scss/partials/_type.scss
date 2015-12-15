@@ -18,7 +18,7 @@ body{
   // Sorting out fonts loading
   font-family: $font;
 
-  // Reverse font loading. If it's loading, 
+  // Reverse font loading. If it's loading,
   // we load the fallback. Otherwise, JS might
   // be disabled and fonts wouldn't load.
   .wf-loading & {
@@ -36,13 +36,13 @@ h1{
   line-height: 2rem;
 
   // Tablet - 40px / 48px
-  @media only screen and #{$tablet} {
+  @media #{$tablet} {
     font-size: 2.625rem;
     line-height: 3.125rem;
   }
 
   // laptop - 42px / 50px
-  @media only screen and #{$laptop} {
+  @media #{$laptop} {
     font-size: 2.625rem;
     line-height: 3.125rem;
   }
@@ -58,14 +58,14 @@ h2{
   margin-bottom: 0.75rem;
 
   // Tablet - 26px / 34px
-  @media only screen and #{$tablet} {
+  @media #{$tablet} {
     font-size: 1.625rem;
     line-height: 2.125rem;
     margin-bottom: 1rem;
   }
 
   // laptop - 28px / 36px
-  @media only screen and #{$laptop} {
+  @media #{$laptop} {
     font-size: 1.75rem;
     line-height: 2.25rem;
   }
@@ -81,14 +81,14 @@ h3{
   line-height: 1.625rem;
 
   // laptop - 24px / 32px
-  @media only screen and #{$laptop} {
+  @media #{$laptop} {
     font-size: 1.5rem;
     line-height: 2rem;
   }
 }
 
 h4{
-  color: $text;
+  color: $text-light;
   font-weight: 600;
 
   // Phone - 18px / 23px
@@ -96,14 +96,14 @@ h4{
   line-height: 1.4375rem;
 
   // laptop - 20px / 25px
-  @media only screen and #{$laptop} {
+  @media #{$laptop} {
     font-size: 1.25rem;
     line-height: 1.4;
   }
 }
 
 h5{
-  color: $text;
+  color: $text-overprint;
   font-weight: 400;
   text-transform: uppercase;
 
@@ -112,7 +112,7 @@ h5{
   line-height: 1.125rem;
 
   // laptop - 20px / 25px
-  @media only screen and #{$laptop} {
+  @media #{$laptop} {
     font-size: 1rem;
     line-height: 1.25rem;
   }
@@ -125,8 +125,8 @@ h6{
   margin-bottom: 1.5rem;
 }
 
-p{
-  // 
+p, .p{
+  //
   font-weight: 200;
   font-size: 1.125rem;
   line-height: 1.75;
@@ -155,13 +155,13 @@ p{
   line-height: 2rem;
 
   // Tablet - 40px / 48px
-  @media only screen and #{$tablet} {
+  @media #{$tablet} {
     font-size: 2.625rem;
     line-height: 3.125rem;
   }
 
   // laptop - 42px / 50px
-  @media only screen and #{$laptop} {
+  @media #{$laptop} {
     font-size: 2.625rem;
     line-height: 3.125rem;
   }
@@ -177,14 +177,14 @@ p{
   margin-bottom: 0.75rem;
 
   // Tablet - 26px / 34px
-  @media only screen and #{$tablet} {
+  @media #{$tablet} {
     font-size: 1.625rem;
     line-height: 2.125rem;
     margin-bottom: 1rem;
   }
 
   // laptop - 28px / 36px
-  @media only screen and #{$laptop} {
+  @media #{$laptop} {
     font-size: 1.75rem;
     line-height: 2.25rem;
   }
@@ -200,14 +200,14 @@ p{
   line-height: 1.625rem;
 
   // laptop - 24px / 32px
-  @media only screen and #{$laptop} {
+  @media #{$laptop} {
     font-size: 1.5rem;
     line-height: 2rem;
   }
 }
 
 %h4{
-  color: $text;
+  color: $text-light;
   font-weight: 600;
 
   // Phone - 18px / 23px
@@ -215,14 +215,14 @@ p{
   line-height: 1.4375rem;
 
   // laptop - 20px / 25px
-  @media only screen and #{$laptop} {
+  @media #{$laptop} {
     font-size: 1.25rem;
     line-height: 1.4;
   }
 }
 
 %h5{
-  color: $text;
+  color: $text-overprint;
   font-weight: 400;
   text-transform: uppercase;
 
@@ -231,7 +231,7 @@ p{
   line-height: 1.125rem;
 
   // laptop - 20px / 25px
-  @media only screen and #{$laptop} {
+  @media #{$laptop} {
     font-size: 1rem;
     line-height: 1.25rem;
   }
@@ -245,7 +245,7 @@ p{
 }
 
 %p{
-  // 
+  //
   font-weight: 200;
   font-size: 1.125rem;
   line-height: 1.75;

@@ -47,6 +47,10 @@ class Pneumatic_Theme {
 
     // Fix p tag around images
     add_filter( 'the_content', array( $this, 'ptag_images' ) );
+
+    // Remove Emoji functionality
+    require_once( 'classes/class-pneumatic-theme-emoji.php' );
+    Pneumatic_Theme_Emoji::disable_wp_emojicons();
   }
 
   /**
@@ -139,7 +143,7 @@ class Pneumatic_Theme {
    * Also implement cache busting basted on file make time
    */
   public function scry( $path ) {
-    $uri = get_stylesheet_directory_uri();
+    $uri = get_template_directory_uri();
     $dir = get_template_directory();
     $file_uri = $uri . $path .'?'. filemtime( $dir . $path );
     return apply_filters( 'pneumatic-theme-scry', $file_uri );

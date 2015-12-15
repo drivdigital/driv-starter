@@ -1,72 +1,171 @@
-// Wrapper
-.w {
-  max-width: 63.25rem;
-  margin: 0 auto;
+// Wrappers
+
+// Small Wrapper: This is limited to the desktop size and is designed for the content that sites in the middle of the screen.
+.sw {
+  max-width: 92%;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media only screen and #{$tablet} {
+    max-width: 92%;
+  }
+
+  @media only screen and #{$laptop} {
+    max-width: 72rem;
+  }
 }
 
-// Gutter in rems
-$gutter: 1;
+// Full width wrapper: this is designed for those areas that are oversized
+.w{
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
 
-@mixin column-calc ( $i, $max ){
+  @media only screen and #{$desktop} {
+    width: 96%;
+    max-width: 92rem;
+  }
+}
+
+
+/*
+  Spacing between elements
+
+  This needs to be uniform throughout the
+  whole site. So what I've done here is
+  create two variables that handle everything.
+
+  From a design side of things, you should be
+  able to get the vertical rhythm on the site
+  sorted by changing these four values.
+
+*/
+
+// Tablet+ gutters
+$large_gutter:  4rem;
+$small_gutter:  3.5rem;
+$smaller_gutter:  2.5rem;
+
+// Mobile gutter
+$m_large_gutter:  2.5rem;
+$m_small_gutter:  1.75rem;
+$m_smaller_gutter:  1.5rem;
+
+@mixin smaller_gutter( $element ){
+  #{$element}: $m_smaller_gutter;
+  @media only screen and #{$tablet} {
+    #{$element}: $smaller_gutter;
+  }
+}
+@mixin small_gutter( $element ){
+  #{$element}: $m_small_gutter;
+  @media only screen and #{$tablet} {
+    #{$element}: $small_gutter;
+  }
+}
+@mixin large_gutter( $element ){
+  #{$element}: $m_large_gutter;
+  @media only screen and #{$tablet} {
+    #{$element}: $large_gutter;
+  }
+}
+
+
+/**
+ * Apply spacing to elements throughout the site and keep it uniform.
+ * @param  {[string]} $element:   'margin'      [Margin or Padding]
+ * @param  {[string]} $direction: 'top'         [top, bottom, left, right, both or all]
+ * @param  {[string]} $size:      'small'       [small or large]
+ * @usage @include spacing(margin, top, small); - applies margin-top: $small_gutter
+ * @usage @include spacing(padding, bottom, large); = applies padding-botom: $large_gutter
+ * @usage @include spacing(padding, both, large); = applies padding-top, padding-bottom: $large_gutter
+ */
+
+@mixin spacing($element: 'margin', $direction: 'top', $size: 'small', $small_space: 2rem, $large_space: 4rem){
+  // If direction is both, apply to top and bottom
+  @if $direction == 'both' {
+    @if $size == 'large'{
+      #{$element}-top: $large_space / 2;
+      #{$element}-bottom: $large_space / 2;
+      @media only screen and #{$tablet} {
+        #{$element}-top: $large_space;
+        #{$element}-bottom: $large_space;
+      }
+    } @else {
+      #{$element}-top: $small_space / 2;
+      #{$element}-bottom: $small_space / 2;
+      @media only screen and #{$tablet} {
+        #{$element}-top: $small_space;
+        #{$element}-bottom: $small_space;
+      }
+    }
+  }
+  // If direction is all, apply to all sides
+  @else if $direction == 'all'{
+    @if $size == 'large'{
+      #{$element}: $large_space / 2;
+      @media only screen and #{$tablet} {
+        #{$element}: $large_space;
+      }
+    } @else {
+      #{$element}: $small_space / 2;
+      @media only screen and #{$tablet} {
+        #{$element}: $small_space;
+      }
+    }
+  }
+  // If direction is not set, apply defaults
+  @else {
+    @if $size == 'large'{
+      #{$element}-#{$direction}: $large_space / 2;
+      @media only screen and #{$tablet} {
+        #{$element}-#{$direction}: $large_space;
+      }
+    } @else {
+      #{$element}-#{$direction}: $small_space / 2;
+      @media only screen and #{$tablet} {
+        #{$element}-#{$direction}: $small_space;
+      }
+    }
+  }
+}
+
+// WHere else can I put this?
+table{
+  width: 100%;
+}
+
+
+
+/**
+ * Grid.
+ * @param  int      $i          Amount of columns needed
+ * @param  int      $max:       12            Total amount of columns in grid
+ * @param  gutter   $guttering: 1.875rem      Space between columns with rem value
+ * @param  boolean  $last:      false         Determines final gutter
+ * @return width
+ *
+ * @usage  @include span(6, 12);              Width with gutter
+ * @usage  @include span(4, 12, 1rem);        Width with custom gutter
+ * @usage  @include span(6, 12, $last:true);  Last element
+ */
+@mixin span( $i, $max: 12, $guttering: 1.875rem, $last: null){
+  // Width without REM support
   $percentage: $i * 100% / $max;
   width: $percentage - 2%;
+  // Width for modern browsers
   $percentage: $percentage - 0.01%;
   $num: $max / $i - 1;
-  $margin-right: ($num * $gutter / ($num +1))+rem;
+  $margin-right: ($num * $guttering / ($num +1));
   width: calc(#{$percentage} - #{$margin-right});
-  margin-right: 2%;
-  margin-right: calc(#{$gutter+rem});
+  // Grid is based on floats
   float: left;
-}
-
-// Mobile devices
-@for $i from 1 through 12 {
-  .m-#{$i} {
-    @include column-calc( $i, 12 );
+  // If last item
+  @if $last == null {
+    // Gutter widthout REM support
+    margin-right: 2%;
+    // Gutter for modern browsers
+    margin-right: calc(#{$guttering});
   }
 }
-.m-l {
-  margin-right: 0;
-}
-/*
-@media only #{$landscape} {
-
-}
-*/
-
-@media only screen and #{$tablet} {
-  @for $i from 1 through 12 {
-    .t-#{$i} {
-      @include column-calc( $i, 12 );
-    }
-  }
-  .t-l {
-    margin-right: 0;
-  }
-}
-
-/*
-// Tablet landscape
-@media only #{$tablet-landscape} {
-
-}
-*/
-
-// Laptop / Above tablets
-@media only screen and #{$laptop} {
-  @for $i from 1 through 12 {
-    .d-#{$i} {
-      @include column-calc( $i, 12 );
-    }
-  }
-  .d-l {
-    margin-right: 0;
-  }
-}
-
-/*
-// Desktop / Wide
-@media only #{$desktop}  {
-
-}
-*/

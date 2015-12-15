@@ -17,6 +17,7 @@ module.exports = function(grunt) {
       }
     },
 
+
     // Minify Images
     imagemin: {
       dynamic: {
@@ -29,48 +30,45 @@ module.exports = function(grunt) {
       }
     },
 
-    // Import whole folder into a file 
+    // Import whole folder into a file
     sass_globbing: {
       target: {
         files: {
+          'assets/scss/partials/_menus.scss': 'assets/scss/partials/menus/*.scss',
           'assets/scss/partials/_mixins.scss': 'assets/scss/partials/mixins/*.scss',
           'assets/scss/partials/_components.scss': 'assets/scss/components/*.scss'
         }
       }
     },
-    
+
     // Compile SCSS
-		sass: {
-      stage: {     
-        options: { 
-          style: 'nested', 
-          //loadPath: require('node-bourbon').includePaths
-        },   
+    sass: {
+      stage: {
+        options: {
+          style: 'nested' // Change to Compressed once live.
+        },
         files: {
           'assets/css/style.css' : 'assets/scss/style.scss',
-          'assets/css/woocommerce.css' : 'assets/scss/woocommerce.scss',
           'assets/css/login.css' : 'assets/scss/login.scss'
         }
       },
 
-			dist: {     
-        options: { 
-          style: 'compressed', 
+      dist: {
+        options: {
+          style: 'compressed', // Change to Compressed once live.
           //loadPath: require('node-bourbon').includePaths
-        },   
-				files: {
+        },
+        files: {
           'assets/css/style.css' : 'assets/scss/style.scss',
-          'assets/css/woocommerce.css' : 'assets/scss/woocommerce.scss',
           'assets/css/login.css' : 'assets/scss/login.scss'
-				}
-			}
-		},
-    
+        }
+      }
+    },
+
     // Combine MQ's, but lose critical css
     combine_mq: {
       target: {
         files: {
-          'assets/css/woocommerce.css': ['assets/css/woocommerce.css'],
           'assets/css/style.css': ['assets/css/style.css']
         },
         options: {
@@ -95,37 +93,36 @@ module.exports = function(grunt) {
         }
     },
 
-                /*
-                * Fallback for Internet Explorer 
-                */
+    /*
+    * Fallback for Internet Explorer
+    */
 
-                pixrem: {
-                  options: {
-                    rootvalue: '100%',
-                    replace: true
-                  },
-                  dist: {
-                    src: 'assets/css/style.css',
-                    dest: 'assets/css/ie.css'
-                  }
-                },
+    pixrem: {
+      options: {
+        rootvalue: '100%',
+        replace: true
+      },
+      dist: {
+        src: 'assets/css/style.css',
+        dest: 'assets/css/ie.css'
+      }
+    },
 
-                stripmq: {
-                  options: {
-                    width: 1400,
-                    type: 'screen'
-                  },
-                  all: {
-                    files: {
-                      'assets/css/ie.css': ['assets/css/ie.css']
-                    }
-                  }
-                },
-
-
-                /*
-                * End of Fallback for Internet Explorer 
-                */
+    /**
+     * Strip Media QUeries for IE
+     * @type {Object}
+     */
+    stripmq: {
+      options: {
+        width: 1400,
+        type: 'screen'
+      },
+      all: {
+        files: {
+          'assets/css/ie.css': ['assets/css/ie.css']
+        }
+      }
+    },
 
     // Watch for any changes
     watch: {
@@ -136,13 +133,13 @@ module.exports = function(grunt) {
       css: {
         // Watch sass changes, then process new images and merge mqs
         files: [
-        'assets/scss/*.scss', 
+        'assets/scss/*.scss',
         'assets/scss/**/*.scss',
         'assets/scss/**/**/*.scss'],
         tasks: [
-          'sass_globbing:target', 
-          'sass:stage', 
-          'postcss:dist', 
+          'sass_globbing:target',
+          'sass:stage',
+          'postcss:dist',
           'pixrem',
           'stripmq',
           'browserSync'
@@ -166,36 +163,38 @@ module.exports = function(grunt) {
         },
         options: {
           watchTask: true,
+          open: false,
+          proxy: "http://midsona.dev:8080" // If your site runs through MAMP, whats the URL
         }
       }
     }
   });
- 
+
   // Register everything used
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // Run everything with 'grunt', these need to be in
   // a specific order so they don't fail.
   grunt.registerTask('default', [
-    'sass_globbing:target', // Glob together needed folders
-    'sass:stage', // Run sass
-    'postcss:dist', // Post Process with Auto-Prefix
-    'browserSync', // live reload
+    'sass_globbing:target',   // Glob together needed folders
+    'sass:stage',             // Run sass
+    'postcss:dist',           // Post Process with Auto-Prefix
+    'browserSync',            // live reload
     'newer:imagemin:dynamic', // Compress all images
-    'pixrem', // Fallback for IE and Android
-    'stripmq',
-    'watch' // Keep watching for any changes
+    'pixrem',                 // Fallback for IE and Android
+    'stripmq',                // remove mediaqueries for IE
+    'watch:css'               // Keep watching for any changes
   ]);
 
   // When we go live, run `grunt live` instead
   grunt.registerTask('live', [
-    'uglify', 
-    'sass_globbing:target', // Glob together needed folders
-    'sass:dist', // Run sass
-    'postcss:dist', // Post Process with Auto-Prefix
-    'combine_mq', // Combine MQ's
+    'uglify',
+    'sass_globbing:target',   // Glob together needed folders
+    'sass:dist',              // Run sass
+    'postcss:dist',           // Post Process with Auto-Prefix
+    'combine_mq',             // Combine MQ's
     'newer:imagemin:dynamic', // Compress all images
-    'pixrem', // Fallback for IE and Android
-    'stripmq' // Take it all away.
+    'pixrem',                 // Fallback for IE and Android
+    'stripmq'                 // Take it all away.
   ]);
 };

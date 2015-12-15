@@ -7,6 +7,7 @@ VARIABLES
 				"partials/normalize", 	// Normalize: http://necolas.github.io/normalize.css/
 				"partials/layout", 			// Layout / grid
 				"breakpoints/base", 		// Base styles
+				"menus/_menu-1", 				// Use menu-1 (default)
 				"partials/mixins", 			// Various variables used across stylesheets
 				"partials/type",				// Typography for everything
 				"partials/forms", 			// Form Styles
@@ -23,8 +24,10 @@ html, body {
 #login {
 
 	h1 a {
-
 		background: url('../images/login-title.svg') no-repeat top center; /* make sure to replace this! */
+		height: 3rem;
+		width: 100%;
+
 		.no-svg & {
 			@extend %h1;
 			background: none;
@@ -89,7 +92,7 @@ html, body {
   float: none;
   width: 100%;
   margin-top: 1rem;
-	@include btn($blue);
+	@include btn($blue, $blue-dark);
 
 }
 
@@ -98,91 +101,3 @@ You'll have to override some of the default styles
 but since we're referencing the id, it should be easy.
 */
 #wp-submit {} /* login button*/
-
-
-
-
-.text-center{
-	text-align: center;
-}
-
-
-
-
-
-.header, .breadcrumbs, .footer{
-	@media only screen and #{$desktop-down}{
-		display: none;
-	}
-}
-
-/* Login Revamp */
-
-$wrap: 0%;
-
-#login{ 
-
-	.message{ text-align: center;}
-
-	width: 100%; 
-	@include clearfix;
-	padding-top: 2%;
-	p { padding: 1rem 0 0; }
-	br { display: block; line-height: 2 } 
-	input{ width: 100%; }
-
-	@media only screen and #{$tablet}{
-		width: 50%;
-		max-width: 25rem;
-		margin: 12% auto;
-		text-align: center;
-		
-	}
-
-	@media only screen and #{$desktop}{
-		width: 39%;
-		margin: 0 auto;
-		padding-left: $wrap;
-		display: inline-block;
-
-		#loginform{ 
-			width: 80%; 
-			display: block; 
-			margin: 0 auto 2rem; 
-			padding: 0;
-		}
-	}
-}
-
-.additional{ 
-
-	#wp-auth-check-frame &{ display: none; }
-	width: 100%;
-	@include clearfix;
-
-	.quote .quote__avatar, 
-	.quote .quote--mark{
-		z-index: 1;
-	}
-	display: none;
-
-	@media only screen and #{$desktop}{
-		border-left: 1px solid $grey-dark; 
-		width: 59%;
-		padding-right: $wrap;
-		padding-left: 5%;
-		vertical-align: top;
-		display: inline-block;
-		clear: right;
-	}
-}
-
-
-
-
-
-
-
-
-
-

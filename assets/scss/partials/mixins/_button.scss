@@ -30,14 +30,17 @@
 	font-size: 0.875rem; 				// 45PX!
 
 	@media only screen and #{$tablet}{
-		padding: 0.8125rem 2rem;			// THIS
+		padding: 0.8125rem 2rem;	// THIS
 		line-height: 1.25rem; 		// IS
 		font-size: 0.9375rem; 		// 50PX!
 	}
-
 }
 
-@mixin btn($colour){
+@mixin btn(
+	$colour:	$brand-colour, 
+	$hover: 	desaturate(darken($colour, 6%), 5%), 
+	$active: 	desaturate(darken($colour, 3%), 5%) 
+	){
 	@extend %btn;
 
   // Colouring
@@ -46,14 +49,14 @@
 	transition: background-color 0.1s $curve;
 	
   &:hover{ 
-  	background-color: desaturate(darken($colour, 6%), 5%);
+  	background-color: $hover;
   	color: white; 
   	text-decoration: none;
   }
   
   &:focus, 
   &:active  { 
-  	background-color: darken($colour, 15%);
+  	background-color: $active;
   	color: white;
   }
 }

@@ -1,4 +1,3 @@
-
 /* Box sizing */
 * {
   -webkit-box-sizing: border-box;
@@ -11,10 +10,6 @@ body {
   line-height: 150%;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
-}
-
-#main {
-  padding: 0 0.75em;
 }
 
 /*
@@ -34,7 +29,7 @@ h1, h2, h3, h4, h5, h6, p, pre, blockquote, ul {
 
 /* If you want to change the text size you should do it in _variables.scss */
 p, .article-time, li, td, address {
-  font-size: $paragraph-size;
+  font-size: 1rem;
 }
 
 /* Image tags */
@@ -61,13 +56,7 @@ blockquote {
   @extend .cf;
   margin-left: 0;
   padding: 1em 1em 0em 1.5em;
-  border-left: 3px solid #999999;
-  cite {
-    display: block;
-    color: #666;
-    margin-top: 0.5rem;
-    font-size: (12/16)+em;
-  }
+  border-left: 3px solid fade_out(black, 0.75);
 }
 
 /* Navigation menus */
@@ -108,7 +97,7 @@ th, td {
   padding: (8/16)+em (10/16)+em (6/16)+em;
 }
 td {
-  border: 1px solid #999;
+  border: 1px solid $grey-dark;
 }
 
 /* Definition lists */
@@ -120,7 +109,7 @@ dt {
   margin-top: 0.5em;
   margin-bottom: (4/16)+em;
 
-  border-top: 1px solid #999;
+  border-top: 1px solid $grey-dark;
   padding-top: 1em;
   &:first-of-type {
     border-top: 0;
@@ -150,7 +139,7 @@ pre {
 tr {
   &.odd {}
   &.even {
-    background-color: #eee;
+    background-color: $grey;
   }
 }
 
@@ -193,7 +182,6 @@ span.amp {
  * If you want to change the bg-color you should do so in _variables.scss
  */
 .header {
-  background-color: $background-color;
   padding-bottom: 0.75em;
   position: relative;
   p { margin: 0; }
@@ -203,20 +191,11 @@ span.amp {
   padding: 1em 0;
 }
 
-/* If you want to change the bg-color you should do so in _variables.scss */
-#content {
-  background-color: $background-color;
-}
-
 .site-title {
   a {
     display: block;
-    padding: 16px;
-    padding: 1rem;
-    color: #000;
+    color: $text;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.25em;
   }
 }
 
@@ -235,9 +214,9 @@ span.amp {
  */
 
 .article {
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid $grey-dark;
   &:nth-of-type(2n) {
-    background-color: #eee;
+    background-color: $grey;
   }
 }
 
@@ -269,37 +248,10 @@ span.amp {
       top: 0;
       bottom: 0;
       right: 0;
-      background-color: rgba(255,255,255,0.5);
-      animation-name: unload-clicked;
-      -webkit-animation-name: unload-clicked;
-      animation-duration: 0.2s;
-      -webkit-animation-duration: 0.2s;
+      background-color: fade-out(white, 0.5);
+      animation-name: 0.2s unload-clicked;
     }
   }
-}
-
-/* Header */
-.article--header {
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-/* Title [part of article--header] */
-.article--title {
-  margin-bottom: 0.25em;
-}
-
-/* Fix super-long titles and words */
-.article--title,
-.article--content {
-  -ms-word-wrap: break-word;
-  word-wrap: break-word;
-}
-
-/* Featured Image [part of article--header] */
-.wp-post-image {
-  width: 100%;
-  margin-bottom: 1em;
 }
 
 /* Give images a bit of a margin */
@@ -315,87 +267,4 @@ span.amp {
 .wp-caption--inner,
 .article--content {
   > img { margin: 0.5em 0; }
-}
-
-/*
- * Articles / Items - content
- * Elements appearing inside articles
- */
-
-/* Gallery images */
-.gallery-item {
-  margin: 0;
-  width: 50%;
-  float: left;
-
-  img {
-    width: 100%;
-    margin: 0;
-  }
-
-  /* Spacing (gutter) */
-  &:nth-child( 2n +1 ) { padding-right: 0.25em; }
-  &:nth-child( 2n ) { padding-left: 0.25em; }
-  padding-bottom: 0.5em;
-}
-
-.gallery {
-  @extend .cf;
-  margin-bottom: 0.5em;
-}
-
-/*
- * Widgets
- */
-.widget {
-  float: left;
-  width: 100%;
-  padding: 1em;
-}
-#wp-calendar {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-/* Styling the input fields such as address fields on My account page, Product single page etc. */
-.input-text,
-textarea,
-input {
-  border-radius: 0.25em;
-  border: 1px solid rgba(0,0,0,.1);
-  padding: 0.5em;
-}
-
-/* Making it only possible to resize the textarea in vertical direction */
-textarea {
-  resize:vertical;
-}
-
-.box {
-  width: 2rem;
-  height: 2rem;
-  background-color: #cc0;
-  display: block;
-  margin: 1rem;
-}
-
-/* Buttons */
- .btn, .button, button, input[type="submit"] {
-  background-color: $brand-colour;
-  color: #fff;
-  -webkit-font-smoothing: antialiased;
-  border-radius: 3px;
-  outline: 0;
-  border: 0;
-  padding: 0.5em 0.5em 0.45em;
-  text-decoration: none ;
-  &:hover, &:focus {
-    background-color: desaturate(darken($brand-colour, 6%), 5%);
-  }
-}
-
-/* If you want to change the footer color you should do so in _variables.scss */
-footer {
-  padding: 3.25em 0;
-  margin-top: 2em;
 }
