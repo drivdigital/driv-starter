@@ -1,0 +1,37 @@
+// Padding in rems.
+// padding-1, padding-4 etc is 1 rem or 4rem
+/* this is the padding */
+
+$paddings: 1, 2, 3, 4;
+@each $padding in $paddings {
+
+	$value: number( unquote( "#{$padding}" ) );
+	$px-padding: $value * 16px;
+
+    .padding-#{$padding}{
+		padding-top: $px-padding;
+		padding-bottom: $px-padding;
+
+		padding-top: #{$padding}rem;
+		padding-bottom: #{$padding}rem;
+
+		&-top {
+			padding-top: $px-padding;
+			padding-top: #{$padding}rem;
+		}
+
+		&-bottom{
+			padding-bottom: $px-padding;
+			padding-bottom: #{$padding}rem;
+		}
+  }
+}
+
+// What about the times when you need to remove margins from things
+
+$margins: top, bottom, left, right;
+@each $margin in $margins {
+    .no-margin-#{$margin}{
+		margin-#{$margin}: 0;
+    }
+}

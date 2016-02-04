@@ -1,9 +1,9 @@
 module.exports = function(grunt) {
- 
+
   grunt.registerTask('watch', [ 'watch' ]);
-  
+
   grunt.initConfig({
-    
+
     // Make JS tiny
     uglify: {
       options: {
@@ -24,18 +24,18 @@ module.exports = function(grunt) {
           expand: true,
           cwd: 'assets/images',
           src: ['**/*.{png,jpg,gif,svg}'],
-          dest: 'assets/img'
+          dest: 'assets/images'
         }]
       }
     },
-    
+
     // Compile SCSS
 		sass: {
-			dist: {     
-        options: { 
+			dist: {
+        options: {
           style: 'compressed',
           loadPath: require('node-bourbon').includePaths
-        },   
+        },
 				files: {
 					'assets/css/style.css' : 'assets/scss/style.scss',
 					'assets/css/ie.css' : 'assets/scss/ie.scss',
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-    
+
     // Combine MQ's, but lose critical css
     combine_mq: {
       target: {
@@ -75,29 +75,29 @@ module.exports = function(grunt) {
 
     // Autoprefix
     postcss: {
-        options: {
-            map: false,
-            processors: [
-                require('autoprefixer-core')({
-                    browsers: ['> 20%', 'last 10 versions', 'Firefox > 20']
-                })
-            ],
-            remove: false
-        },
-        dist: {
-            src: 'css/*.css'
-        }
+      options: {
+        map: false,
+        processors: [
+        require('autoprefixer-core')({
+          browsers: ['> 20%', 'last 10 versions', 'Firefox > 20']
+        })
+        ],
+        remove: false
+      },
+      dist: {
+        src: 'assets/css/*.css'
+      }
     },
-    
-    // Import whole folder into a file 
+
+    // Import whole folder into a file
     sass_globbing: {
       target: {
         files: {
-          'assets/scss/components.scss': 'assets/scss/components/*.scss'
+          'assets/scss/partials/_components.scss': 'assets/scss/components/*.scss'
         }
       }
     },
-    
+
     // Watch for any changes
     watch: {
       js: {
@@ -114,14 +114,14 @@ module.exports = function(grunt) {
       }
     }
   });
- 
+
   // Register everything used
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // Run everything with 'grunt', these need to be in
   // a specific order so they don't fail.
   grunt.registerTask('default', [
-    'uglify', 
+    'uglify',
     'sass_globbing:target', // Glob together needed folders
     'sass', // Run sass
     'combine_mq', // Combine MQ's

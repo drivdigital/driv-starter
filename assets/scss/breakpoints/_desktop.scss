@@ -1,4 +1,0 @@
-/* Removing left paddning for all archive pages that are not woocommerce pages */
-.archive:not(.woocommerce) #main {
-  padding-left: 0 !important;
-}

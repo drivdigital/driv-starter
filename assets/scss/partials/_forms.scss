@@ -1,0 +1,153 @@
+/******************************************************************
+Site Name: MEAT
+Author: Eivin + Andrew
+
+Stylesheet: Form Styles
+
+We put all the form and button styles in here to setup a consistent
+look. If we need to customize them, we can do this in the main
+stylesheets and just override them. Easy Peasy.
+
+You're gonna see a few data-uri thingies down there. If you're not
+sure what they are, check this link out:
+http://css-tricks.com/data-uris/
+If you want to create your own, use this helpful link:
+http://websemantics.co.uk/online_tools/image_to_data_uri_convertor/
+
+******************************************************************/
+
+/*********************
+INPUTS
+*********************/
+
+%inputs{
+  padding: 0.3rem 1.125rem;
+  color: $text;
+  vertical-align: top;
+  border: 1px solid darken($grey-dark, 5%);
+  font-family: $font;
+  background-color: $grey-light;
+  box-shadow: inset 0 1px 1px $grey-dark;
+  border-radius: 2px;
+  font-size: 1.125rem;
+  font-weight: 200;
+  transition: background-color 0.24s $curve;
+  appearance: none;
+
+  // a focused input (or hovered on)
+  &:focus,
+  &:active {
+    box-shadow: 0 0 1px $brand-colour;
+    outline: 0; // fix chrome drop shadow
+  } // end hover or focus
+
+  // error notification
+  &.error,
+  &.is-invalid {
+    color: $alert-red;
+    border-color: $alert-red;
+    background-color: white;
+    background-position: 99% center;
+    background-repeat: no-repeat;
+    background-image: url('../images/icon-error.svg'); .no-svg & { background-image: url('../images/icon-error.png'); }
+    outline-color: $alert-red;
+  } // end invalid input
+
+  // success notification
+  &.success,
+  &.is-valid {
+    color: $alert-green;
+    border-color: $alert-green;
+    background-color: white;
+    background-position: 99% center;
+    background-repeat: no-repeat;
+    background-image: url('../images/icon-success.svg'); .no-svg & { background-image: url('../images/icon-success.png'); }
+    outline-color: $alert-green;
+  } // end valid input
+
+  // a disabled input
+  &[disabled],
+  &.is-disabled {
+    cursor: not-allowed;
+    border-color: $grey-light;
+    opacity: 0.6;
+
+    &:focus,
+    &:active {
+      background-color: $alert-blue;
+    } // end disabled focus
+
+  } // end disabled input
+
+  @include placeholder{
+    color: $text;
+  }
+
+} // end input defaults
+
+
+
+$input_types: (
+  "text",
+  "password",
+  "datetime",
+  "datetime-local",
+  "date",
+  "month",
+  "time",
+  "week",
+  "number",
+  "email",
+  "url",
+  "search",
+  "tel",
+  "color",
+) !global;
+
+// Loop through all the types of inputs
+@each $type in $input_types {
+	input[type="#{$type}"] {
+		@extend %inputs;
+	}
+}
+
+select, textarea, .field { @extend %inputs; }
+
+// textareas
+textarea {
+  max-width: 100%;
+  min-height: 120px;
+  line-height: 1.5em;
+}
+
+// selects
+select {
+	appearance: none; /* 1 */
+
+  padding-right: 2rem;
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSItNDgyIDI3OS4zIDE0LjkgOS40IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IC00ODIgMjc5LjMgMTQuOSA5LjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDpub25lO3N0cm9rZTojMDAwMjIyO3N0cm9rZS13aWR0aDo0O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9PC9zdHlsZT48cG9seWxpbmUgY2xhc3M9InN0MCIgcG9pbnRzPSItNDY5LjEsMjgxLjMgLTQ3NC41LDI4Ni44IC00ODAsMjgxLjMgIi8+PC9zdmc+);
+	.no-svg &{ background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB8AAAAUCAMAAABCtxbIAAAAG1BMVEX///8AAiIAAiIAAiIAAiIAAiIAAiIAAiIAAiJDP+JjAAAACHRSTlMAIEBggKDA8KxW2BUAAABhSURBVHgBXcqxEUQxCANRgQ2o/4pvnNzwVxm8laLGneKyPRVSjN8O+PhtQmUz+LNdGjNY7JHNYLGtZvDhVprBYqd0EODmA8ygyAzIDMgMyAzIDMgMyAzADMAMwFzce0N7P87TCeYxUGxTAAAAAElFTkSuQmCC); }
+
+  background-repeat: no-repeat;
+  background-position: 92% center;
+  background-size: 0.8rem;
+
+
+	// On iOS - This stops the zoom when you click on the <select>
+	@media (max-width: 480px ){
+		font-size: 1rem;
+	}
+
+	// If we have text-shadows, we can remove the outline
+	.textshadow &{
+		&:-moz-focusring{
+			text-shadow: 0 0 0 $text;
+			color: transparent;
+		}
+	}
+}
+
+// brand button
+.btn-brand{
+  @include btn();
+}

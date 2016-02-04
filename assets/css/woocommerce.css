@@ -194,6 +194,7 @@ Pneumatic theme variables
 .widget .woocommerce-product-search .search-field,
 #s {
   width: 100%;
+  width: -webkit-calc( 100% - 4.25em );
   width: calc( 100% - 4.25em );
   float: left;
   border: 0;
@@ -205,7 +206,8 @@ Pneumatic theme variables
   position: absolute;
   top: 0;
   right: 0;
-  border-radius: 0;
+  -webkit-border-radius: 0;
+          border-radius: 0;
   border: 1px solid #000;
   margin: -1px; }
 
@@ -261,5 +263,3 @@ Pneumatic theme variables
 .woocommerce p.stars a.star-4,
 .woocommerce p.stars a.star-5 {
   color: #c00; }
-
-/*# sourceMappingURL=woocommerce.css.map */

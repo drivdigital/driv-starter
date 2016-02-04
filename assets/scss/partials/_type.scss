@@ -1,0 +1,124 @@
+/*
+    Freight Display Pro
+*/
+
+
+$font:    sans-serif;
+$title:   serif;
+
+/**
+ * Font styles
+ */
+
+body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: greyscale;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: 0.015rem; // 15 in Photoshop
+  font-family: $font;
+}
+
+// Logo basically
+.site-title a{
+  color: $text;
+  font-weight: 300;
+  line-height: 1;
+  @include modular(2rem, $minor-second);
+  letter-spacing: -0.075rem; // 40 in Photoshop
+  margin: 0;
+  text-decoration: none;
+}
+
+h1{
+  color: $text;
+  font-family: $title;
+  font-weight: 300;
+  @include modular(3rem, $minor-third);
+  letter-spacing: -0.075rem; // 40 in Photoshop
+  margin: 0;
+}
+
+h2{
+  color: $text;
+  font-weight: 300;
+  @include modular(2.3125rem);
+  margin: 0;
+}
+
+h3{
+
+  color: $text;
+  font-weight: 300;
+
+  // Phone - 18px / 26px
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+
+  // laptop - 24px / 32px
+  @media #{$laptop} {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+h4{
+  color: $text-light;
+  font-weight: 600;
+
+  // Phone - 18px / 23px
+  font-size: 1.125rem;
+  line-height: 1.4375rem;
+
+  // laptop - 20px / 25px
+  @media #{$laptop} {
+    font-size: 1.25rem;
+    line-height: 1.4;
+  }
+}
+
+h5{
+  color: $text-overprint;
+  font-weight: 400;
+  text-transform: uppercase;
+
+  // Phone - 14px / 18px
+  font: 0.875rem;
+  line-height: 1.125rem;
+
+  // laptop - 20px / 25px
+  @media #{$laptop} {
+    font-size: 1rem;
+    line-height: 1.25rem;
+  }
+}
+
+h6{
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+p, .p{
+  //
+  font-weight: 200;
+  font-size: 1.125rem;
+  line-height: 1.75;
+
+ -ms-word-break: none;
+     word-break: none;
+
+     // Non standard for webkit
+     word-break: none;
+
+-webkit-hyphens: none;
+   -moz-hyphens: none;
+        hyphens: aunoneto;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0 0 1.5rem;
+  display: block;
+}

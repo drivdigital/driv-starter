@@ -1,29 +1,113 @@
 /******************************************************************
-Pneumatic theme variables
+/* Breakpoints
+
+Written as just the size. This allows combining of these queries
+into something like "only screen and landscape and tablet-down"
 ******************************************************************/
 
-$landscape:        'screen and ( min-width:  481px )';
-$mobile-only:      'screen and ( max-width:  767px )';
-$tablet:           'screen and ( min-width:  768px )';
-$tablet-landscape: 'screen and ( min-width: 1024px )';
-$tablet-down:      'screen and ( max-width: 1024px )';
-$laptop:           'screen and ( min-width: 1025px )';
-$desktop:          'screen and ( min-width: 1240px )';
+// Rem versions, for the healthy people who are accessable needing
+$landscape:        '( min-width: 30.0625rem )';
+$mobile-only:      '( max-width: 37.9375rem )';
+
+$tablet:           '( min-width: 48rem )';
+$tablet-down:      '( max-width: 47.9rem )';
+$tablet-landscape: '( min-width: 64rem )';
+
+$laptop:           '( min-width: 64.0625rem )';
+$laptop-down:      '( max-width: 64.0625rem )';
+
+$desktop:          '( min-width: 77.5rem )';
+$desktop-down:     '( max-width: 77.5rem )';
+
+$cinema:           '( min-width: 103.75rem )';
+$cinema-down:      '( max-width: 103.75rem )';
+
+$small-device-only: 'only screen and '$landscape' and '$laptop-down;
 
 
-/* Colors */
-$link-color: #999999;
-$link-hover: darken($link-color, 10%);
-$button-color: #4e4e4e;
-$button-hover: darken($button-color, 5%);
-$button-text: #fff;
-$background-color: #fefefe;
-$menu-color: #eee;
-$menu-current: #ddd;
-$price-color: #c00;
-$footer-color: #eee;
-$badge-color: #4e4e4e;
-$star-color: #c00;
+/******************************************************************
+/* Colours
+
+Variables written throughout the site. Everything on this page
+should decide every colour on the site.
+******************************************************************/
+
+/* Link colours */
+$link-color:        #999999;
+$link-hover:        darken($link-color, 10%);
+
+
+/* Alerts */
+$alert-green:       #02951E;  // Alert state green
+$alert-red:         #EB5453;  // Alert state red
+$alert-grey:        #999999;  // Alert state grey
+$alert-blue:        #1D59A1;  // Alert state blue
 
 /* Misc */
-$paragraph-size: (14/16)+rem;
+$paragraph-size:    1rem;
+
+$grey:              #f3f3f3;
+$grey-light:        #f9f9f9;
+$grey-dark:         #DDDDDD;
+$grey-darker:       #AAAAAA;
+
+/* General colours */
+$text:              #222222;    // Deep grey
+$text-light:        #444444;    // Lighter grey
+$text-overprint:    #595959;  // A strange dark muddy grey
+
+/* Brand colours */
+$green:             #9EC105;  // Main Brand colour
+$green-dark:        #88A40D;  // Hover state
+$green-faded:       #f5f8e6;  // Featured chef green
+
+$blue:              #1D59A1;  // Faceobook colour
+$blue-dark:         #113661;  // Hover state
+
+/* Using these doesn't tie us down to naming conventions */
+$brand-colour:      $green;
+$brand-colour-dark: $green-dark;
+$brand-alt:         $blue;
+$brand-alt-dark:    $blue-dark;
+
+
+
+/* Element colours */
+$background-color:  $grey-light;
+$menu-color:        white;
+$menu-current:      $text;
+$price-color:       $alert-red;
+$footer-color:      $grey;
+$badge-color:       $blue;
+$star-color:        #f2a536;
+
+
+/******************************************************************
+/* Animation
+
+Pre-defined cubic-beziers adds life to animations. Subtle eases that
+enhance the qwuality of an animation.
+******************************************************************/
+
+$curve:               cubic-bezier(0.84, 0.1, 0.83, 0.67);
+
+
+/******************************************************************
+/* For the sake of testing, hr styles
+******************************************************************/
+
+hr{
+  margin: 4rem auto;
+  display: block;
+  border: 0;
+  max-width: 80;
+  border-top: 1px solid $grey-dark;
+
+  @media only screen and #{$tablet}{
+    max-width: 75%;
+  }
+
+  @media only screen and #{$desktop}{
+    max-width: 60%;
+  }
+}

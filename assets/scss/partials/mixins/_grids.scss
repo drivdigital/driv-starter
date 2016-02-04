@@ -1,0 +1,26 @@
+/*
+	Grid Mixin
+	----------
+	
+	We use these for making grids work easier.
+	@include GridAssets(2, first); = Two columns, and it's the first column
+*/
+
+@mixin GridAssets($width: null, $position: null){
+	position: relative;
+	float: left;
+	margin-left: $gutter;
+	margin-left: calc(#{$gutter_em} * 1);	
+	
+	// whats the width of the column
+	@if ($width){
+		@include width($width);
+	}
+	
+	// If you want it first or last
+	@if ($position == 'first'){
+		margin-left: 0;
+	} @else if ($position == 'last'){
+		float: right;	
+	}
+}
