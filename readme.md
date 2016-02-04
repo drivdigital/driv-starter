@@ -1,6 +1,12 @@
-# Driv Base Theme
+![image](https://www.drivdigital.no/wp-content/themes/drivdigital/library/images/logo.svg)
+
+---
+
+# Base Theme
 
 This theme is stripped back and is designed with helpers. This theme will help you build a responsive website that scales exceptionally.
+
+---
 
 ### How do I get it running?
 
@@ -11,6 +17,8 @@ To begin:
 1. Go into the theme `cd driv-starter`
 2. Install packages with `sudo npm install`
 3. Finally, run `grunt`
+
+---
 
 ### Mixins
 
