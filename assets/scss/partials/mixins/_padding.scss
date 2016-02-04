@@ -4,10 +4,10 @@
 
 $paddings: 1, 2, 3, 4;
 @each $padding in $paddings {
-	
-	$value: number(#{$padding});
+
+	$value: number( unquote( "#{$padding}" ) );
 	$px-padding: $value * 16px;
-	
+
     .padding-#{$padding}{
 		padding-top: $px-padding;
 		padding-bottom: $px-padding;

@@ -1,14 +1,18 @@
+/******************************************************************
+Driv Starter theme styles
+******************************************************************/
+
+
 // Various variables used across stylesheets
 @import "variables",            // Colours and Variables
         "partials/normalize",   // Normalize: http://necolas.github.io/normalize.css/
         "partials/layout",      // Layout / grid
         "breakpoints/base",     // Base styles
-        "menus/_menu-1",        // Use menu-1 (default)
         "partials/mixins",      // Various variables used across stylesheets
-        "partials/font-face",   // Fonts
         "partials/type",        // Typography for everything
         "partials/forms",       // Form Styles
-        "partials/components";  // Individual elements
+        "partials/components",  // Individual elements
+        "menus/_menu-1";        // Use menu-1 (default)
 
 // Import breakpoints
 @media only screen and #{$mobile-only}      { @import "breakpoints/mobile-only"; }

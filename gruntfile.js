@@ -17,7 +17,6 @@ module.exports = function(grunt) {
       }
     },
 
-
     // Minify Images
     imagemin: {
       dynamic: {
@@ -30,40 +29,20 @@ module.exports = function(grunt) {
       }
     },
 
-    // Import whole folder into a file
-    sass_globbing: {
-      target: {
-        files: {
-          'assets/scss/partials/_menus.scss': 'assets/scss/partials/menus/*.scss',
-          'assets/scss/partials/_mixins.scss': 'assets/scss/partials/mixins/*.scss',
-          'assets/scss/partials/_components.scss': 'assets/scss/components/*.scss'
-        }
-      }
-    },
-
     // Compile SCSS
-    sass: {
-      stage: {
+		sass: {
+			dist: {
         options: {
-          style: 'nested' // Change to Compressed once live.
+          style: 'compressed',
+          loadPath: require('node-bourbon').includePaths
         },
-        files: {
-          'assets/css/style.css' : 'assets/scss/style.scss',
-          'assets/css/login.css' : 'assets/scss/login.scss'
-        }
-      },
-
-      dist: {
-        options: {
-          style: 'compressed', // Change to Compressed once live.
-          //loadPath: require('node-bourbon').includePaths
-        },
-        files: {
-          'assets/css/style.css' : 'assets/scss/style.scss',
-          'assets/css/login.css' : 'assets/scss/login.scss'
-        }
-      }
-    },
+				files: {
+					'assets/css/style.css' : 'assets/scss/style.scss',
+					'assets/css/ie.css' : 'assets/scss/ie.scss',
+					'assets/css/login.css' : 'assets/scss/login.scss'
+				}
+			}
+		},
 
     // Combine MQ's, but lose critical css
     combine_mq: {
@@ -77,49 +56,44 @@ module.exports = function(grunt) {
       }
     },
 
-    // Autoprefix
-    postcss: {
-        options: {
-            map: false,
-            processors: [
-                require('autoprefixer-core')({
-                    browsers: ['> 20%', 'last 10 versions', 'Firefox > 20']
-                })
-            ],
-            remove: false
+    // See your changes in the browser as they happen.
+    browserSync: {
+      default_options: {
+        bsFiles: {
+          src: [
+            "assets/css/*.css",
+            "*.php,",
+            "**/*.php,"
+          ]
         },
-        dist: {
-            src: 'assets/css/*.css'
+        options: {
+          watchTask: true,
+          proxy: "project.local" // If your site runs through MAMP, whats the URL
         }
-    },
-
-    /*
-    * Fallback for Internet Explorer
-    */
-
-    pixrem: {
-      options: {
-        rootvalue: '100%',
-        replace: true
-      },
-      dist: {
-        src: 'assets/css/style.css',
-        dest: 'assets/css/ie.css'
       }
     },
 
-    /**
-     * Strip Media QUeries for IE
-     * @type {Object}
-     */
-    stripmq: {
+    // Autoprefix
+    postcss: {
       options: {
-        width: 1400,
-        type: 'screen'
+        map: false,
+        processors: [
+        require('autoprefixer-core')({
+          browsers: ['> 20%', 'last 10 versions', 'Firefox > 20']
+        })
+        ],
+        remove: false
       },
-      all: {
+      dist: {
+        src: 'assets/css/*.css'
+      }
+    },
+
+    // Import whole folder into a file
+    sass_globbing: {
+      target: {
         files: {
-          'assets/css/ie.css': ['assets/css/ie.css']
+          'assets/scss/partials/_components.scss': 'assets/scss/components/*.scss'
         }
       }
     },
@@ -131,41 +105,12 @@ module.exports = function(grunt) {
         tasks: ['uglify:js']
       },
       css: {
-        // Watch sass changes, then process new images and merge mqs
-        files: [
-        'assets/scss/*.scss',
-        'assets/scss/**/*.scss',
-        'assets/scss/**/**/*.scss'],
-        tasks: [
-          'sass_globbing:target',
-          'sass:stage',
-          'postcss:dist',
-          'pixrem',
-          'stripmq',
-          'browserSync'
-        ]
+        // Watch sass changes, merge mqs & run bs
+        files: ['assets/scss/*.scss', 'assets/scss/**/*.scss'],
+        tasks: ['sass_globbing:target', 'sass', 'combine_mq:target', 'postcss:dist', 'browserSync' ]
       },
       options: {
-        spawn: false // Very important, don't miss this
-      }
-    },
-
-    browserSync: {
-      default_options: {
-        bsFiles: {
-          src: [
-            "assets/css/*.css",
-            "*.html,",
-            "**/*.html,",
-            "*.php,",
-            "**/*.php,"
-          ]
-        },
-        options: {
-          watchTask: true,
-          open: false,
-          proxy: "http://midsona.dev:8080" // If your site runs through MAMP, whats the URL
-        }
+          spawn: false // Very important, don't miss this
       }
     }
   });
@@ -176,25 +121,14 @@ module.exports = function(grunt) {
   // Run everything with 'grunt', these need to be in
   // a specific order so they don't fail.
   grunt.registerTask('default', [
-    'sass_globbing:target',   // Glob together needed folders
-    'sass:stage',             // Run sass
-    'postcss:dist',           // Post Process with Auto-Prefix
-    'browserSync',            // live reload
+    'uglify',
+    'sass_globbing:target', // Glob together needed folders
+    'sass', // Run sass
+    'combine_mq', // Combine MQ's
+    'postcss:dist', // Post Process with Auto-Prefix
     'newer:imagemin:dynamic', // Compress all images
-    'pixrem',                 // Fallback for IE and Android
-    'stripmq',                // remove mediaqueries for IE
-    'watch:css'               // Keep watching for any changes
+    'browserSync', // live reload
+    'watch' // Keep watching for any changes
   ]);
 
-  // When we go live, run `grunt live` instead
-  grunt.registerTask('live', [
-    'uglify',
-    'sass_globbing:target',   // Glob together needed folders
-    'sass:dist',              // Run sass
-    'postcss:dist',           // Post Process with Auto-Prefix
-    'combine_mq',             // Combine MQ's
-    'newer:imagemin:dynamic', // Compress all images
-    'pixrem',                 // Fallback for IE and Android
-    'stripmq'                 // Take it all away.
-  ]);
 };

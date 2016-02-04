@@ -1,201 +1,272 @@
-/* Main navigation, all menu items
- * If you want to change the bg-color for the menu you should do so in _variables.scss
+/**
+ * Contact information in the header
  */
-.menu-item a {
-  display: block;
-  color: #444;
-  background: $menu-color;
-  transition: 0.4s;
-  &:hover, &:focus {
-    color: #000;
-    background: $menu-current;
-  }
-  /* Non-clickable <a> tags */
-  &[href="#"] {
-    text-decoration: none;
-    cursor: default;
-  }
-}
 
-/* Main navigation, menu item for current page */
-.current-menu-item a {
-  background: $menu-current;
-}
 
-/* Sub menu items */
-.sub-menu {
-  position: relative;
-  z-index: 2;
-  a {
-    background: #fff;
-  }
+.top-nav--contact{
+  position: absolute;
+  z-index: 10;
+  color: white;
+  bottom: 5%;
+  right: 0;
+  width: 100%;
+  text-align: center;
 }
 
 
-/*
- * Media query for mobile and tablet
+
+
+/**
+ * Navigation
  */
-@media only screen and #{$tablet-down} {
 
-  /* Menu items that has children */
-  .menu-item-has-children>a {
-    position: relative;
-    &:after {
-      content: '';
-      position: absolute;
-      top: 1em;
-      right: 1em;
-      display: block;
-      width: 1.5em;
-      height: 1.5em;
-      background: url(/wp-content/themes/pneumatic-theme/images/plus-icon.svg);
-      background-size: 100%;
+// Menu button
+.button-menu{
+  position: absolute;
+  top: 5%;
+  right: 2%;
+
+  &:before{
+    content: "\2630";
+    font-size: 2rem;
+    vertical-align: middle;
+    line-height: 0.65;
+    position: absolute;
+    left: -2rem;
+  }
+
+  &.open{
+    position: fixed;
+    color: white;
+    z-index: 1001;
+
+    &:before{
+      content: "\00d7";
+      line-height: 0.45;
+      font-size: 3rem;
     }
   }
-  .button-close {
-    cursor: pointer;
+}
+
+/**
+ * Huge full screen menu
+ */
+
+.top-nav{
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1000;
+
+  background-color: $grey-dark;
+}
+
+
+/**
+ * Show menu items title
+ */
+
+.hide { // Reserved for menu items
+  display: none;
+}
+
+
+/**
+ * Flex
+ */
+.nav-menu-primary{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  height: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  height: 100%;
+  width: 100%;
+  max-width: 92rem;
+
+  // Force Flexbox to give room for the
+  // logo and the contact information
+  @media only screen and (max-height: 25rem) and #{$tablet-down}{
+    padding: 10% 0;
   }
 
-  .button-close,
-  .menu-item a {
-    padding: 1em;
-    border-bottom: 1px solid #ccc;
+  // Force Flexbox to give room for the
+  // logo and the contact information
+  @media only screen and (min-height: 25rem) and #{$tablet-down}{
+    padding: 28% 0;
+    max-height: 30rem;
   }
 
-  .bar-nav {
-    .menu-item a {
-      -webkit-font-smoothing: antialiased;
-      color: #eee;
-      background: #666;
-      &:hover, &:focus {
-        color: #FFF;
-        background: #000;
-      }
+
+  // Force tablets to push menu items closer together
+  @media only screen and #{$tablet} and #{$desktop-down}{
+    padding: 0 17%;
+  }
+
+}
+
+// MUST BE A CHILD!
+.nav-menu-primary {
+
+
+  /*
+   * Animation and Timing Variables
+   */
+
+  $element:     '.menu-item'; // Pick element you want to animate
+  $length:      1s; // Length of animation
+  $stage:       0.2s; // Delay increments
+  $movement:    -25deg; // How noticable the movment will be
+  $transition:  cubic-bezier(0.46, 0.01, 0.47, 0.85); // The animation easing
+
+  .menu-active{
+    .top-nav{
+      animation: 0.5s appear $transition;
     }
   }
 
-  .nav-menu {
-    margin-bottom: 0;
-  }
-  .hide {
-    display: none;
-  }
+  /**
+   * Individual menu items
+   * Flexbox and 3D animations
+   */
+  .menu-item{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex: 1 0 100%;
+    margin: 0;
 
-  .sub-menu .menu-item {
-    a {
-      padding-left: 2em;
+    @media only screen and ( max-height: 25rem ){
+      flex: 1 0 50%;
     }
-    .sub-menu .menu-item {
-      a {
-        padding-left: 3em;
-      }
-      .sub-menu .menu-item {
-        a {
-          padding-left: 4em;
+
+    @media only screen and #{$tablet}{
+      flex: 1 0 50%;
+    }
+
+    @media only screen and #{$desktop}{
+      align-self: flex-end;
+
+      // After the third column align-top
+
+      @include count-is(4){
+        & + .menu-item + .menu-item {
+          align-self: flex-start;
         }
-        .sub-menu .menu-item {
-          a {
-            padding-left: 5em;
-          }
-        } /* - Level 4 */
-      } /* - Level 3 */
-    } /* - Level 2 */
-  } /* - Level 1 */
+      }
 
-  .menu-bar .button-menu {
-    cursor: pointer;
-    color: #666;
-    background: #eee;
+      @include count-is-more-than(5){
+        flex: 1 0 33%;
+        & + .menu-item + .menu-item + .menu-item{
+          align-self: flex-start;
+        }
+      }
 
-    display: block;
-    padding: 0.75em 1em 0.75em;
-    border: 1px solid #ccc;
-    position: absolute;
-    top: 1rem;
-    right: 0.75rem;
 
-    &:hover, &:focus {
-      color: #000;
-      background: #DDD;
     }
-  }
-}
 
+    // 3D Animations on activate
+    @media only screen and #{$tablet}{
+      a{
+        transform-style: preserve-3d;
+        perspective: 20rem;
+        perspective-origin: center;
+        transform: translateZ(-1rem) rotate3d(1, 1, 1, 0deg);
+        animation: 1s rotate $transition, 1s appear $transition;
+        animation-fill-mode: backwards;
 
-/*
- * Media query for desktop and larger devices
- */
-@media only screen and #{$laptop} {
-  .button-close,
-  .menu-bar {
-    display: none;
-  }
-  /* Sub menu items */
-  .sub-menu a {
-    border: 1px solid rgba(0,0,0,.1);
-    border-bottom: 0;
-  }
-  /* Setting a bottom border for the submenu at the bottom of the sub menu li's */
-  .sub-menu:last-child {
-    border-bottom: 1px solid rgba(0,0,0,.1);
-  }
+        &:before{
+          transform: translateZ(1rem);
+        }
 
-  /* Make bar nav inner relative to place the menu over the header */
-  .bar-nav--inner {
-    position: relative;
-  }
-  .nav-menu-bar {
-    /* Position the <ul> over the header */
-    position: absolute;
-    right: 1em;
-    .menu-item {
-      float: left;
-      .sub-menu {
-        right: 0;
+        &:hover{
+          transform: scale(1.01);
+        }
       }
     }
   }
-  .sub-menu {
-    position: absolute;
-    display: none;
-    width: 12em;
-    .menu-item {
-      display: block;
-      float: none;
-    }
-    a {
-      padding: 0.6em 1em 0.5em;
-    }
 
-    .unloading & {
-      transition: opacity 1s;
-      opacity: 0;
+  /*
+   * For every element in succession, delay incrementally
+   */
+  @for $i from 1 through 10 {
+    $delay: $stage * $i;
+    #{$element}:nth-of-type(#{$i}) a{
+      animation-delay: $delay;
     }
-  }
-  .menu-item {
-    position: relative;
-    float: left;
-    a {
-      display: block;
-      padding: 0.6em 1em 0.5em;
-    }
-    &:focus > .sub-menu,
-    &:hover > .sub-menu {
-      display: block;
-    }
-    .sub-menu .sub-menu {
-      top: 0;
-      left: 6em;
-    }
-  }
-  /* If you want to change the bg-color for the menu you should do so in _variables.scss */
-  .top-nav,
-  .bar-nav {
-    background: $menu-color;
   }
 
-  .nav-menu-primary {
-    > .menu-item:first-child > a {}
-    > .menu-item > a {}
+  /**
+   * Animations used in the navigation
+   */
+  @keyframes rotate {
+    from{ transform: translateZ(-1rem) rotate3d(1, -1, 0, $movement); }
+    to {  transform: translateZ(-1rem) rotate3d(1, 1, 0, 0deg); }
   }
+
+  @keyframes appear {
+    from{ opacity: 0; }
+    to { opacity: 1; }
+  }
+
+
+
+
+  /**
+   * Style of the menu elements
+   */
+
+  .menu-item{
+
+    a{
+      display: block;
+      text-decoration: none;
+      line-height: 1.5;
+      font-family: $title;
+      font-weight: 700;
+      width: 100%;
+      @include modular(4rem, 1.25);
+      letter-spacing: 0.04rem; // 40 in Photoshop
+      margin: 0;
+      color: white;
+      padding: 0.25rem;
+      transition: all 0.24s ease-in-out;
+
+      @media only screen and #{$tablet}{
+        padding: 2rem 1rem;
+      }
+
+      @media only screen and #{$desktop}{
+        padding: 4rem 1rem;
+      }
+
+      @media only screen and ( max-height: 35rem ){
+        padding: 0.25rem;
+      }
+
+      @media only screen and #{$tablet}{
+        // Title attr of the menu item
+        &:before{
+          content: attr(title);
+          display: block;
+          @include modular(1.25rem, 1.15);
+          font-family: $font;
+          font-weight: bold;
+          color: $grey;
+          opacity: 0.6;
+        }
+      }
+
+      &:hover{
+        background-color: lighten($grey-dark, 2%);
+      }
+    }
+  }
+
 }

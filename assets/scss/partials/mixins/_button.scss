@@ -12,7 +12,7 @@
 	text-indent:0;
 	display: inline-block;
 	cursor: pointer;
-	outline: none; 
+	outline: none;
   font-weight: 600;
   // Font style within button
 	font-style: normal;
@@ -20,9 +20,10 @@
 	text-align: center;
 
   // Button appearance
-	border-radius: 4rem;
+	border-radius: 4px;
 	font-smoothing: antialiased;
 	appearance: none;
+  text-shadow: 0;
 
 	// Sizing
 	padding: 0.844rem 1.5rem;		// THIS
@@ -31,15 +32,14 @@
 
 	@media only screen and #{$tablet}{
 		padding: 0.8125rem 2rem;	// THIS
-		line-height: 1.25rem; 		// IS
-		font-size: 0.9375rem; 		// 50PX!
+		font-size: 1rem; 		// 50PX!
 	}
 }
 
 @mixin btn(
-	$colour:	$brand-colour, 
-	$hover: 	desaturate(darken($colour, 6%), 5%), 
-	$active: 	desaturate(darken($colour, 3%), 5%) 
+	$colour:	$brand-colour,
+	$hover: 	desaturate(darken($colour, 6%), 5%),
+	$active: 	desaturate(darken($colour, 3%), 5%)
 	){
 	@extend %btn;
 
@@ -47,16 +47,17 @@
 	color: white;
 	background-color: $colour;
 	transition: background-color 0.1s $curve;
-	
-  &:hover{ 
+
+  &:hover{
   	background-color: $hover;
-  	color: white; 
+  	color: white;
   	text-decoration: none;
   }
-  
-  &:focus, 
-  &:active  { 
+
+  &:focus,
+  &:active  {
   	background-color: $active;
   	color: white;
+    box-shadow: none;
   }
 }

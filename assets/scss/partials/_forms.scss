@@ -21,7 +21,7 @@ INPUTS
 *********************/
 
 %inputs{
-  padding: 0.485rem 1.125rem;
+  padding: 0.3rem 1.125rem;
   color: $text;
   vertical-align: top;
   border: 1px solid darken($grey-dark, 5%);
@@ -37,7 +37,7 @@ INPUTS
   // a focused input (or hovered on)
   &:focus,
   &:active {
-    box-shadow: 0 0 5px $brand-colour;
+    box-shadow: 0 0 1px $brand-colour;
     outline: 0; // fix chrome drop shadow
   } // end hover or focus
 
@@ -80,7 +80,7 @@ INPUTS
   } // end disabled input
 
   @include placeholder{
-    color: fade-out($text, 0.5);
+    color: $text;
   }
 
 } // end input defaults
@@ -145,4 +145,9 @@ select {
 			color: transparent;
 		}
 	}
+}
+
+// brand button
+.btn-brand{
+  @include btn();
 }

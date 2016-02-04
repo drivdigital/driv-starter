@@ -1,0 +1,310 @@
+/******************************************************************
+Pneumatic theme  woocommerce styles
+******************************************************************/
+
+/* Various variables used across stylesheets */
+@import "variables";
+
+
+
+/*
+ * mobile only styles only in this media query
+ */
+@media only #{$mobile-only} {
+  /*
+   * Products
+   * [woocommerce]
+   */
+  .product {
+    /* Image thumbnails: */
+    .thumbnails {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+
+  }
+  /* Tabs */
+  .woocommerce-tabs .panel,
+  /* List of products ( related / upsells) */
+  .upsells.products, .related.products,
+  /* Edit links for blocks that are editable, for example address fields */
+  .edit {
+    font-size: $paragraph-size;
+  }
+
+  /* address on My account page */
+  .address {
+    padding: 1em 0;
+  }
+  /* Checkout page */
+  .woocommerce-checkout .col-1, .woocommerce-checkout .col-2 {
+    h3 {
+      margin-left: 0;
+      margin-bottom: 0.5em;
+    }
+  }
+  /* Checkout page */
+  .woocommerce-billing-fields {
+    padding: 0 0.75em;
+  }
+  /* Checkout page */
+  .woocommerce-shipping-fields {
+    padding: 0.75em;
+  }
+  /* Checkout page */
+  .woocommerce form .form-row {
+    padding: 0;
+  }
+  /* Top table on Cart page */
+  .shop_table,
+  .shop_table td {
+    font-size: 12px;
+  }
+  /* Table, Cart page */
+  .woocommerce table.shop_table td,
+  .woocommerce-cart table.cart th {
+    padding: 6px;
+  }
+  /* Content on Cart page */
+  .woocommerce-shipping-calculator p,
+  .cart_totals h2 {
+    margin-left: 0;
+  }
+  /* Shop page */
+  .woocommerce-page .woocommerce-ordering {
+    clear: left;
+    float: none;
+    //margin-bottom: 0rem;
+  }
+  /* Shop page */
+  .woocommerce-page.archive #main {
+    padding: 0 0.75em;
+  }
+  /* Breadcrumbs */
+  .woocommerce-page.archive .woocommerce-breadcrumb {
+    padding-left: 0 !important;
+  }
+  .woocommerce table.shop_table .product-subtotal {
+    border-right: 0 !important;
+  }
+  /* Order info, Order received page */
+  .woocommerce .order_details li {
+    margin: 0.75em 0;
+    float: none;
+    clear: left;
+    border-right: 0;
+  }
+
+  /* Expanding the product tabs in mobile */
+  .woocommerce-tabs {
+    .tabs {
+      display: none;
+    }
+    .panel {
+      display: block !important;
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 2em;
+    }
+  }
+  /* Adding padding to product tabs in mobile */
+  .woocommerce div.product .woocommerce-tabs .panel {
+    padding-bottom: 2em;
+  }
+  /* Star rating on product single page */
+  .woocommerce .star-rating {
+    float: none;
+    display: block;
+  }
+  .woocommerce #reviews #comments ol.commentlist li .comment-text .meta {
+    margin-top: 1em;
+  }
+
+  /* Breadcrumbs on woocommerce pages */
+  .woocommerce .woocommerce-breadcrumb {
+    margin-bottom: 0.25rem;
+  }
+
+  /* Result count on woocommerce pages, product archive page */
+  .woocommerce .woocommerce-result-count {
+    //margin-bottom: 0.75rem;
+    display: none;
+  }
+
+
+} /* End of mobile styles */
+
+
+
+/* Adding margin bottom to 'add a review'/'be the first to review this product' on product single page */
+.woocommerce #reviews .comment-reply-title {
+  margin-bottom: 1rem;
+}
+
+/* Comment form on Product single page */
+#commentform {
+  label {
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  label[for="email"],
+  label[for="author"] {
+    width: 4rem;
+    display: inline-block;
+  }
+}
+
+/* Qty on product single page */
+.woocommerce .qty {
+  padding: 0.4rem;
+}
+
+/* Additional information table on product single page */
+.woocommerce table.shop_attributes td {
+  padding: 0.25rem;
+}
+
+/* Order received page */
+.order_details {
+  padding-left: 0;
+}
+
+/* Tables, Order received page */
+.woocommerce table.order_details td,
+.woocommerce table.customer_details td {
+  border-bottom: 0;
+}
+
+/* Tables, Order review page */
+.woocommerce table.order_details tr td {
+  border-right: 0;
+}
+
+/* My account page */
+.my_account_orders td {
+  border-bottom: 0;
+}
+
+/* You order table, Checkout page */
+.woocommerce #order_review {
+  td {
+    border:0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+  }
+  th {
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    border-top: 0;
+  }
+}
+
+/* You order table, Checkout page */
+.woocommerce #order_review .order-total {
+  th, td {
+    border-bottom: 0;
+  }
+}
+
+/* Checkout page */
+.shop_table {
+  .actions {
+    border: 0 !important;
+  }
+}
+
+/* Checkout page */
+.woocommerce .cart-collaterals .cart_totals {
+  width: 100%;
+  table {
+    width: 100%;
+  }
+}
+
+/* Cart totals table, Cart page */
+.woocommerce .cart_totals td {
+  border: 0;
+}
+
+/* Cart totals table, Cart page */
+.woocommerce-cart .cart-collaterals .cart_totals table td {
+  padding-left: 1em;
+  vertical-align: middle;
+}
+
+/* Table, Cart page, Order review page */
+.woocommerce table.shop_table td {
+  border-right: 1px solid rgba(0,0,0,.1);
+  border-left: 0;
+  &:last-of-type {
+    border-right: 0;
+  }
+}
+
+/* Searchform */
+.widget .woocommerce-product-search .search-field,
+#s {
+  width: 100%;
+  width: calc( 100% - 4.25em );
+  float: left;
+  border: 0;
+  padding: 0.5em 0.5em 0.45em;
+  outline: none;
+}
+.widget .woocommerce-product-search input[type="submit"],
+#searchsubmit {
+  position: absolute;
+  top: 0; right: 0;
+  border-radius: 0;
+  border: 1px solid #000;
+  margin: -1px;
+}
+.widget .woocommerce-product-search,
+.searchform--inner {
+  position: relative;
+  border: 1px solid #ccc;
+}
+
+/* Clearfix the woocommerce search form */
+.woocommerce-product-search {
+  zoom: 1;
+    &:before, &:after { content: ""; display: table; }
+    &:after { clear: both; }
+}
+
+/* Overriding the WooCommerse's default button colors with Pneumatic color variables,
+ * if you want to change the button colors you should do so in _variables.scss
+ */
+.woocommerce a.button,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt:disabled[disabled] {
+  background-color: $button-color;
+  color: $button-text;
+  &:hover {
+    background: $button-hover;
+    color: $button-text;
+  }
+}
+
+/* If you want to change the price-color you should do so in _variables.scss */
+.woocommerce ul.products li.product .price,
+.amount,
+.woocommerce div.product p.price {
+  color: $price-color;
+}
+
+/* On sale badge, product pages, single and lists, if you want to change the badge-color you should do so in _variables.scss */
+.woocommerce span.onsale {
+  background: $badge-color;
+  z-index: 5;
+}
+
+/* If you want to change the star-color you should do so in _variables.scss */
+.woocommerce .star-rating span,
+.woocommerce .star-rating:before,
+.woocommerce p.stars a.star-1,
+.woocommerce p.stars a.star-2,
+.woocommerce p.stars a.star-3,
+.woocommerce p.stars a.star-4,
+.woocommerce p.stars a.star-5 {
+  color: $star-color;
+}
