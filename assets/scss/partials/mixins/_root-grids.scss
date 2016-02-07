@@ -1,0 +1,54 @@
+/*
+	Grids
+	----------
+  A tiny grid system based on
+  @span and @wider-than.
+*/
+
+
+/*
+Experimental Grid system
+
+Grid | Desktop | Tablet | Mobile
+.g-6-5-12{}
+.g-6-7-12{}
+*/
+// Loop through this shit.
+
+
+[class^="g-"]{
+  float: left;
+
+  // mobile
+  @include not-wider-than(tablet){
+    @for $c from 1 through 12 {
+      @at-root [class$="-#{$c}"] {
+        @include span( $c, 12 );
+      }
+    }
+  }
+
+  // Tablets
+  @include wider-than(tablet){
+    @include not-wider-than(desktop){
+      @for $b from 1 through 12 {
+        @at-root [class*="-#{$b}-"] {
+          @include span( $b, 12 );
+        }
+      }
+    }
+  }
+
+  // Desktops
+  @include wider-than(desktop){
+    @for $a from 1 through 12 {
+      @at-root [class^="-#{$a}"] {
+        @include span( $a, 12 );
+      }
+    }
+  }
+}
+
+.end{
+  margin-right: 0;
+}

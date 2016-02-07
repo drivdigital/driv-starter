@@ -8,40 +8,36 @@
 	Uses the breakpoint map defined inside _breakpoints.scss
 */
 
+$tablet_mq: 	49.7rem;
+$desktop_mq: 	64rem;
+
+$breakpoints: (
+  tablet:   $tablet_mq,
+  desktop:  $desktop_mq,
+);
+
+
 // min-width mediaquery
 @mixin wider-than($screen-size) {
-	@if ($ie == false){
-	    @if map-has-key($breakpoints, $screen-size) {
-	        @media (min-width: map-get($breakpoints, $screen-size)) {
-	            @content;
-	        }
-	    } @else {
-	        // Debugging
-	        @warn "'#{$screen-size}' has not been declared as a breakpoint."
-	    }
-    } @else {
-	    @content;
-	}
+  @if map-has-key($breakpoints, $screen-size) {
+      @media (min-width: map-get($breakpoints, $screen-size)) {
+          @content;
+      }
+  } @else {
+      // Debugging
+      @warn "'#{$screen-size}' has not been declared as a breakpoint.";
+  }
 }
 
 // max-width mediaquery
 @mixin not-wider-than($screen-size) {
-	@if ($ie == false){
-	    @if map-has-key($breakpoints, $screen-size) {
-	        @media (max-width: map-get($breakpoints, $screen-size)) {
-	            @content;
-	        }
-	    } @else {
-	        // Debugging
-	        @warn "'#{$screen-size}' has not been declared as a breakpoint."
-	    } 
-	} @else {
-		// We're not going to use things less than tablet or desktop for IE
-		@if ($screen-size == mobile or $screen-size == phablet or $screen-size == tablet or $screen-size == desktop){
-			/* No mobile styles for you mate. */
-		} @else {
-		    @content;
-	    }
-	}
+  @if map-has-key($breakpoints, $screen-size) {
+      @media (max-width: map-get($breakpoints, $screen-size)) {
+          @content;
+      }
+  } @else {
+      // Debugging
+      @warn "'#{$screen-size}' has not been declared as a breakpoint.";
+  }
 }
 

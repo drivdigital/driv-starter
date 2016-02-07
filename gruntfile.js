@@ -93,7 +93,8 @@ module.exports = function(grunt) {
     sass_globbing: {
       target: {
         files: {
-          'assets/scss/partials/_components.scss': 'assets/scss/components/*.scss'
+          'assets/scss/partials/_components.scss': 'assets/scss/components/*.scss',
+          'assets/scss/partials/_mixins.scss': 'assets/scss/partials/mixins/*.scss',
         }
       }
     },
