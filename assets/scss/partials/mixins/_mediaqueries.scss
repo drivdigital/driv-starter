@@ -16,7 +16,6 @@ $breakpoints: (
   desktop:  $desktop_mq,
 );
 
-
 // min-width mediaquery
 @mixin wider-than($screen-size) {
   @if map-has-key($breakpoints, $screen-size) {

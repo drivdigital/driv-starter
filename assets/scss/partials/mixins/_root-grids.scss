@@ -11,44 +11,43 @@ Experimental Grid system
 
 Grid | Desktop | Tablet | Mobile
 .g-6-5-12{}
-.g-6-7-12{}
+.g-6-7-12 de te me{}
 */
 // Loop through this shit.
 
 
-[class^="g-"]{
+[class^="g_"]{
   float: left;
 
   // mobile
   @include not-wider-than(tablet){
     @for $c from 1 through 12 {
-      @at-root [class$="-#{$c}"] {
+      @at-root [class*="-#{$c}"] {
         @include span( $c, 12 );
       }
     }
+    @at-root .me { margin-right: 0; }
   }
 
   // Tablets
   @include wider-than(tablet){
     @include not-wider-than(desktop){
       @for $b from 1 through 12 {
-        @at-root [class*="-#{$b}-"] {
+        @at-root [class*="_#{$b}-"] {
           @include span( $b, 12 );
         }
       }
+      @at-root .te { margin-right: 0; }
     }
   }
 
   // Desktops
   @include wider-than(desktop){
     @for $a from 1 through 12 {
-      @at-root [class^="-#{$a}"] {
+      @at-root [class*="_#{$a}_"] {
         @include span( $a, 12 );
       }
     }
+    @at-root .de { margin-right: 0; }
   }
-}
-
-.end{
-  margin-right: 0;
 }
