@@ -78,7 +78,7 @@ $m_small_gutter:  1.75rem;
   $percentage: $i * 100% / $max;
   width: $percentage - 2%;
   // Width for modern browsers
-  $percentage: $percentage - 0.01%;
+  $percentage: $percentage - 0.01111%;
   $num: $max / $i - 1;
   $margin-right: ($num * $guttering / ($num +1));
   width: calc(#{$percentage} - #{$margin-right});
