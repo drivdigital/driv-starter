@@ -1,6 +1,7 @@
 /* generated with grunt-sass-globbing */
 
 @import "mixins/0_functions";
+@import "mixins/0_mediaqueries";
 @import "mixins/blend-mode";
 @import "mixins/brightness";
 @import "mixins/button";
@@ -12,11 +13,9 @@
 @import "mixins/font-smoothing";
 @import "mixins/gradient";
 @import "mixins/inline-block";
-@import "mixins/mediaqueries";
 @import "mixins/modular";
 @import "mixins/padding";
 @import "mixins/placeholder";
-@import "mixins/root-grids";
 @import "mixins/screen-readers";
 @import "mixins/unloading";
 @import "mixins/vertical-align";

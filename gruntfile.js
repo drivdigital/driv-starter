@@ -1,23 +1,8 @@
 module.exports = function(grunt) {
 
-  grunt.registerTask('watch', [ 'watch' ]);
+  require('jit-grunt')(grunt);
 
   grunt.initConfig({
-
-    // Read package
-    pkg: grunt.file.readJSON('package.json'),
-
-    /**
-     * Project banner, currently unused.
-     */
-    tag: {
-      banner: '/*!\n' +
-              ' * <%= pkg.name %>\n' +
-              ' * <%= pkg.title %>\n' +
-              ' * <%= pkg.url %>\n' +
-              ' * @version <%= pkg.version %>\n' +
-              ' */\n'
-    },
 
     /**
      * Compiling stylesheets
@@ -41,7 +26,6 @@ module.exports = function(grunt) {
         },
 				files: {
 					'assets/css/style.css' : 'assets/scss/style.scss',
-					'assets/css/ie.css' : 'assets/scss/ie.scss',
 					'assets/css/login.css' : 'assets/scss/login.scss'
 				}
 			}
@@ -92,17 +76,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // Combine MQ's, but lose critical css
-    combine_mq: {
-      target: {
-        files: {
-          'assets/css/style.css': ['assets/css/style.css']
-        },
-        options: {
-          beautify: false
-        }
-      }
-    },
 
     /**
      * Live reloading
@@ -119,7 +92,7 @@ module.exports = function(grunt) {
         },
         options: {
           watchTask: true,
-          proxy: "drivstarter.dev" // If your site runs through MAMP, whats the URL
+          proxy: "drivstarter.dev:8080" // If your site runs through MAMP, whats the URL
         }
       }
     },
@@ -128,7 +101,6 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: ['assets/js/*.js'],
-        tasks: ['uglify:js']
       },
       css: {
         // Watch sass changes, merge mqs & run bs
@@ -141,25 +113,12 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('BrowserSync Reminder', function() {
-    grunt.log.writeln(
-      'Remember to change your BrowserSync Proxy if \n' +
-      'you are running this project for the first time. \n' +
-      'Otherwise, you will find that things refuse to work'
-    );
-  });
-
-
-  // Register everything used
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-
   // Standard grunt task – compile css and watch
   grunt.registerTask('default', [
     'sass_globbing:target', // Glob together needed folders
     'sass', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix
     'browserSync', // live reload
-    'BrowserSync Reminder',
     'watch' // Keep watching for any changes
   ]);
 
@@ -168,7 +127,6 @@ module.exports = function(grunt) {
     'uglify',
     'sass_globbing:target', // Glob together needed folders
     'sass', // Run sass
-    'combine_mq', // Combine MQ's
     'postcss:dist', // Post Process with Auto-Prefix
   ]);
 };

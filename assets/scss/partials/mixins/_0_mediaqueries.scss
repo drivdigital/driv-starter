@@ -1,3 +1,18 @@
+/******************************************************************
+/* Breakpoints
+
+Written as just the size. This allows combining of these queries
+into something like "only screen and landscape and tablet-down"
+******************************************************************/
+
+$landscape:        30.0625rem;
+$mobile-only:      37.9375rem;
+$tablet:           48rem;
+$tablet-down:      47.9rem;
+$tablet-landscape: 64rem;
+$laptop:           64.0625rem;
+$desktop:          77.5rem;
+$cinema:           103.75rem;
 
 /* 	This mixin will help you nest mediaqueries easier.
 	@Usage:
@@ -8,12 +23,13 @@
 	Uses the breakpoint map defined inside _breakpoints.scss
 */
 
-$tablet_mq: 	49.7rem;
-$desktop_mq: 	64rem;
-
 $breakpoints: (
-  tablet:   $tablet_mq,
-  desktop:  $desktop_mq,
+  landscape : $landscape,
+  mobile    : $mobile-only,
+  tablet    : $tablet,
+  laptop    : $laptop,
+  desktop   : $desktop,
+  cinema    : $cinema
 );
 
 // min-width mediaquery

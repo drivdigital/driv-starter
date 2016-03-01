@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Pneumatic theme - Emoji class
+ * drivdigital theme - Emoji class
  * Disable emoji that have by some bizarre reason been introduced in WP 4.2
  * http://wordpress.stackexchange.com/questions/185577/disable-emojicons-introduced-with-wp-4-2
  */
-class Pneumatic_Theme_Emoji {
+class drivdigital__Emoji {
   /**
    * Disable emoji accross WordPress
    */
@@ -20,7 +20,7 @@ class Pneumatic_Theme_Emoji {
     remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
 
     // filter to remove TinyMCE emojis
-    add_filter( 'tiny_mce_plugins', 'Pneumatic_Theme_Emoji::disable_emojicons_tinymce' );
+    add_filter( 'tiny_mce_plugins', 'drivdigital__Emoji::disable_emojicons_tinymce' );
   }
 
   /**

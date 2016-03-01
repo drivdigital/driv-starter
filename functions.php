@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Pneumatic Theme - Base class
+ * drivdigital Theme - Base class
  */
-class Pneumatic_Theme {
+class drivdigital_ {
   /**
-   * Construct - Set up basic actions for the pneumatic-theme
+   * Construct - Set up basic actions for the drivdigital
    */
   public function __construct() {
     // Add actions
@@ -18,12 +18,12 @@ class Pneumatic_Theme {
     add_filter( 'tiny_mce_before_init', array( $this, 'tinymce_options' ) );
 
     // Register widget areas (sidebars[sic])
-    require_once( 'classes/class-pneumatic-theme-widget.php' );
-    add_action( 'widgets_init', 'Pneumatic_Theme_Widget::widget_area' );
+    require_once( 'classes/class-drivdigital-widget.php' );
+    add_action( 'widgets_init', 'drivdigital_Widget::widget_area' );
 
     // Admin
-    require_once( 'classes/class-pneumatic-theme-admin.php' );
-    new Pneumatic_Theme_Admin();
+    require_once( 'classes/class-drivdigital-admin.php' );
+    new drivdigital__Admin();
   }
 
   /**
@@ -37,10 +37,8 @@ class Pneumatic_Theme {
     }
 
     // Basic setup for posts
-    require_once( 'classes/class-pneumatic-theme-post.php' );
-    add_action( 'pneumatic-theme-time', 'Pneumatic_Theme_Post::print_time' );
-
-    add_action( 'wp_head', array( $this, 'icons' ) );
+    require_once( 'classes/class-drivdigital-post.php' );
+    add_action( 'drivdigital-time', 'drivdigital__Post::print_time' );
 
     // Remove WP (generator) from rss feeds
     add_filter( 'the_generator', array( $this, 'return_empty' ) );
@@ -49,8 +47,11 @@ class Pneumatic_Theme {
     add_filter( 'the_content', array( $this, 'ptag_images' ) );
 
     // Remove Emoji functionality
-    require_once( 'classes/class-pneumatic-theme-emoji.php' );
-    Pneumatic_Theme_Emoji::disable_wp_emojicons();
+    require_once( 'classes/class-drivdigital-emoji.php' );
+    drivdigital__Emoji::disable_wp_emojicons();
+
+    // Add walker for navigation
+    require_once( 'classes/class-drivdigital-walker.php' );
   }
 
   /**
@@ -59,8 +60,8 @@ class Pneumatic_Theme {
   public function theme_support() {
     // Register menus (used in header.php)
     register_nav_menus( array(
-      'primary' => __( 'Primary Menu',   'pneumatic-theme' ),
-      'bar'     => __( 'Navigation bar', 'pneumatic-theme' ),
+      'primary' => __( 'Primary Menu',   'drivdigital' ),
+      'bar'     => __( 'Navigation bar', 'drivdigital' ),
     ) );
 
     // Enqueue scripts and styles
@@ -73,8 +74,8 @@ class Pneumatic_Theme {
     // Menus
     add_theme_support( 'menus' );
     // Woocommerce
-    require_once( 'classes/class-pneumatic-theme-woocommerce.php' );
-    Pneumatic_Theme_Woocommerce::woocommerce_support();
+    require_once( 'classes/class-drivdigital-woocommerce.php' );
+    drivdigital__Woocommerce::woocommerce_support();
     // Let WordPress handle the title
     add_theme_support( 'title-tag' );
     // Add HTML5 support
@@ -94,25 +95,25 @@ class Pneumatic_Theme {
 
       // Register scripts
       wp_register_script( 'modernizr', $this->scry( '/assets/js/libs/modernizr.custom.min.js' ), array(), '2.5.3', false );
-      wp_register_script( 'pneumatic-js-header', $this->scry( '/assets/js/scripts-header.js' ), array( 'jquery' ), '', false );
-      wp_register_script( 'pneumatic-js-footer', $this->scry( '/assets/js/scripts-footer.js' ), array( 'jquery' ), '', true );
+      wp_register_script( 'drivdigital-js-header', $this->scry( '/assets/js/scripts-header.js' ), array( 'jquery' ), '', false );
+      wp_register_script( 'drivdigital-js-footer', $this->scry( '/assets/js/scripts-footer.js' ), array( 'jquery' ), '', true );
 
       // Enqueue scripts
       wp_enqueue_script( 'modernizr' );
       wp_enqueue_script( 'jquery' );
-      wp_enqueue_script( 'pneumatic-js-header' );
-      wp_enqueue_script( 'pneumatic-js-footer' );
+      wp_enqueue_script( 'drivdigital-js-header' );
+      wp_enqueue_script( 'drivdigital-js-footer' );
 
       // Register styles
-      wp_register_style( 'pneumatic-stylesheet', $this->scry( '/assets/css/style.css' ), array(), '', 'all' );
-      wp_register_style( 'pneumatic-ie-only', $this->scry( '/assets/css/ie.css' ), array(), '' );
+      wp_register_style( 'drivdigital-stylesheet', $this->scry( '/assets/css/style.css' ), array(), '', 'all' );
+      wp_register_style( 'drivdigital-ie-only', $this->scry( '/assets/css/ie.css' ), array(), '' );
 
       // Add a conditional wrapper around the ie stylesheet
-      $GLOBALS['wp_styles']->add_data( 'pneumatic-ie-only', 'conditional', 'lt IE 9' );
+      $GLOBALS['wp_styles']->add_data( 'drivdigital-ie-only', 'conditional', 'lt IE 9' );
 
       // Enqueue styles
-      wp_enqueue_style( 'pneumatic-stylesheet' );
-      wp_enqueue_style( 'pneumatic-ie-only' );
+      wp_enqueue_style( 'drivdigital-stylesheet' );
+      wp_enqueue_style( 'drivdigital-ie-only' );
 
       // Comment reply script for threaded comments
       if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
@@ -146,7 +147,7 @@ class Pneumatic_Theme {
     $uri = get_template_directory_uri();
     $dir = get_template_directory();
     $file_uri = $uri . $path .'?'. filemtime( $dir . $path );
-    return apply_filters( 'pneumatic-theme-scry', $file_uri );
+    return apply_filters( 'drivdigital-scry', $file_uri );
   }
 
   /**
@@ -226,4 +227,4 @@ class Pneumatic_Theme {
 
 }
 
-$GLOBALS['pneumatic-theme'] = new Pneumatic_Theme();
+$GLOBALS['drivdigital'] = new drivdigital_();

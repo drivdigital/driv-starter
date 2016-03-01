@@ -1,9 +1,9 @@
 /******************************************************************
-Pneumatic theme  woocommerce styles
+drivdigital theme  woocommerce styles
 ******************************************************************/
 /* Various variables used across stylesheets */
 /******************************************************************
-Pneumatic theme variables
+drivdigital theme variables
 ******************************************************************/
 /* Colors */
 /* Misc */
@@ -225,7 +225,7 @@ Pneumatic theme variables
   .woocommerce-product-search:after {
     clear: both; }
 
-/* Overriding the WooCommerse's default button colors with Pneumatic color variables,
+/* Overriding the WooCommerse's default button colors with drivdigital color variables,
  * if you want to change the button colors you should do so in _variables.scss
  */
 .woocommerce a.button,

@@ -1,26 +1,17 @@
 /**
  * Contact information in the header
  */
-
-
-.top-nav--contact{
-  position: absolute;
-  z-index: 10;
-  color: white;
-  bottom: 5%;
-  right: 0;
-  width: 100%;
-  text-align: center;
-}
-
-
-
+$menu-font-family:           $title;
+$menu-background-colour:     black;
+$menu-text-colour:           white;
+$menu-text-colour-hover:     black;
+$menu-text-background-hover: white;
 
 /**
  * Navigation
  */
 
-// Menu button
+// Menu on / off button
 .button-menu{
   position: absolute;
   top: 5%;
@@ -28,22 +19,25 @@
 
   &:before{
     content: "\2630";
-    font-size: 2rem;
+    font-size: 1.5rem;
     vertical-align: middle;
     line-height: 0.65;
     position: absolute;
-    left: -2rem;
+    left: -1.75rem;
+    top: 4px;
   }
 
+  // This shows a X
   &.open{
     position: fixed;
-    color: white;
     z-index: 1001;
+    color: $menu-text-colour;
 
     &:before{
       content: "\00d7";
       line-height: 0.45;
-      font-size: 3rem;
+      font-size: 2rem;
+      top: 2px;
     }
   }
 }
@@ -61,9 +55,8 @@
   width: 100%;
   z-index: 1000;
 
-  background-color: $grey-dark;
+  background-color: $menu-background-colour;
 }
-
 
 /**
  * Show menu items title
@@ -77,7 +70,7 @@
 /**
  * Flex
  */
-.nav-menu-primary{
+ .nav-menu-primary{
   display: flex;
   flex-wrap: wrap;
   align-items: stretch;
@@ -92,21 +85,23 @@
 
   // Force Flexbox to give room for the
   // logo and the contact information
-  @media only screen and (max-height: 25rem) and #{$tablet-down}{
+  @media only screen and (max-height: 25rem) and ( max-width: #{$tablet-down} ) {
     padding: 10% 0;
   }
 
   // Force Flexbox to give room for the
   // logo and the contact information
-  @media only screen and (min-height: 25rem) and #{$tablet-down}{
+  @media only screen and (min-height: 25rem) and ( max-width: #{$tablet-down} ) {
     padding: 28% 0;
     max-height: 30rem;
   }
 
 
   // Force tablets to push menu items closer together
-  @media only screen and #{$tablet} and #{$desktop-down}{
-    padding: 0 17%;
+  @include wider-than ( tablet ) {
+    @include not-wider-than ( desktop ){
+      padding: 0 17%;
+    }
   }
 
 }
@@ -120,8 +115,8 @@
    */
 
   $element:     '.menu-item'; // Pick element you want to animate
-  $length:      1s; // Length of animation
-  $stage:       0.2s; // Delay increments
+  $length:      0.75s; // Length of animation
+  $stage:       0.155s; // Delay increments
   $movement:    -25deg; // How noticable the movment will be
   $transition:  cubic-bezier(0.46, 0.01, 0.47, 0.85); // The animation easing
 
@@ -129,6 +124,29 @@
     .top-nav{
       animation: 0.5s appear $transition;
     }
+  }
+
+  /*
+   * For every element in succession, delay incrementally
+   */
+   @for $i from 1 through 10 {
+    $delay: $stage * $i;
+    #{$element}:nth-of-type(#{$i}) a{
+      animation-delay: $delay;
+    }
+  }
+
+  /**
+   * Animations used in the navigation
+   */
+   @keyframes rotate {
+    from{ transform: translateZ(-1rem) rotate3d(1, -1, 0, $movement); }
+    to {  transform: translateZ(-1rem) rotate3d(1, 1, 0, 0deg); }
+  }
+
+  @keyframes appear {
+    from{ opacity: 0; }
+    to { opacity: 1; }
   }
 
   /**
@@ -142,19 +160,20 @@
     flex: 1 0 100%;
     margin: 0;
 
-    @media only screen and ( max-height: 25rem ){
+    @media ( max-height: 25rem ) {
       flex: 1 0 50%;
     }
 
-    @media only screen and #{$tablet}{
+    @include wider-than ( tablet ) {
       flex: 1 0 50%;
     }
 
-    @media only screen and #{$desktop}{
-      align-self: flex-end;
+    @include wider-than ( desktop ) {
+      align-self: center;
+
+      @include count-is-more-than(3){ align-self: flex-end; }
 
       // After the third column align-top
-
       @include count-is(4){
         & + .menu-item + .menu-item {
           align-self: flex-start;
@@ -167,12 +186,10 @@
           align-self: flex-start;
         }
       }
-
-
     }
 
     // 3D Animations on activate
-    @media only screen and #{$tablet}{
+    @include wider-than ( tablet ) {
       a{
         transform-style: preserve-3d;
         perspective: 20rem;
@@ -192,57 +209,32 @@
     }
   }
 
-  /*
-   * For every element in succession, delay incrementally
-   */
-  @for $i from 1 through 10 {
-    $delay: $stage * $i;
-    #{$element}:nth-of-type(#{$i}) a{
-      animation-delay: $delay;
-    }
-  }
-
-  /**
-   * Animations used in the navigation
-   */
-  @keyframes rotate {
-    from{ transform: translateZ(-1rem) rotate3d(1, -1, 0, $movement); }
-    to {  transform: translateZ(-1rem) rotate3d(1, 1, 0, 0deg); }
-  }
-
-  @keyframes appear {
-    from{ opacity: 0; }
-    to { opacity: 1; }
-  }
-
-
 
 
   /**
    * Style of the menu elements
    */
 
-  .menu-item{
-
+   .menu-item{
     a{
+      color: $menu-text-colour;
       display: block;
       text-decoration: none;
       line-height: 1.5;
-      font-family: $title;
+      font-family: $menu-font-family;
       font-weight: 700;
       width: 100%;
       @include modular(4rem, 1.25);
       letter-spacing: 0.04rem; // 40 in Photoshop
       margin: 0;
-      color: white;
       padding: 0.25rem;
       transition: all 0.24s ease-in-out;
 
-      @media only screen and #{$tablet}{
+      @include wider-than ( tablet ) {
         padding: 2rem 1rem;
       }
 
-      @media only screen and #{$desktop}{
+      @include wider-than ( desktop ) {
         padding: 4rem 1rem;
       }
 
@@ -250,7 +242,7 @@
         padding: 0.25rem;
       }
 
-      @media only screen and #{$tablet}{
+      @include wider-than ( tablet ) {
         // Title attr of the menu item
         &:before{
           content: attr(title);
@@ -264,7 +256,8 @@
       }
 
       &:hover{
-        background-color: lighten($grey-dark, 2%);
+        color: $menu-text-colour-hover;
+        background-color: $menu-text-background-hover;
       }
     }
   }

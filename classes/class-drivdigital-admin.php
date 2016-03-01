@@ -1,10 +1,10 @@
 <?php
 
 /**
- * Pneumatic theme - Admin class
+ * drivdigital theme - Admin class
  * Enables utility features in the front-end for site admins
  */
-class Pneumatic_Theme_Admin {
+class drivdigital__Admin {
   function __construct() {
     if ( current_user_can( 'administrator' ) ) {
       add_action( 'wp_head',   array( $this, 'region_styles' ) );
@@ -58,7 +58,7 @@ class Pneumatic_Theme_Admin {
   }
 
   public function footer_toggle() { ?>
-    <div class="region-toggle btn">toggle regions</div>
+    <div class="region-toggle btn"><?php _e( 'Toggle regions', 'drivdigital' )?></div>
     <script type="text/javascript">
       jQuery('.region-toggle').click( function() {
         jQuery('body').toggleClass( 'show-regions' );
