@@ -1,18 +1,18 @@
 <?php
 
 /**
- * Pneumatic theme - Widget class
+ * drivdigital theme - Widget class
  */
-class Pneumatic_Theme_Widget {
+class drivdigital_Widget {
   /**
    * Register all widget areas used in the theme
    */
   static function widget_area() {
     // Register sidebars
     register_sidebar( array(
-      'name'          => __( 'Widget Area', 'pneumatic-theme' ),
-      'id'            => 'sidebar-1',
-      'description'   => __( 'Add widgets here to appear in your sidebar.', 'pneumatic-theme' ),
+      'name'          => __( 'Widget Area', 'drivdigital' ),
+      'id'            => 'aside',
+      'description'   => __( 'Add widgets here to appear in your sidebar.', 'drivdigital' ),
       'before_widget' => '<aside id="%1$s" class="widget %2$s">',
       'after_widget'  => '</aside>',
       'before_title'  => '<h2 class="widget-title">',
@@ -20,9 +20,9 @@ class Pneumatic_Theme_Widget {
     ) );
 
     register_sidebar( array(
-      'name'          => __( 'Footer', 'pneumatic-theme' ),
+      'name'          => __( 'Footer', 'drivdigital' ),
       'id'            => 'footer',
-      'description'   => __( 'Add widgets here to appear in your footer.', 'pneumatic-theme' ),
+      'description'   => __( 'Add widgets here to appear in your footer.', 'drivdigital' ),
       'before_widget' => '<div id="%1$s" class="widget %2$s">',
       'after_widget'  => '</div>',
       'before_title'  => '<h2 class="widget-title">',

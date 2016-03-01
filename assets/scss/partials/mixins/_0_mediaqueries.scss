@@ -1,0 +1,58 @@
+/******************************************************************
+/* Breakpoints
+
+Written as just the size. This allows combining of these queries
+into something like "only screen and landscape and tablet-down"
+******************************************************************/
+
+$landscape:        30.0625rem;
+$mobile-only:      37.9375rem;
+$tablet:           48rem;
+$tablet-down:      47.9rem;
+$tablet-landscape: 64rem;
+$laptop:           64.0625rem;
+$desktop:          77.5rem;
+$cinema:           103.75rem;
+
+/* 	This mixin will help you nest mediaqueries easier.
+	@Usage:
+		@include wider-than(mobile) 	{ width: 55%; 	}
+		@include wider-than(phablet) 	{ width: 65%; 	}
+		@include wider-than(tablet) 	{ width: 75%;	}
+
+	Uses the breakpoint map defined inside _breakpoints.scss
+*/
+
+$breakpoints: (
+  landscape : $landscape,
+  mobile    : $mobile-only,
+  tablet    : $tablet,
+  laptop    : $laptop,
+  desktop   : $desktop,
+  cinema    : $cinema
+);
+
+// min-width mediaquery
+@mixin wider-than($screen-size) {
+  @if map-has-key($breakpoints, $screen-size) {
+      @media (min-width: map-get($breakpoints, $screen-size)) {
+          @content;
+      }
+  } @else {
+      // Debugging
+      @warn "'#{$screen-size}' has not been declared as a breakpoint.";
+  }
+}
+
+// max-width mediaquery
+@mixin not-wider-than($screen-size) {
+  @if map-has-key($breakpoints, $screen-size) {
+      @media (max-width: map-get($breakpoints, $screen-size)) {
+          @content;
+      }
+  } @else {
+      // Debugging
+      @warn "'#{$screen-size}' has not been declared as a breakpoint.";
+  }
+}
+

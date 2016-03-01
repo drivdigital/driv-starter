@@ -10,7 +10,7 @@
           <header class="article--header">
             <?php the_post_thumbnail( 'large' ); ?>
             <h1 class="article--title"><?php the_title(); ?></h1>
-            <?php do_action( 'pneumatic-theme-time', 'updated article-time' ); ?>
+            <?php do_action( 'drivdigital-time', 'updated article-time' ); ?>
           </header>
           <div class="article--content cf">
             <?php the_content(); ?>

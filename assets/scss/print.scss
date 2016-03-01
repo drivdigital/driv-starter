@@ -42,7 +42,7 @@ a {
 /* Don't show links for images, or javascript/internal links */
 
 pre, code {
-  border: 1px solid $grey-dark;
+  border: 1px solid #999;
   page-break-inside: avoid;
 }
 
@@ -78,3 +78,238 @@ p, h2, h3 {
 h2, h3 {
   page-break-after: avoid;
 }
+
+/* Midsona specific print styles */
+
+html, 
+body{ font-size: 75%; }
+
+.noprint, // Anything I don't want to print
+.header, // Remove Header, don't need it.
+.breadcrumbs span:not(:first-child) a:after, // Keep home link, remove all other links
+.recipe__meta--print--link, // Obviously we don't need this link
+.allergies__item:before, // No icons
+.recipe__meta--item:before, // No icons
+#featured-video, // No videos on paper
+.button, // No buttons
+.subscribe, // can't subscribe
+.single-post .sidebar // nahh
+{ 
+	display: none !important;
+	margin: 0;
+	padding: 0;
+}
+
+// Remove excessive hr/>s
+
+
+#featured-video,
+#featured-post
+{
+	& + hr{ 
+		display: none !important;
+		margin: 0;
+		padding: 0;
+}
+}
+
+// Make images smaller to save ink
+
+img{ 
+	padding: 0 30% 0.5cm 0;
+	max-width: 20cm;
+	margin: 0;
+}
+
+
+body:before{
+	content: "Midsona.no";
+	font-size: 2rem;
+	padding: 0.25cm 0;
+	text-align: center;
+	display: block;
+	margin: 0 auto;
+	font-weight: 700;
+}
+
+.breadcrumbs{ text-align: center; }
+
+.page, 
+.questionable-wrapper,
+.single-product .type-product,
+#featured-post,
+#reviews,
+.single-post #content{
+	max-width: 15cm;
+	margin: 0 auto;
+}
+
+/* Recipe page */
+
+.single-recipe{
+	.allergies,
+	.recipe__meta,
+	.hero__attr{
+		width: 33%;
+		float: left;
+		border-top: 0;
+		border-bottom: 0;
+		padding-top: 0.5cm;
+		padding-bottom: 0.5cm;
+		font-size: 1rem;
+	}
+}
+.recipe__meta--item{
+ font-size: 1rem;
+}
+
+.paragraph--thin{
+	border-top: 1px solid $grey;
+	padding-top: 0.5cm;
+	margin-top: 0.5cm;
+	clear: both;
+	p { column-count: 2; }
+}
+
+.recipe__steps{
+	//page-break-before: always;
+
+	@at-root #{&}--content{
+		//float: left;
+		//width: 60%;
+		img{ 
+		  margin: 0;
+		  max-width: 6cm;
+		  padding: 0 1cm 0 0;
+		}
+
+	}
+	@at-root #{&}--widget{
+		//float: right;
+		//width: 38%;
+		clear: right;
+	}
+
+	@at-root #{&}--ingredients{
+		border: 5px solid $brand-colour;
+	}
+}
+
+
+/* Article List */
+
+.thumbnail-post__archive-list .thumbnail-post__article{
+	width: 32.5%;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0.5cm;
+}
+.thumbnail-post__article > a:after{ display: none; }
+.thumbnail-post__article--title:after{ display: block; }
+
+/* Guides */
+
+
+.hero--content{ text-align: left; }
+.hero__attr{ 
+	@include clearfix;
+	width: 100%; 
+	padding: 0.25cm 0.5cm; 
+	margin: 0;
+	text-align: left;
+	@at-root #{&}--profile{ float: left; margin-right: 0.5cm; }
+}
+
+.short-image{
+	margin: 0.5cm auto;
+	max-width: 20cm;
+	img{
+		padding-left: 15%;
+		padding-right: 15%;
+	}
+}
+
+.product-uses{
+	width: 50%;
+	@at-root #{&}__title{
+		text-align: left;
+		font-weight: 600;
+		border-bottom: 1px solid;
+	}
+}
+
+
+
+/* Quotes */
+
+.quote__avatar{ display: none; }
+.quote--quote, blockquote{
+	font-size: 13.25pt;
+	text-align: left;
+	max-width: 12cm;
+	line-height: 1.4;
+	margin: 0 0 1cm 1cm;
+	quotes: "\201C""\201D""\2018""\2019";
+
+	&:before{
+		content: open-quote;
+		float: left;
+		margin-left: -1cm;
+		margin-right: 0.5cm;
+		font-size: 35pt;
+		width: 1cm;
+		height: 1cm;
+		background-image: none;
+	}
+}
+
+/* List of products and single product */
+
+.woocommerce-main-image .attachment-shop_single{
+	width: 40%;
+}
+.woocommerce-main-image:after,
+.variations_form,
+.wc-tabs,
+#review_form_wrapper,
+#suggested-recipes,
+.leave-review { display: none; }
+.wc-tab{ display: block !important; }
+
+.information--item{
+	width: 33%;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0 0.125cm;
+	margin: 0;
+}
+
+.products{
+	.product{
+		width: 32.5%;
+		display: inline-block;
+		vertical-align: top;
+		padding: 0.5cm;
+	}
+}
+
+.thumbnail-post__article, .featured-post{
+	width: 100%;
+	display: inline-block;
+	vertical-align: top;
+	padding: 0.5cm;
+
+	.thumbnail-post__article--image, 
+	> [class^="featured-post__image"]{
+		width: 50%; 
+		float: left;
+		padding: 0;
+	}
+	> [class^="featured-post__desc"]{
+		width: 50%; 
+		float: right;
+		padding: 0;
+	}
+}
+
+[class^="featured-post__desc"]{ padding-left: 0 !important;}

@@ -71,20 +71,22 @@ $modular-scale-base: 1em !default;
 /* This is quite an experiment with font sizes.
  Basically, i'm using a modualr scale for the type. */
 
-@mixin modular($largest){
-  $ratio: $minor-second;
+@mixin modular($largest, $ratio: $major-third){
                                         font-size: modular-scale(-4, $largest, $ratio);
-  @media only screen and #{$landscape}{ font-size: modular-scale(-3, $largest, $ratio); }
-  @media only screen and #{$tablet}   { font-size: modular-scale(-2, $largest, $ratio); }
-  @media only screen and #{$laptop}   { font-size: modular-scale(-1, $largest, $ratio); }
-  @media only screen and #{$desktop}   { font-size: ($largest); }
+  @include wider-than ( landscape )   { font-size: modular-scale(-3, $largest, $ratio); }
+  @include wider-than ( tablet )      { font-size: modular-scale(-2, $largest, $ratio); }
+  @include wider-than ( laptop )      { font-size: modular-scale(-1, $largest, $ratio); }
+  @include wider-than ( desktop )     { font-size: ($largest); }
+
+
+
 }
 
-@mixin modular-element($element, $largest){
-  $ratio: $minor-second;
+@mixin modular-element($element, $largest, $ratio: $major-third){
                                         #{$element}: modular-scale(-4, $largest, $ratio);
-  @media only screen and #{$landscape}{ #{$element}: modular-scale(-3, $largest, $ratio); }
-  @media only screen and #{$tablet}   { #{$element}: modular-scale(-2, $largest, $ratio); }
-  @media only screen and #{$laptop}   { #{$element}: modular-scale(-1, $largest, $ratio); }
-  @media only screen and #{$desktop}  { #{$element}: ($largest); }
+  @include wider-than ( landscape )   { #{$element}: modular-scale(-3, $largest, $ratio); }
+  @include wider-than ( tablet )      { #{$element}: modular-scale(-2, $largest, $ratio); }
+  @include wider-than ( laptop )      { #{$element}: modular-scale(-1, $largest, $ratio); }
+  @include wider-than ( desktop )     { #{$element}: ($largest); }
+
 }

@@ -1,31 +1,4 @@
 /******************************************************************
-/* Breakpoints
-
-Written as just the size. This allows combining of these queries
-into something like "only screen and landscape and tablet-down"
-******************************************************************/
-
-// Rem versions, for the healthy people who are accessable needing
-$landscape:        '( min-width: 30.0625rem )';
-$mobile-only:      '( max-width: 37.9375rem )';
-
-$tablet:           '( min-width: 48rem )';
-$tablet-down:      '( max-width: 47.9375rem )';
-$tablet-landscape: '( min-width: 64rem )';
-
-$laptop:           '( min-width: 64.0625rem )';
-$laptop-down:      '( max-width: 64.0625rem )';
-
-$desktop:          '( min-width: 77.5rem )';
-$desktop-down:     '( max-width: 77.5rem )';
-
-$cinema:           '( min-width: 103.75rem )';
-$cinema-down:      '( max-width: 103.75rem )';
-
-$small-device-only: 'only screen and '$landscape' and '$laptop-down;
-
-
-/******************************************************************
 /* Colours
 
 Variables written throughout the site. Everything on this page
@@ -53,7 +26,7 @@ $grey-darker:       #AAAAAA;
 
 /* General colours */
 $text:              #222222;    // Deep grey
-$text-light:        #6d6d6d;    // Lighter grey
+$text-light:        #444444;    // Lighter grey
 $text-overprint:    #595959;  // A strange dark muddy grey
 
 /* Brand colours */
@@ -90,23 +63,3 @@ enhance the qwuality of an animation.
 ******************************************************************/
 
 $curve:               cubic-bezier(0.84, 0.1, 0.83, 0.67);
-
-/******************************************************************
-/* For the sake of testing, hr styles
-******************************************************************/
-
-hr{
-  margin: 4rem auto;
-  display: block;
-  border: 0;
-  max-width: 80;
-  border-top: 1px solid $grey-dark;
-
-  @media only screen and #{$tablet}{
-    max-width: 75%;
-  }
-
-  @media only screen and #{$desktop}{
-    max-width: 60%;
-  }
-}

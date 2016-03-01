@@ -1,0 +1,86 @@
+/*
+Error: Undefined mixin 'wider-than'.
+        on line 8 of assets/scss/partials/_layout.scss, in `wider-than'
+        from line 8 of assets/scss/partials/_layout.scss
+        from line 8 of assets/scss/login.scss
+
+3: ***********\/
+4: 
+5: // Various variables used across stylesheets
+6: @import "variables",						// Colours and Variables
+7: 				"partials/normalize", 	// Normalize: http://necolas.github.io/normalize.css/
+8: 				"partials/layout", 			// Layout / grid
+9: 				"partials/mixins", 			// Various variables used across stylesheets
+10: 				"partials/type",				// Typography for everything
+11: 				"partials/forms", 			// Form Styles
+12: 				"menus/_menu-1"; 				// Use menu-1 (default)
+13: 
+
+Backtrace:
+assets/scss/partials/_layout.scss:8:in `wider-than'
+assets/scss/partials/_layout.scss:8
+assets/scss/login.scss:8
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:349:in `block in visit_mixin'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:98:in `block in with_mixin'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:98:in `with_mixin'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:347:in `visit_mixin'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:79:in `with_base'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `map'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:79:in `with_base'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:326:in `map'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:88:in `block in with_import'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:88:in `with_import'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/stack.rb:79:in `with_base'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:412:in `run'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/exec/base.rb:52:in `parse'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/lib/sass/exec/base.rb:19:in `parse!'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/gems/sass-3.4.20/bin/sass:13:in `<top (required)>'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/bin/sass:23:in `load'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/bin/sass:23:in `<main>'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `eval'
+/Users/drivdigital/.rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined mixin 'wider-than'.\A         on line 8 of assets/scss/partials/_layout.scss, in `wider-than'\A         from line 8 of assets/scss/partials/_layout.scss\A         from line 8 of assets/scss/login.scss\A \A 3: ***********/\A 4: \A 5: // Various variables used across stylesheets\A 6: @import \"variables\",						// Colours and Variables\A 7: 				\"partials/normalize\", 	// Normalize: http://necolas.github.io/normalize.css/\A 8: 				\"partials/layout\", 			// Layout / grid\A 9: 				\"partials/mixins\", 			// Various variables used across stylesheets\A 10: 				\"partials/type\",				// Typography for everything\A 11: 				\"partials/forms\", 			// Form Styles\A 12: 				\"menus/_menu-1\"; 				// Use menu-1 (default)\A 13: "; }

@@ -1,8 +1,55 @@
 module.exports = function(grunt) {
 
-  grunt.registerTask('watch', [ 'watch' ]);
+  require('jit-grunt')(grunt);
 
   grunt.initConfig({
+
+    /**
+     * Compiling stylesheets
+     */
+
+    // Import whole folder into a file
+    sass_globbing: {
+      target: {
+        files: {
+          'assets/scss/partials/_components.scss': 'assets/scss/components/*.scss',
+          'assets/scss/partials/_mixins.scss': 'assets/scss/partials/mixins/*.scss',
+        }
+      }
+    },
+
+    // Compile SCSS
+		sass: {
+			dist: {
+        options: {
+          style: 'compressed',
+        },
+				files: {
+					'assets/css/style.css' : 'assets/scss/style.scss',
+					'assets/css/login.css' : 'assets/scss/login.scss'
+				}
+			}
+		},
+
+    // Autoprefix
+    postcss: {
+      options: {
+        map: false,
+        processors: [
+        require('autoprefixer')({
+          browsers: ['> 20%', 'last 10 versions', 'Firefox > 20']
+        })
+        ],
+        remove: false
+      },
+      dist: {
+        src: 'assets/css/*.css'
+      }
+    },
+
+    /**
+     * Minifications
+     */
 
     // Make JS tiny
     uglify: {
@@ -17,7 +64,6 @@ module.exports = function(grunt) {
       }
     },
 
-
     // Minify Images
     imagemin: {
       dynamic: {
@@ -30,96 +76,23 @@ module.exports = function(grunt) {
       }
     },
 
-    // Import whole folder into a file
-    sass_globbing: {
-      target: {
-        files: {
-          'assets/scss/partials/_menus.scss': 'assets/scss/partials/menus/*.scss',
-          'assets/scss/partials/_mixins.scss': 'assets/scss/partials/mixins/*.scss',
-          'assets/scss/partials/_components.scss': 'assets/scss/components/*.scss'
-        }
-      }
-    },
-
-    // Compile SCSS
-    sass: {
-      stage: {
-        options: {
-          style: 'nested' // Change to Compressed once live.
-        },
-        files: {
-          'assets/css/style.css' : 'assets/scss/style.scss',
-          'assets/css/login.css' : 'assets/scss/login.scss'
-        }
-      },
-
-      dist: {
-        options: {
-          style: 'compressed', // Change to Compressed once live.
-          //loadPath: require('node-bourbon').includePaths
-        },
-        files: {
-          'assets/css/style.css' : 'assets/scss/style.scss',
-          'assets/css/login.css' : 'assets/scss/login.scss'
-        }
-      }
-    },
-
-    // Combine MQ's, but lose critical css
-    combine_mq: {
-      target: {
-        files: {
-          'assets/css/style.css': ['assets/css/style.css']
-        },
-        options: {
-          beautify: false
-        }
-      }
-    },
-
-    // Autoprefix
-    postcss: {
-        options: {
-            map: false,
-            processors: [
-                require('autoprefixer-core')({
-                    browsers: ['> 20%', 'last 10 versions', 'Firefox > 20']
-                })
-            ],
-            remove: false
-        },
-        dist: {
-            src: 'assets/css/*.css'
-        }
-    },
-
-    /*
-    * Fallback for Internet Explorer
-    */
-
-    pixrem: {
-      options: {
-        rootvalue: '100%',
-        replace: true
-      },
-      dist: {
-        src: 'assets/css/style.css',
-        dest: 'assets/css/ie.css'
-      }
-    },
 
     /**
-     * Strip Media QUeries for IE
-     * @type {Object}
+     * Live reloading
      */
-    stripmq: {
-      options: {
-        width: 1400,
-        type: 'screen'
-      },
-      all: {
-        files: {
-          'assets/css/ie.css': ['assets/css/ie.css']
+    // See your changes in the browser as they happen.
+    browserSync: {
+      default_options: {
+        bsFiles: {
+          src: [
+            "assets/css/*.css",
+            "*.php,",
+            "**/*.php,"
+          ]
+        },
+        options: {
+          watchTask: true,
+          proxy: "drivstarter.dev:8080" // If your site runs through MAMP, whats the URL
         }
       }
     },
@@ -128,73 +101,32 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: ['assets/js/*.js'],
-        tasks: ['uglify:js']
       },
       css: {
-        // Watch sass changes, then process new images and merge mqs
-        files: [
-        'assets/scss/*.scss',
-        'assets/scss/**/*.scss',
-        'assets/scss/**/**/*.scss'],
-        tasks: [
-          'sass_globbing:target',
-          'sass:stage',
-          'postcss:dist',
-          'pixrem',
-          'stripmq',
-          'browserSync'
-        ]
+        // Watch sass changes, merge mqs & run bs
+        files: ['assets/scss/*.scss', 'assets/scss/**/*.scss'],
+        tasks: ['sass_globbing:target', 'sass', 'postcss:dist', 'browserSync' ]
       },
       options: {
-        spawn: false // Very important, don't miss this
-      }
-    },
-
-    browserSync: {
-      default_options: {
-        bsFiles: {
-          src: [
-            "assets/css/*.css",
-            "*.html,",
-            "**/*.html,",
-            "*.php,",
-            "**/*.php,"
-          ]
-        },
-        options: {
-          watchTask: true,
-          open: false,
-          proxy: "http://midsona.dev:8080" // If your site runs through MAMP, whats the URL
-        }
+          spawn: false // Very important, don't miss this
       }
     }
   });
 
-  // Register everything used
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-
-  // Run everything with 'grunt', these need to be in
-  // a specific order so they don't fail.
+  // Standard grunt task – compile css and watch
   grunt.registerTask('default', [
-    'sass_globbing:target',   // Glob together needed folders
-    'sass:stage',             // Run sass
-    'postcss:dist',           // Post Process with Auto-Prefix
-    'browserSync',            // live reload
-    'newer:imagemin:dynamic', // Compress all images
-    'pixrem',                 // Fallback for IE and Android
-    'stripmq',                // remove mediaqueries for IE
-    'watch:css'               // Keep watching for any changes
+    'sass_globbing:target', // Glob together needed folders
+    'sass', // Run sass
+    'postcss:dist', // Post Process with Auto-Prefix
+    'browserSync', // live reload
+    'watch' // Keep watching for any changes
   ]);
 
-  // When we go live, run `grunt live` instead
-  grunt.registerTask('live', [
+  // Minify everything from css to js
+  grunt.registerTask('slim', [
     'uglify',
-    'sass_globbing:target',   // Glob together needed folders
-    'sass:dist',              // Run sass
-    'postcss:dist',           // Post Process with Auto-Prefix
-    'combine_mq',             // Combine MQ's
-    'newer:imagemin:dynamic', // Compress all images
-    'pixrem',                 // Fallback for IE and Android
-    'stripmq'                 // Take it all away.
+    'sass_globbing:target', // Glob together needed folders
+    'sass', // Run sass
+    'postcss:dist', // Post Process with Auto-Prefix
   ]);
 };

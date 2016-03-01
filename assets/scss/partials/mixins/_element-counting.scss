@@ -1,4 +1,4 @@
-/*
+/* 
 	Counting Elements can be fun.
 	http://www.sitepoint.com/using-sass-quantity-queries/
 
@@ -6,7 +6,7 @@
 	@include count-is(5){
 		// Say something beautiful
 	}
-
+	
 	// If there are less than 3 elements:
 	@include count-is-less-than(3){
 		// Say something beautiful
@@ -31,14 +31,8 @@
 	} @else {
 		@warn "Sorry, that's an invalid $comparison value."
 	}
-
-	// &:nth-last-child(#{$nth}):first-child {
-	// 	&, & ~ * {
-	// 		@content;
-	// 	}
-	// }
-
-	&:nth-last-of-type(#{$nth}):first-of-type {
+	
+	&:nth-last-child(#{$nth}):first-child {
 		&, & ~ * {
 			@content;
 		}
