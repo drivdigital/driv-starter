@@ -1,0 +1,11 @@
+/* Logo */
+
+.site-title{
+  color: $text;
+  font-weight: 300;
+  line-height: 1;
+  @include modular(2rem, $minor-second);
+  letter-spacing: -0.075rem;
+  margin: 0;
+  text-decoration: none;
+}

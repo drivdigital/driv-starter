@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Pneumatic theme - Woocommerce class
+ * drivdigital theme - Woocommerce class
  */
-class Pneumatic_Theme_Woocommerce {
+class drivdigital__Woocommerce {
   /**
    * Define support for the woocommerce plugin
    * http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
@@ -18,20 +18,20 @@ class Pneumatic_Theme_Woocommerce {
 
     // Add theme woocommerce actions
     // Main content
-    add_action( 'woocommerce_before_main_content', 'Pneumatic_Theme_Woocommerce::wrapper_start' );
-    add_action( 'woocommerce_after_main_content', 'Pneumatic_Theme_Woocommerce::wrapper_end' );
-    add_action( 'get_footer', 'Pneumatic_Theme_Woocommerce::wrapper_page_end' );
+    add_action( 'woocommerce_before_main_content', 'drivdigital__Woocommerce::wrapper_start' );
+    add_action( 'woocommerce_after_main_content', 'drivdigital__Woocommerce::wrapper_end' );
+    add_action( 'get_footer', 'drivdigital__Woocommerce::wrapper_page_end' );
 
     // Archive pages
-    // add_action( 'woocommerce_before_shop_loop', 'Pneumatic_Theme_Woocommerce::wrapper_loop_start' );
-    // add_action( 'woocommerce_after_shop_loop', 'Pneumatic_Theme_Woocommerce::wrapper_loop_end' );
+    // add_action( 'woocommerce_before_shop_loop', 'drivdigital__Woocommerce::wrapper_loop_start' );
+    // add_action( 'woocommerce_after_shop_loop', 'drivdigital__Woocommerce::wrapper_loop_end' );
 
     // Archive pages
-    // add_action( 'pneumatic_archive_before', 'Pneumatic_Theme_Woocommerce::wrapper_loop_start' );
-    // add_action( 'pneumatic_archive_after', 'Pneumatic_Theme_Woocommerce::wrapper_loop_end' );
+    // add_action( 'drivdigital_archive_before', 'drivdigital__Woocommerce::wrapper_loop_start' );
+    // add_action( 'drivdigital_archive_after', 'drivdigital__Woocommerce::wrapper_loop_end' );
 
     // Add custom css for woocommerce
-    add_action( 'wp_enqueue_scripts', 'Pneumatic_Theme_Woocommerce::scripts_and_styles', 999 );
+    add_action( 'wp_enqueue_scripts', 'drivdigital__Woocommerce::scripts_and_styles', 999 );
   }
 
   /**
@@ -40,10 +40,10 @@ class Pneumatic_Theme_Woocommerce {
   static function scripts_and_styles() {
     if ( !is_admin() ) {
       // Register styles
-      wp_register_style( 'pneumatic-woocommerce-stylesheet', $GLOBALS['pneumatic-theme']->scry( '/assets/css/woocommerce.css' ), array(), '', 'all' );
+      wp_register_style( 'drivdigital-woocommerce-stylesheet', $GLOBALS['drivdigital']->scry( '/assets/css/woocommerce.css' ), array(), '', 'all' );
 
       // Enqueue styles
-      wp_enqueue_style( 'pneumatic-woocommerce-stylesheet' );
+      wp_enqueue_style( 'drivdigital-woocommerce-stylesheet' );
     }
   }
 

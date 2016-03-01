@@ -4,7 +4,10 @@
 
   <main id="main" class="t-8" role="main">
 
-    <?php do_action( 'pneumatic_archive_before' ); ?>
+    <?php /* html5 elements for testing + visualising */
+    get_template_part( 'includes/_html', 'elements'); ?>
+
+    <?php do_action( 'drivdigital_archive_before' ); ?>
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
       <article id="post-<?php the_ID(); ?>" <?php post_class( 'article' ); ?> role="article">
         <div class="article--inner cf w">
@@ -13,7 +16,7 @@
             <?php the_post_thumbnail( 'large' ); ?>
             <h1 class="article--title"><?php the_title(); ?></h1>
             </a>
-            <?php do_action( 'pneumatic-theme-time', 'updated article-time' ); ?>
+            <?php do_action( 'drivdigital-time', 'updated article-time' ); ?>
           </header>
           <div class="article--content cf">
             <?php the_content(); ?>
@@ -21,7 +24,7 @@
         </div>
       </article>
     <?php endwhile; endif; ?>
-    <?php do_action( 'pneumatic_archive_after' ); ?>
+    <?php do_action( 'drivdigital_archive_after' ); ?>
 
   </main>
 

@@ -30,7 +30,7 @@
 	line-height: 1.125rem; 			// IS
 	font-size: 0.875rem; 				// 45PX!
 
-	@media only screen and #{$tablet}{
+	@include wider-than( tablet ){
 		padding: 0.8125rem 2rem;	// THIS
 		font-size: 1rem; 		// 50PX!
 	}

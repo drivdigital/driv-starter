@@ -5,11 +5,11 @@
   margin-left: auto;
   margin-right: auto;
 
-  @media only screen and #{$tablet} {
+  @include wider-than( tablet ) {
     max-width: 92%;
   }
 
-  @media only screen and #{$laptop} {
+  @include wider-than( laptop ) {
     max-width: 72rem;
   }
 }
@@ -19,7 +19,7 @@
   margin-left: auto;
   margin-right: auto;
 
-  @media only screen and #{$desktop} {
+  @include wider-than( desktop ) {
     max-width: 92rem;
   }
 }
@@ -42,19 +42,15 @@
 $large_gutter:  4rem;
 $small_gutter:  3.5rem;
 
-// Mobile gutter
-$m_large_gutter:  2.5rem;
-$m_small_gutter:  1.75rem;
-
 @mixin small_gutter( $element ){
-  #{$element}: $m_small_gutter;
-  @media only screen and #{$tablet} {
+  #{$element}: $small_gutter / 1.5;
+  @include wider-than( tablet ) {
     #{$element}: $small_gutter;
   }
 }
 @mixin large_gutter( $element ){
-  #{$element}: $m_large_gutter;
-  @media only screen and #{$tablet} {
+  #{$element}: $large_gutter / 1.5;
+  @include wider-than( tablet ) {
     #{$element}: $large_gutter;
   }
 }

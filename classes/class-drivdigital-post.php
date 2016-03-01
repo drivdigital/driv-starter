@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Pneumatic theme - Post class
+ * drivdigital theme - Post class
  */
-class Pneumatic_Theme_Post {
+class drivdigital__Post {
   static function print_time( $classes ) {
     $format = '<time class="%s" datetime="%s" itemprop="datePublished">%s</time>';
     $datetime = get_the_time('Y-m-d');
