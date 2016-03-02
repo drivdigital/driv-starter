@@ -227,4 +227,46 @@ class drivdigital_ {
 
 }
 
+
+
+
+
+add_action( 'login_enqueue_scripts', 'drivdigital_login_css', 10 );
+function drivdigital_login_css() { ?>
+  <style type="text/css">
+    <?php echo file_get_contents( get_template_directory() . '/assets/css/login.css' );?>
+  </style>
+<?php }
+
+// URL to point to website
+add_filter( 'login_headerurl', 'drivdigital_login_url' );
+function drivdigital_login_url() {
+  return home_url();
+}
+
+// Changing the alt text
+add_filter( 'login_headertitle', 'drivdigital_login_title' );
+function drivdigital_login_title() {
+  return get_option( 'blogname' );
+}
+
+// Custom Backend Footer
+function drivdigital_custom_admin_footer() {
+  $developer = "Driv Digital AS";
+  $url = "http://www.drivdigital.no";
+  echo '<span id="footer-thankyou">' . __( 'Developed by', 'drivdigitaltheme' ) . ' <a href="' . $url . '" target="_blank">' . $developer . '</a></span>';
+}
+
+// Adding it to the admin area
+add_filter( 'admin_footer_text', 'drivdigital_custom_admin_footer' );
+
+
+
+
+
+
+
+
+
+
 $GLOBALS['drivdigital'] = new drivdigital_();
