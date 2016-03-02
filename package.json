@@ -15,6 +15,6 @@
     "grunt-newer"           : "latest",
     "grunt-postcss"         : "latest",
     "grunt-sass-globbing"   : "latest",
-    "jit-grunt"             : "^0.10.0",
+    "jit-grunt"             : "^0.10.0"
   }
 }
