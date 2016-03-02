@@ -261,12 +261,4 @@ function drivdigital_custom_admin_footer() {
 add_filter( 'admin_footer_text', 'drivdigital_custom_admin_footer' );
 
 
-
-
-
-
-
-
-
-
 $GLOBALS['drivdigital'] = new drivdigital_();
