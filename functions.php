@@ -95,8 +95,8 @@ class drivdigital_ {
 
       // Register scripts
       wp_register_script( 'modernizr', $this->scry( '/assets/js/libs/modernizr.custom.min.js' ), array(), '2.5.3', false );
-      wp_register_script( 'drivdigital-js-header', $this->scry( '/assets/js/scripts-header.js' ), array( 'jquery' ), '', false );
-      wp_register_script( 'drivdigital-js-footer', $this->scry( '/assets/js/scripts-footer.js' ), array( 'jquery' ), '', true );
+      wp_register_script( 'drivdigital-js-header', $this->scry( '/assets/js/scripts-header.min.js' ), array( 'jquery' ), '', false );
+      wp_register_script( 'drivdigital-js-footer', $this->scry( '/assets/js/scripts-footer.min.js' ), array( 'jquery' ), '', true );
 
       // Enqueue scripts
       wp_enqueue_script( 'modernizr' );

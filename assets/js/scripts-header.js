@@ -69,35 +69,3 @@
   // Expose:
   w.min_width = min_width;
 } (jQuery, window) );
-
-/* 
-
-  ---Removing padding for product images, so they will go from edge to edge in mobile devices 
-  
-  Optional javascript for creating a clone of every image on the product single page
-  inside woocommerce. This is not needed if you are to apply negative margins to the
-  parent container, then extend the width to accomodate for this:
-
-  .images{
-    margin-left: 1%;
-    width: 102%
-  }
-
-
-  jQuery( function( $ ) {
-
-    // Create a clone of the image
-    var img = $( '.product .images img' );
-    var clone = img.clone().addClass( 'mo' );
-
-    // Position the clone over the image
-    clone.css( {
-      position: 'absolute',
-      left: '-0.75em', right: '-0.75em',
-      width: $('#main').outerWidth(),
-      'max-width': 'none'
-    } ).insertBefore( img );
-
-  } );
-
-*/

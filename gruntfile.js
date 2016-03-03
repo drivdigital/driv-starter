@@ -76,7 +76,6 @@ module.exports = function(grunt) {
       }
     },
 
-
     /**
      * Live reloading
      */
@@ -118,13 +117,14 @@ module.exports = function(grunt) {
     'sass_globbing:target', // Glob together needed folders
     'sass', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix
+    'uglify', // minify javascript
     'browserSync', // live reload
     'watch' // Keep watching for any changes
   ]);
 
   // Minify everything from css to js
   grunt.registerTask('slim', [
-    'uglify',
+    'uglify', // minify javascript
     'sass_globbing:target', // Glob together needed folders
     'sass', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix

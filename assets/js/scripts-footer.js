@@ -1,8 +1,4 @@
 jQuery( function( $ ) {
-  // Fix attachments extending beyond the page border
-  $( '.article--content div[style]' ).css( 'width', '' );
-
-
   // Use highlight.js to hightlight code snippets
   var code_queue = [];
   $('pre').each( function() {
