@@ -9,7 +9,7 @@
 
     // Create menu and cart buttons with a wrapper
     var menu_bar = $( '.menu-bar' );
-    var btn_menu = $( '<div>' ).addClass( 'mto button-menu' ).text( '<?php _e( "Menu" ); ?>' );
+    var btn_menu = $( '<div>' ).addClass( 'mto button-menu' ).text( '<?php _e( 'Menu', 'drivdigital' ); ?>' );
 
     // Wait for doc ready
     $( function() {
