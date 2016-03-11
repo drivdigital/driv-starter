@@ -8,6 +8,36 @@ module.exports = function(grunt) {
     config: PathConfig,
 
     /**
+     * Prompts and questions - https://github.com/dylang/grunt-prompt
+     * We need to ask a few things from you first,
+     * then the project can get underway!
+     */
+    prompt: {
+      browserSync: {
+        options: {
+          questions: [
+            {
+              name:    'browserSyncConfirm',
+              type:    'confirm',                                         // list, checkbox, confirm, input, password
+              message: 'Want to use browserSync?', // Question to ask the user, function needs to return a string,
+              default: false                    // default value if nothing is entered
+            },
+            {
+              config:  'browserSync.default_options.options.proxy',     // arbitrary name or config for any other grunt task
+              type:    'input',                                         // list, checkbox, confirm, input, password
+              message: 'Enter the Vagrant URL', // Question to ask the user, function needs to return a string,
+              default: 'drivdigital.dev:8080',                    // default value if nothing is entered
+              when: function (answers) {
+                      return answers['browserSyncConfirm'] === true;
+                    },
+            }
+          ]
+        }
+      },
+    },
+
+
+    /**
      * Compiling stylesheets
      */
 
@@ -157,6 +187,7 @@ module.exports = function(grunt) {
 
   // Standard grunt task – compile css and watch
   grunt.registerTask('default', [
+    'prompt:browserSync', // Config
     'sass_globbing:target', // Glob together needed folders
     'sass:dev', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix
