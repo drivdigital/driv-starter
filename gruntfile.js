@@ -192,7 +192,6 @@ module.exports = function(grunt) {
     'sass:dev', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix
     'uglify', // minify javascript
-    'browserSync', // live reload
     'watch' // Keep watching for any changes
     ]);
 
