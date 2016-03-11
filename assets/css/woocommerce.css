@@ -1,265 +1,62 @@
-/******************************************************************
-drivdigital theme  woocommerce styles
-******************************************************************/
-/* Various variables used across stylesheets */
-/******************************************************************
-drivdigital theme variables
-******************************************************************/
-/* Colors */
-/* Misc */
 /*
- * mobile only styles only in this media query
- */
-@media only screen and (max-width: 767px) {
-  /*
-   * Products
-   * [woocommerce]
-   */
-  .product {
-    /* Image thumbnails: */ }
-    .product .thumbnails {
-      padding-left: 1em;
-      padding-right: 1em; }
+Error: Undefined variable: "$mobile-only".
+        on line 13 of assets/scss/woocommerce.scss
 
-  /* Tabs */
-  .woocommerce-tabs .panel,
-  .upsells.products, .related.products,
-  .edit {
-    font-size: 0.875rem; }
+8: 
+9: 
+10: /*
+11:  * mobile only styles only in this media query
+12:  *\/
+13: @media only #{$mobile-only} {
+14:   /*
+15:    * Products
+16:    * [woocommerce]
+17:    *\/
+18:   .product {
 
-  /* address on My account page */
-  .address {
-    padding: 1em 0; }
-
-  /* Checkout page */
-  .woocommerce-checkout .col-1 h3, .woocommerce-checkout .col-2 h3 {
-    margin-left: 0;
-    margin-bottom: 0.5em; }
-
-  /* Checkout page */
-  .woocommerce-billing-fields {
-    padding: 0 0.75em; }
-
-  /* Checkout page */
-  .woocommerce-shipping-fields {
-    padding: 0.75em; }
-
-  /* Checkout page */
-  .woocommerce form .form-row {
-    padding: 0; }
-
-  /* Top table on Cart page */
-  .shop_table,
-  .shop_table td {
-    font-size: 12px; }
-
-  /* Table, Cart page */
-  .woocommerce table.shop_table td,
-  .woocommerce-cart table.cart th {
-    padding: 6px; }
-
-  /* Content on Cart page */
-  .woocommerce-shipping-calculator p,
-  .cart_totals h2 {
-    margin-left: 0; }
-
-  /* Shop page */
-  .woocommerce-page .woocommerce-ordering {
-    clear: left;
-    float: none; }
-
-  /* Shop page */
-  .woocommerce-page.archive #main {
-    padding: 0 0.75em; }
-
-  /* Breadcrumbs */
-  .woocommerce-page.archive .woocommerce-breadcrumb {
-    padding-left: 0 !important; }
-
-  .woocommerce table.shop_table .product-subtotal {
-    border-right: 0 !important; }
-
-  /* Order info, Order received page */
-  .woocommerce .order_details li {
-    margin: 0.75em 0;
-    float: none;
-    clear: left;
-    border-right: 0; }
-
-  /* Expanding the product tabs in mobile */
-  .woocommerce-tabs .tabs {
-    display: none; }
-  .woocommerce-tabs .panel {
-    display: block !important;
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 2em; }
-
-  /* Adding padding to product tabs in mobile */
-  .woocommerce div.product .woocommerce-tabs .panel {
-    padding-bottom: 2em; }
-
-  /* Star rating on product single page */
-  .woocommerce .star-rating {
-    float: none;
-    display: block; }
-
-  .woocommerce #reviews #comments ol.commentlist li .comment-text .meta {
-    margin-top: 1em; }
-
-  /* Breadcrumbs on woocommerce pages */
-  .woocommerce .woocommerce-breadcrumb {
-    margin-bottom: 0.25rem; }
-
-  /* Result count on woocommerce pages, product archive page */
-  .woocommerce .woocommerce-result-count {
-    display: none; } }
-/* End of mobile styles */
-/* Adding margin bottom to 'add a review'/'be the first to review this product' on product single page */
-.woocommerce #reviews .comment-reply-title {
-  margin-bottom: 1rem; }
-
-/* Comment form on Product single page */
-#commentform label {
-  margin-bottom: 0.5rem;
-  display: block; }
-#commentform label[for="email"],
-#commentform label[for="author"] {
-  width: 4rem;
-  display: inline-block; }
-
-/* Qty on product single page */
-.woocommerce .qty {
-  padding: 0.4rem; }
-
-/* Additional information table on product single page */
-.woocommerce table.shop_attributes td {
-  padding: 0.25rem; }
-
-/* Order received page */
-.order_details {
-  padding-left: 0; }
-
-/* Tables, Order received page */
-.woocommerce table.order_details td,
-.woocommerce table.customer_details td {
-  border-bottom: 0; }
-
-/* Tables, Order review page */
-.woocommerce table.order_details tr td {
-  border-right: 0; }
-
-/* My account page */
-.my_account_orders td {
-  border-bottom: 0; }
-
-/* You order table, Checkout page */
-.woocommerce #order_review td {
-  border: 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
-.woocommerce #order_review th {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-top: 0; }
-
-/* You order table, Checkout page */
-.woocommerce #order_review .order-total th, .woocommerce #order_review .order-total td {
-  border-bottom: 0; }
-
-/* Checkout page */
-.shop_table .actions {
-  border: 0 !important; }
-
-/* Checkout page */
-.woocommerce .cart-collaterals .cart_totals {
-  width: 100%; }
-  .woocommerce .cart-collaterals .cart_totals table {
-    width: 100%; }
-
-/* Cart totals table, Cart page */
-.woocommerce .cart_totals td {
-  border: 0; }
-
-/* Cart totals table, Cart page */
-.woocommerce-cart .cart-collaterals .cart_totals table td {
-  padding-left: 1em;
-  vertical-align: middle; }
-
-/* Table, Cart page, Order review page */
-.woocommerce table.shop_table td {
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  border-left: 0; }
-  .woocommerce table.shop_table td:last-of-type {
-    border-right: 0; }
-
-/* Searchform */
-.widget .woocommerce-product-search .search-field,
-#s {
-  width: 100%;
-  width: -webkit-calc( 100% - 4.25em );
-  width: calc( 100% - 4.25em );
-  float: left;
-  border: 0;
-  padding: 0.5em 0.5em 0.45em;
-  outline: none; }
-
-.widget .woocommerce-product-search input[type="submit"],
-#searchsubmit {
-  position: absolute;
-  top: 0;
-  right: 0;
-  -webkit-border-radius: 0;
-          border-radius: 0;
-  border: 1px solid #000;
-  margin: -1px; }
-
-.widget .woocommerce-product-search,
-.searchform--inner {
-  position: relative;
-  border: 1px solid #ccc; }
-
-/* Clearfix the woocommerce search form */
-.woocommerce-product-search {
-  zoom: 1; }
-  .woocommerce-product-search:before, .woocommerce-product-search:after {
-    content: "";
-    display: table; }
-  .woocommerce-product-search:after {
-    clear: both; }
-
-/* Overriding the WooCommerse's default button colors with drivdigital color variables,
- * if you want to change the button colors you should do so in _variables.scss
- */
-.woocommerce a.button,
-.woocommerce button.button.alt,
-.woocommerce input.button.alt,
-.woocommerce a.button.alt,
-.woocommerce button.button.alt:disabled[disabled] {
-  background-color: #4e4e4e;
-  color: #fff; }
-  .woocommerce a.button:hover,
-  .woocommerce button.button.alt:hover,
-  .woocommerce input.button.alt:hover,
-  .woocommerce a.button.alt:hover,
-  .woocommerce button.button.alt:disabled[disabled]:hover {
-    background: #414141;
-    color: #fff; }
-
-/* If you want to change the price-color you should do so in _variables.scss */
-.woocommerce ul.products li.product .price,
-.amount,
-.woocommerce div.product p.price {
-  color: #c00; }
-
-/* On sale badge, product pages, single and lists, if you want to change the badge-color you should do so in _variables.scss */
-.woocommerce span.onsale {
-  background: #4e4e4e;
-  z-index: 5; }
-
-/* If you want to change the star-color you should do so in _variables.scss */
-.woocommerce .star-rating span,
-.woocommerce .star-rating:before,
-.woocommerce p.stars a.star-1,
-.woocommerce p.stars a.star-2,
-.woocommerce p.stars a.star-3,
-.woocommerce p.stars a.star-4,
-.woocommerce p.stars a.star-5 {
-  color: #c00; }
+Backtrace:
+assets/scss/woocommerce.scss:13
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/script/tree/variable.rb:49:in `_perform'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/script/tree/node.rb:50:in `perform'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/script/tree/interpolation.rb:170:in `_perform'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/script/tree/node.rb:50:in `perform'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:540:in `block in run_interp_no_strip'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:538:in `map'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:538:in `run_interp_no_strip'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:545:in `run_interp'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:510:in `visit_media'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/exec/sass_scss.rb:414:in `run'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/exec/base.rb:52:in `parse'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/lib/sass/exec/base.rb:19:in `parse!'
+/Users/yratof/.rvm/gems/ruby-2.2.1@global/gems/sass-3.4.21/bin/sass:13:in `<top (required)>'
+/Users/yratof/.rvm/gems/ruby-2.2.1/bin/sass:23:in `load'
+/Users/yratof/.rvm/gems/ruby-2.2.1/bin/sass:23:in `<main>'
+/Users/yratof/.rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `eval'
+/Users/yratof/.rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined variable: \"$mobile-only\".\A         on line 13 of assets/scss/woocommerce.scss\A \A 8: \A 9: \A 10: /*\A 11:  * mobile only styles only in this media query\A 12:  */\A 13: @media only #{$mobile-only} {\A 14:   /*\A 15:    * Products\A 16:    * [woocommerce]\A 17:    */\A 18:   .product {"; }

@@ -1,8 +1,11 @@
 module.exports = function(grunt) {
 
+  var PathConfig = require('./grunt-settings.js');
   require('jit-grunt')(grunt);
 
   grunt.initConfig({
+
+    config: PathConfig,
 
     /**
      * Compiling stylesheets
@@ -12,24 +15,64 @@ module.exports = function(grunt) {
     sass_globbing: {
       target: {
         files: {
-          'assets/scss/partials/_components.scss': 'assets/scss/components/*.scss',
-          'assets/scss/partials/_mixins.scss': 'assets/scss/partials/mixins/*.scss',
+          '<%= config.scssPartials %>_components.scss': '<%= config.scssDir %>components/*.scss',
+          '<%= config.scssPartials %>_mixins.scss': '<%= config.scssPartials %>mixins/*.scss',
         }
       }
     },
 
-    // Compile SCSS
-		sass: {
-			dist: {
+    //sass
+    sass: {
+      options: PathConfig.hasBower,
+      dev: {
         options: {
-          style: 'compressed',
+          style: 'nested'
         },
-				files: {
-					'assets/css/style.css' : 'assets/scss/style.scss',
-					'assets/css/login.css' : 'assets/scss/login.scss'
-				}
-			}
-		},
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.sassDir %>',
+            src: ['**/*.scss', '!<%= config.sassMainFileName %>.scss'],
+            dest: '<%= config.cssDir %>',
+            ext: '.css'
+          },
+          {src: '<%= config.sassDir %><%= config.sassMainFileName %>.scss', dest: '<%= config.cssMainFileDir %><%= config.cssMainFileName %>.css'}
+        ]
+      },
+      dist: {
+        options: {
+          style: 'nested'
+        },
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.sassDir %>',
+            src: ['**/*.scss', '!<%= config.sassMainFileName %>.scss'],
+            dest: '<%= config.cssDir %>',
+            ext: '.css'
+          },
+          {
+            src: '<%= config.sassDir %><%= config.sassMainFileName %>.scss',
+            dest: '<%= config.cssMainFileDir %><%= config.cssMainFileName %>.css'
+          }
+        ]
+      },
+      min: {
+        options: {
+          Style: 'compressed'
+        },
+        files: [
+          {
+            expand: true,
+            cwd: '<%= config.sassDir %>',
+            src: ['**/*.scss', '!<%= config.sassMainFileName %>.scss'],
+            dest: '<%= config.cssDir %>',
+            ext: '.min.css'
+          },
+          {src: '<%= config.sassDir %><%= config.sassMainFileName %>.scss', dest: '<%= config.cssMainFileDir %><%= config.cssMainFileName %>.min.css'}
+        ]
+      }
+    },
 
     // Autoprefix
     postcss: {
@@ -43,7 +86,7 @@ module.exports = function(grunt) {
         remove: false
       },
       dist: {
-        src: 'assets/css/*.css'
+        src: '<%= config.cssDir %>*.css'
       }
     },
 
@@ -58,8 +101,8 @@ module.exports = function(grunt) {
       },
       js: {
         files: {
-          'assets/js/scripts-header.min.js': ['assets/js/scripts-header.js'],
-          'assets/js/scripts-footer.min.js': ['assets/js/scripts-footer.js']
+          '<%= config.jsDir %>scripts-header.min.js': ['<%= config.jsDir %>scripts-header.js'],
+          '<%= config.jsDir %>scripts-footer.min.js': ['<%= config.jsDir %>scripts-footer.js']
         }
       }
     },
@@ -69,9 +112,9 @@ module.exports = function(grunt) {
       dynamic: {
         files: [{
           expand: true,
-          cwd: 'assets/images',
+          cwd: '<%= config.imgDir %>',
           src: ['**/*.{png,jpg,gif,svg}'],
-          dest: 'assets/images'
+          dest: '<%= config.imgDir %>'
         }]
       }
     },
@@ -84,14 +127,14 @@ module.exports = function(grunt) {
       default_options: {
         bsFiles: {
           src: [
-            "assets/css/*.css",
-            "*.php,",
-            "**/*.php,"
+          "<%= config.cssDir %>*.css",
+          "*.php,",
+          "**/*.php,"
           ]
         },
         options: {
           watchTask: true,
-          proxy: "drivstarter.dev:8080" // If your site runs through MAMP, whats the URL
+          proxy: "<%= config.proxy %>" // If your site runs through MAMP, whats the URL
         }
       }
     },
@@ -99,34 +142,34 @@ module.exports = function(grunt) {
     // Watch for any changes
     watch: {
       js: {
-        files: ['assets/js/*.js'],
+        files: ['<%= config.jsDir %>*.js'],
       },
       css: {
         // Watch sass changes, merge mqs & run bs
-        files: ['assets/scss/*.scss', 'assets/scss/**/*.scss'],
+        files: ['<%= config.scssDir %>*.scss', '<%= config.scssDir %>**/*.scss'],
         tasks: ['sass_globbing:target', 'sass', 'postcss:dist', 'browserSync' ]
       },
       options: {
           spawn: false // Very important, don't miss this
+        }
       }
-    }
-  });
+    });
 
   // Standard grunt task – compile css and watch
   grunt.registerTask('default', [
     'sass_globbing:target', // Glob together needed folders
-    'sass', // Run sass
+    'sass:dev', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix
     'uglify', // minify javascript
     'browserSync', // live reload
     'watch' // Keep watching for any changes
-  ]);
+    ]);
 
   // Minify everything from css to js
   grunt.registerTask('slim', [
     'uglify', // minify javascript
     'sass_globbing:target', // Glob together needed folders
-    'sass', // Run sass
+    'sass:min', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix
-  ]);
+    ]);
 };
