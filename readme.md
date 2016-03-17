@@ -18,6 +18,12 @@ To begin:
 2. Install packages with `sudo npm install`
 3. Finally, run `grunt`
 
+### Different runtimes:
+
+`grunt` only compiles files
+`grunt dev` runs browserSync for live reloading
+`grunt slim` minifies the project
+
 ---
 
 ### Mixins
@@ -26,20 +32,20 @@ We've written some basic mixing for grids and adaptive scaling.
 
 #### Grid
 
-For the grid, we use the mixing `span()`. It has four arguments: 
+For the grid, we use the mixing `span()`. It has four arguments:
 
 - `How many columns the element is`
 - `How many columns in total`
-- `The gutter between these columns` 
+- `The gutter between these columns`
 - `Is this the last element?`
 
 Here's an example of how we use it:
 
-    .main { 
-        // Covers 8 of 12 columns across   
+    .main {
+        // Covers 8 of 12 columns across
         @include span( 8, 12, 1rem );
     }
-    
+
     .aside {
         // Four columns, last element in the grid
         @include span( 4, 12, 1rem, true )
@@ -49,7 +55,7 @@ Here's an example of how we use it:
 
 There's a mixing called `modular` which gives you the ability to define a scale for `font-size`. Allowing typography to be more fluid with your device.
 
-Usage: 
+Usage:
 
     h1 {
         @include modular( 4rem );
