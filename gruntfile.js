@@ -89,7 +89,7 @@ module.exports = function(grunt) {
       },
       min: {
         options: {
-          Style: 'compressed'
+          style: 'compressed'
         },
         files: [
           {

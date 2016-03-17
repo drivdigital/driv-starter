@@ -192,8 +192,7 @@ figure {
  */
 hr {
   -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-sizing: content-box;
   height: 0; }
 
 /**
@@ -299,9 +298,7 @@ input {
  */
 input[type="checkbox"],
 input[type="radio"] {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */ }
@@ -482,12 +479,9 @@ Background colour based on brightness
   font-style: normal;
   text-decoration: none;
   text-align: center;
-  -webkit-border-radius: 4px;
-          border-radius: 4px;
+  border-radius: 4px;
   font-smoothing: antialiased;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   text-shadow: 0;
   padding: 0.844rem 1.5rem;
   line-height: 1.125rem;
@@ -634,11 +628,6 @@ Simply use this in a class somewhere to add placeholder styles.
 /**
  * Unloading the document
  */
-@-webkit-keyframes unload-clicked {
-  0% {
-    right: 100%; }
-  100% {
-    right: 0%; } }
 @keyframes unload-clicked {
   0% {
     right: 100%; }
@@ -660,10 +649,8 @@ Simply use this in a class somewhere to add placeholder styles.
       bottom: 0;
       right: 0;
       background-color: rgba(255, 255, 255, 0.5);
-      -webkit-animation-name: unload-clicked;
-              animation-name: unload-clicked;
-      -webkit-animation-duration: 0.2s;
-              animation-duration: 0.2s; }
+      animation-name: unload-clicked;
+      animation-duration: 0.2s; }
 
 /*
 	@include center(x);
@@ -807,8 +794,7 @@ p, .p {
   word-break: none;
   -webkit-hyphens: none;
   -moz-hyphens: none;
-  -ms-hyphens: aunoneto;
-      hyphens: aunoneto; }
+  hyphens: aunoneto; }
 
 h1, .no-svg #login h1 a, h2, h3, h4, h5, h6 {
   margin: 0 0 1.5rem;
@@ -841,20 +827,14 @@ input[type="text"], input[type="password"], input[type="datetime"], input[type="
   border: 1px solid #d0d0d0;
   font-family: sans-serif;
   background-color: #f9f9f9;
-  -webkit-box-shadow: inset 0 1px 1px #DDDDDD;
-          box-shadow: inset 0 1px 1px #DDDDDD;
-  -webkit-border-radius: 2px;
-          border-radius: 2px;
+  box-shadow: inset 0 1px 1px #DDDDDD;
+  border-radius: 2px;
   font-size: 1.125rem;
   font-weight: 200;
-  -webkit-transition: background-color 0.24s cubic-bezier(0.84, 0.1, 0.83, 0.67);
   transition: background-color 0.24s cubic-bezier(0.84, 0.1, 0.83, 0.67);
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none; }
+  appearance: none; }
   input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, select:focus, textarea:focus, .field:focus, #login form .input:focus, input[type="text"]:active, input[type="password"]:active, input[type="datetime"]:active, input[type="datetime-local"]:active, input[type="date"]:active, input[type="month"]:active, input[type="time"]:active, input[type="week"]:active, input[type="number"]:active, input[type="email"]:active, input[type="url"]:active, input[type="search"]:active, input[type="tel"]:active, input[type="color"]:active, select:active, textarea:active, .field:active, #login form .input:active {
-    -webkit-box-shadow: 0 0 1px #9EC105;
-            box-shadow: 0 0 1px #9EC105;
+    box-shadow: 0 0 1px #9EC105;
     outline: 0; }
   input.error[type="text"], input.error[type="password"], input.error[type="datetime"], input.error[type="datetime-local"], input.error[type="date"], input.error[type="month"], input.error[type="time"], input.error[type="week"], input.error[type="number"], input.error[type="email"], input.error[type="url"], input.error[type="search"], input.error[type="tel"], input.error[type="color"], select.error, textarea.error, .error.field, #login form .error.input, input.is-invalid[type="text"], input.is-invalid[type="password"], input.is-invalid[type="datetime"], input.is-invalid[type="datetime-local"], input.is-invalid[type="date"], input.is-invalid[type="month"], input.is-invalid[type="time"], input.is-invalid[type="week"], input.is-invalid[type="number"], input.is-invalid[type="email"], input.is-invalid[type="url"], input.is-invalid[type="search"], input.is-invalid[type="tel"], input.is-invalid[type="color"], select.is-invalid, textarea.is-invalid, .is-invalid.field, #login form .is-invalid.input {
     color: #EB5453;
@@ -901,9 +881,7 @@ textarea {
   line-height: 1.5em; }
 
 select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   /* 1 */
   padding-right: 2rem;
   background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSItNDgyIDI3OS4zIDE0LjkgOS40IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IC00ODIgMjc5LjMgMTQuOSA5LjQ7IiB4bWw6c3BhY2U9InByZXNlcnZlIj48c3R5bGUgdHlwZT0idGV4dC9jc3MiPi5zdDB7ZmlsbDpub25lO3N0cm9rZTojMDAwMjIyO3N0cm9rZS13aWR0aDo0O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2UtbWl0ZXJsaW1pdDoxMDt9PC9zdHlsZT48cG9seWxpbmUgY2xhc3M9InN0MCIgcG9pbnRzPSItNDY5LjEsMjgxLjMgLTQ3NC41LDI4Ni44IC00ODAsMjgxLjMgIi8+PC9zdmc+);
@@ -922,7 +900,6 @@ select {
 .btn-brand {
   color: white;
   background-color: #9EC105;
-  -webkit-transition: background-color 0.1s cubic-bezier(0.84, 0.1, 0.83, 0.67);
   transition: background-color 0.1s cubic-bezier(0.84, 0.1, 0.83, 0.67); }
   .btn-brand:hover {
     background-color: #839f08;
@@ -931,8 +908,7 @@ select {
   .btn-brand:focus, .btn-brand:active {
     background-color: #8fae09;
     color: white;
-    -webkit-box-shadow: none;
-            box-shadow: none; }
+    box-shadow: none; }
 
 /**
  * Contact information in the header
@@ -985,25 +961,13 @@ select {
  * Flex
  */
 .nav-menu-primary {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
-     -moz-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  flex-wrap: wrap;
+  align-items: stretch;
   height: 100%;
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   top: 0;
   height: 100%;
   width: 100%;
@@ -1037,57 +1001,32 @@ select {
    * Style of the menu elements
    */ }
   .nav-menu-primary .menu-active .top-nav {
-    -webkit-animation: 0.5s appear cubic-bezier(0.46, 0.01, 0.47, 0.85);
-            animation: 0.5s appear cubic-bezier(0.46, 0.01, 0.47, 0.85); }
+    animation: 0.5s appear cubic-bezier(0.46, 0.01, 0.47, 0.85); }
   .nav-menu-primary .menu-item:nth-of-type(1) a {
-    -webkit-animation-delay: 0.155s;
-            animation-delay: 0.155s; }
+    animation-delay: 0.155s; }
   .nav-menu-primary .menu-item:nth-of-type(2) a {
-    -webkit-animation-delay: 0.31s;
-            animation-delay: 0.31s; }
+    animation-delay: 0.31s; }
   .nav-menu-primary .menu-item:nth-of-type(3) a {
-    -webkit-animation-delay: 0.465s;
-            animation-delay: 0.465s; }
+    animation-delay: 0.465s; }
   .nav-menu-primary .menu-item:nth-of-type(4) a {
-    -webkit-animation-delay: 0.62s;
-            animation-delay: 0.62s; }
+    animation-delay: 0.62s; }
   .nav-menu-primary .menu-item:nth-of-type(5) a {
-    -webkit-animation-delay: 0.775s;
-            animation-delay: 0.775s; }
+    animation-delay: 0.775s; }
   .nav-menu-primary .menu-item:nth-of-type(6) a {
-    -webkit-animation-delay: 0.93s;
-            animation-delay: 0.93s; }
+    animation-delay: 0.93s; }
   .nav-menu-primary .menu-item:nth-of-type(7) a {
-    -webkit-animation-delay: 1.085s;
-            animation-delay: 1.085s; }
+    animation-delay: 1.085s; }
   .nav-menu-primary .menu-item:nth-of-type(8) a {
-    -webkit-animation-delay: 1.24s;
-            animation-delay: 1.24s; }
+    animation-delay: 1.24s; }
   .nav-menu-primary .menu-item:nth-of-type(9) a {
-    -webkit-animation-delay: 1.395s;
-            animation-delay: 1.395s; }
+    animation-delay: 1.395s; }
   .nav-menu-primary .menu-item:nth-of-type(10) a {
-    -webkit-animation-delay: 1.55s;
-            animation-delay: 1.55s; }
-@-webkit-keyframes rotate {
-  from {
-    -webkit-transform: translateZ(-1rem) rotate3d(1, -1, 0, -25deg);
-            transform: translateZ(-1rem) rotate3d(1, -1, 0, -25deg); }
-  to {
-    -webkit-transform: translateZ(-1rem) rotate3d(1, 1, 0, 0deg);
-            transform: translateZ(-1rem) rotate3d(1, 1, 0, 0deg); } }
+    animation-delay: 1.55s; }
 @keyframes rotate {
   from {
-    -webkit-transform: translateZ(-1rem) rotate3d(1, -1, 0, -25deg);
-            transform: translateZ(-1rem) rotate3d(1, -1, 0, -25deg); }
+    transform: translateZ(-1rem) rotate3d(1, -1, 0, -25deg); }
   to {
-    -webkit-transform: translateZ(-1rem) rotate3d(1, 1, 0, 0deg);
-            transform: translateZ(-1rem) rotate3d(1, 1, 0, 0deg); } }
-@-webkit-keyframes appear {
-  from {
-    opacity: 0; }
-  to {
-    opacity: 1; } }
+    transform: translateZ(-1rem) rotate3d(1, 1, 0, 0deg); } }
 @keyframes appear {
   from {
     opacity: 0; }
@@ -1095,80 +1034,39 @@ select {
     opacity: 1; } }
   .nav-menu-primary .menu-item {
     text-align: center;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-       -moz-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1 0 100%;
-       -moz-box-flex: 1;
-        -ms-flex: 1 0 100%;
-            flex: 1 0 100%;
+    align-items: center;
+    flex: 1 0 100%;
     margin: 0; }
     @media (max-height: 25rem) {
       .nav-menu-primary .menu-item {
-        -webkit-box-flex: 1;
-        -webkit-flex: 1 0 50%;
-           -moz-box-flex: 1;
-            -ms-flex: 1 0 50%;
-                flex: 1 0 50%; } }
+        flex: 1 0 50%; } }
     @media (min-width: 48rem) {
       .nav-menu-primary .menu-item {
-        -webkit-box-flex: 1;
-        -webkit-flex: 1 0 50%;
-           -moz-box-flex: 1;
-            -ms-flex: 1 0 50%;
-                flex: 1 0 50%; } }
+        flex: 1 0 50%; } }
     @media (min-width: 77.5rem) {
       .nav-menu-primary .menu-item {
-        -webkit-align-self: center;
-            -ms-flex-item-align: center;
-                align-self: center; }
+        align-self: center; }
         .nav-menu-primary .menu-item:nth-last-child(n + 3):first-child, .nav-menu-primary .menu-item:nth-last-child(n + 3):first-child ~ * {
-          -webkit-align-self: flex-end;
-              -ms-flex-item-align: end;
-                  align-self: flex-end; }
+          align-self: flex-end; }
         .nav-menu-primary .menu-item:nth-last-child(4):first-child + .menu-item + .menu-item, .nav-menu-primary .menu-item:nth-last-child(4):first-child ~ * + .menu-item + .menu-item {
-          -webkit-align-self: flex-start;
-              -ms-flex-item-align: start;
-                  align-self: flex-start; }
+          align-self: flex-start; }
         .nav-menu-primary .menu-item:nth-last-child(n + 5):first-child, .nav-menu-primary .menu-item:nth-last-child(n + 5):first-child ~ * {
-          -webkit-box-flex: 1;
-          -webkit-flex: 1 0 33%;
-             -moz-box-flex: 1;
-              -ms-flex: 1 0 33%;
-                  flex: 1 0 33%; }
+          flex: 1 0 33%; }
           .nav-menu-primary .menu-item:nth-last-child(n + 5):first-child + .menu-item + .menu-item + .menu-item, .nav-menu-primary .menu-item:nth-last-child(n + 5):first-child ~ * + .menu-item + .menu-item + .menu-item {
-            -webkit-align-self: flex-start;
-                -ms-flex-item-align: start;
-                    align-self: flex-start; } }
+            align-self: flex-start; } }
     @media (min-width: 48rem) {
       .nav-menu-primary .menu-item a {
-        -webkit-transform-style: preserve-3d;
-                transform-style: preserve-3d;
-        -webkit-perspective: 20rem;
-                perspective: 20rem;
-        -webkit-perspective-origin: center;
-                perspective-origin: center;
-        -webkit-transform: translateZ(-1rem) rotate3d(1, 1, 1, 0deg);
-                transform: translateZ(-1rem) rotate3d(1, 1, 1, 0deg);
-        -webkit-animation: 1s rotate cubic-bezier(0.46, 0.01, 0.47, 0.85), 1s appear cubic-bezier(0.46, 0.01, 0.47, 0.85);
-                animation: 1s rotate cubic-bezier(0.46, 0.01, 0.47, 0.85), 1s appear cubic-bezier(0.46, 0.01, 0.47, 0.85);
-        -webkit-animation-fill-mode: backwards;
-                animation-fill-mode: backwards; }
+        transform-style: preserve-3d;
+        perspective: 20rem;
+        perspective-origin: center;
+        transform: translateZ(-1rem) rotate3d(1, 1, 1, 0deg);
+        animation: 1s rotate cubic-bezier(0.46, 0.01, 0.47, 0.85), 1s appear cubic-bezier(0.46, 0.01, 0.47, 0.85);
+        animation-fill-mode: backwards; }
         .nav-menu-primary .menu-item a:before {
-          -webkit-transform: translateZ(1rem);
-                  transform: translateZ(1rem); }
+          transform: translateZ(1rem); }
         .nav-menu-primary .menu-item a:hover {
-          -webkit-transform: scale(1.01);
-              -ms-transform: scale(1.01);
-                  transform: scale(1.01); } }
+          transform: scale(1.01); } }
   .nav-menu-primary .menu-item a {
     color: white;
     display: block;
@@ -1181,7 +1079,6 @@ select {
     letter-spacing: 0.04rem;
     margin: 0;
     padding: 0.25rem;
-    -webkit-transition: all 0.24s ease-in-out;
     transition: all 0.24s ease-in-out; }
     @media (min-width: 30.0625rem) {
       .nav-menu-primary .menu-item a {
@@ -1263,10 +1160,8 @@ h4 {
   font-weight: normal;
   background: white;
   border: 0;
-  -webkit-border-radius: 0;
-          border-radius: 0;
-  -webkit-box-shadow: 0 8px -1px -5px black;
-          box-shadow: 0 8px -1px -5px black; }
+  border-radius: 0;
+  box-shadow: 0 8px -1px -5px black; }
   #login form label {
     font-weight: 400;
     font-size: 1.125rem;
@@ -1287,8 +1182,7 @@ h4 {
   padding: 0.45rem 1rem 0.45rem 0.5rem;
   font-weight: 400;
   font-size: 0.8rem;
-  -webkit-border-radius: 3px;
-          border-radius: 3px;
+  border-radius: 3px;
   color: white; }
   #login #nav a:before {
     content: "\f112";
@@ -1310,34 +1204,17 @@ h4 {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; }
   #login #nav a:hover:before {
-    -webkit-animation-name: shake;
-            animation-name: shake;
-    -webkit-animation-duration: 1s;
-            animation-duration: 1s;
-    -webkit-animation-fill-mode: both;
-            animation-fill-mode: both; }
-
-@-webkit-keyframes shake {
-  from, to {
-    -webkit-transform: rotate3d(0, 0, 0, 0);
-            transform: rotate3d(0, 0, 0, 0); }
-  10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: rotate3d(0, 0, 1, -5deg);
-            transform: rotate3d(0, 0, 1, -5deg); }
-  20%, 40%, 60%, 80% {
-    -webkit-transform: rotate3d(0, 0, 1, 5deg);
-            transform: rotate3d(0, 0, 1, 5deg); } }
+    animation-name: shake;
+    animation-duration: 1s;
+    animation-fill-mode: both; }
 
 @keyframes shake {
   from, to {
-    -webkit-transform: rotate3d(0, 0, 0, 0);
-            transform: rotate3d(0, 0, 0, 0); }
+    transform: rotate3d(0, 0, 0, 0); }
   10%, 30%, 50%, 70%, 90% {
-    -webkit-transform: rotate3d(0, 0, 1, -5deg);
-            transform: rotate3d(0, 0, 1, -5deg); }
+    transform: rotate3d(0, 0, 1, -5deg); }
   20%, 40%, 60%, 80% {
-    -webkit-transform: rotate3d(0, 0, 1, 5deg);
-            transform: rotate3d(0, 0, 1, 5deg); } }
+    transform: rotate3d(0, 0, 1, 5deg); } }
 .submit {
   width: 100%;
   display: inline-block;
@@ -1349,14 +1226,12 @@ h4 {
   line-height: 1.25rem !important;
   font-size: 0.9375rem !important;
   height: 2.625rem !important;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   float: none;
   width: 100%;
   margin-top: 1rem;
   color: white;
   background-color: #9EC105;
-  -webkit-transition: background-color 0.1s cubic-bezier(0.84, 0.1, 0.83, 0.67);
   transition: background-color 0.1s cubic-bezier(0.84, 0.1, 0.83, 0.67);
   text-shadow: none; }
   .button.button-primary:hover {
@@ -1366,11 +1241,12 @@ h4 {
   .button.button-primary:focus, .button.button-primary:active {
     background-color: #8fae09;
     color: white;
-    -webkit-box-shadow: none;
-            box-shadow: none; }
+    box-shadow: none; }
 
 /*
 You'll have to override some of the default styles
 but since we're referencing the id, it should be easy.
 */
 /* login button*/
+
+/*# sourceMappingURL=login.css.map */
