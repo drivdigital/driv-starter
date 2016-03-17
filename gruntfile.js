@@ -177,7 +177,7 @@ module.exports = function(grunt) {
       css: {
         // Watch sass changes, merge mqs & run bs
         files: ['<%= config.scssDir %>*.scss', '<%= config.scssDir %>**/*.scss'],
-        tasks: ['sass_globbing:target', 'sass', 'postcss:dist', 'browserSync' ]
+        tasks: ['sass_globbing:target', 'sass:dev', 'postcss:dist' ]
       },
       options: {
           spawn: false // Very important, don't miss this
