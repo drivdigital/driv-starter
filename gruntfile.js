@@ -17,19 +17,10 @@ module.exports = function(grunt) {
         options: {
           questions: [
             {
-              name:    'browserSyncConfirm',
-              type:    'confirm',                                         // list, checkbox, confirm, input, password
-              message: 'Want to use browserSync?', // Question to ask the user, function needs to return a string,
-              default: false                    // default value if nothing is entered
-            },
-            {
               config:  'browserSync.default_options.options.proxy',     // arbitrary name or config for any other grunt task
               type:    'input',                                         // list, checkbox, confirm, input, password
               message: 'Enter the Vagrant URL', // Question to ask the user, function needs to return a string,
               default: 'drivdigital.dev:8080',                    // default value if nothing is entered
-              when: function (answers) {
-                      return answers['browserSyncConfirm'] === true;
-                    },
             }
           ]
         }
@@ -89,7 +80,7 @@ module.exports = function(grunt) {
       },
       min: {
         options: {
-          style: 'compressed'
+          Style: 'compressed'
         },
         files: [
           {
@@ -179,21 +170,36 @@ module.exports = function(grunt) {
         files: ['<%= config.scssDir %>*.scss', '<%= config.scssDir %>**/*.scss'],
         tasks: ['sass_globbing:target', 'sass:dev', 'postcss:dist' ]
       },
+      dev: {
+        // Watch sass changes, merge mqs & run bs
+        files: ['<%= config.scssDir %>*.scss', '<%= config.scssDir %>**/*.scss'],
+        tasks: ['sass_globbing:target', 'sass:dev', 'postcss:dist', 'browserSync' ]
+      },
       options: {
-          spawn: false // Very important, don't miss this
-        }
+        spawn: false // Very important, don't miss this
       }
-    });
+    }
+  });
 
   // Standard grunt task – compile css and watch
   grunt.registerTask('default', [
-    'prompt:browserSync', // Config
     'sass_globbing:target', // Glob together needed folders
     'sass:dev', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix
     'uglify', // minify javascript
     'watch' // Keep watching for any changes
-    ]);
+  ]);
+
+  // Standard grunt task – compile css and watch
+  grunt.registerTask('dev', [
+    'prompt:browserSync', // Config
+    'sass_globbing:target', // Glob together needed folders
+    'sass:dev', // Run sass
+    'postcss:dist', // Post Process with Auto-Prefix
+    'uglify', // minify javascript
+    'browserSync',
+    'watch' // Keep watching for any changes
+  ]);
 
   // Minify everything from css to js
   grunt.registerTask('slim', [

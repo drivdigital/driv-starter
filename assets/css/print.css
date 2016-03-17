@@ -8,7 +8,8 @@
   background: transparent !important;
   color: black !important;
   text-shadow: none !important;
-  filter: none !important;
+  -webkit-filter: none !important;
+          filter: none !important;
   -ms-filter: none !important; }
 
 /* Black prints faster: h5bp.com/s */
@@ -65,11 +66,13 @@ img {
     position: absolute;
     top: -10px;
     left: 0;
+    height: -webkit-calc(100% + 10px);
     height: calc(100% + 10px);
     width: 100%;
     background-color: white;
     border: 2px dotted #c8c8c8;
-    border-radius: 5px; }
+    -webkit-border-radius: 5px;
+            border-radius: 5px; }
   img:after {
     content: "" " Broken Image of " attr(alt);
     display: block;
@@ -82,5 +85,3 @@ img {
     left: 0;
     width: 100%;
     text-align: center; }
-
-/*# sourceMappingURL=print.css.map */
