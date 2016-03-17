@@ -1214,5 +1214,7 @@ select {
       left: 0;
       width: 100%;
       text-align: center; } }
+body.fuck {
+  background-color: red; }
 
 /*# sourceMappingURL=style.css.map */

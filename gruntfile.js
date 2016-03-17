@@ -44,7 +44,6 @@ module.exports = function(grunt) {
 
     //sass
     sass: {
-      options: PathConfig.hasBower,
       dev: {
         options: {
           style: 'nested'
@@ -57,7 +56,10 @@ module.exports = function(grunt) {
             dest: '<%= config.cssDir %>',
             ext: '.css'
           },
-          {src: '<%= config.sassDir %><%= config.sassMainFileName %>.scss', dest: '<%= config.cssMainFileDir %><%= config.cssMainFileName %>.css'}
+          {
+            src: '<%= config.sassDir %><%= config.sassMainFileName %>.scss',
+            dest: '<%= config.cssDir %><%= config.cssMainFileName %>.css'
+          }
         ]
       },
       dist: {
@@ -74,13 +76,13 @@ module.exports = function(grunt) {
           },
           {
             src: '<%= config.sassDir %><%= config.sassMainFileName %>.scss',
-            dest: '<%= config.cssMainFileDir %><%= config.cssMainFileName %>.css'
+            dest: '<%= config.cssDir %><%= config.cssMainFileName %>.css'
           }
         ]
       },
       min: {
         options: {
-          Style: 'compressed'
+          style: 'compressed'
         },
         files: [
           {
@@ -90,7 +92,10 @@ module.exports = function(grunt) {
             dest: '<%= config.cssDir %>',
             ext: '.min.css'
           },
-          {src: '<%= config.sassDir %><%= config.sassMainFileName %>.scss', dest: '<%= config.cssMainFileDir %><%= config.cssMainFileName %>.min.css'}
+          {
+            src: '<%= config.sassDir %><%= config.sassMainFileName %>.scss',
+            dest: '<%= config.cssDir %><%= config.cssMainFileName %>.min.css'
+          }
         ]
       }
     },
@@ -187,7 +192,7 @@ module.exports = function(grunt) {
     'sass:dev', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix
     'uglify', // minify javascript
-    'watch' // Keep watching for any changes
+    'watch:css' // Keep watching for any changes
   ]);
 
   // Standard grunt task – compile css and watch
@@ -198,7 +203,7 @@ module.exports = function(grunt) {
     'postcss:dist', // Post Process with Auto-Prefix
     'uglify', // minify javascript
     'browserSync',
-    'watch' // Keep watching for any changes
+    'watch:dev' // Keep watching for any changes
   ]);
 
   // Minify everything from css to js
