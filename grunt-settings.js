@@ -1,8 +1,8 @@
 module.exports = {
   proxy:            'drivdigital.dev:8080',
   scssPartials:     'assets/scss/partials/',
-  sassDir:          'assets/scss/',
-  sassMainFileName: 'style',
+  scssDir:          'assets/scss/',
+  scssMainFileName: 'style',
 
   cssDir:           'assets/css/',
   cssMainFileName:  'style',

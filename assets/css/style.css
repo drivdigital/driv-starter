@@ -936,6 +936,78 @@ select {
             box-shadow: none; }
 
 /* generated with grunt-sass-globbing */
+/* Logo */
+.site-title {
+  color: #222222;
+  font-weight: 300;
+  line-height: 1;
+  font-size: 1.54302rem;
+  letter-spacing: -0.075rem;
+  margin: 0;
+  text-decoration: none; }
+  @media (min-width: 30.0625rem) {
+    .site-title {
+      font-size: 1.64641rem; } }
+  @media (min-width: 48rem) {
+    .site-title {
+      font-size: 1.75671rem; } }
+  @media (min-width: 64.0625rem) {
+    .site-title {
+      font-size: 1.87441rem; } }
+  @media (min-width: 77.5rem) {
+    .site-title {
+      font-size: 2rem; } }
+
+/**
+ * Widgets are used in footers and sidebars
+ * to allow content to be editable
+ */
+.widget {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 23.75rem;
+     -moz-box-flex: 1;
+      -ms-flex: 1 0 23.75rem;
+          flex: 1 0 23.75rem; }
+  @media (min-width: 48rem) {
+    .widget {
+      padding: 1rem; } }
+  .widget-area--inner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+
+.alignleft, img.alignleft {
+  margin-right: 1.5em;
+  display: inline;
+  float: left; }
+
+.alignright, img.alignright {
+  margin-left: 1.5em;
+  display: inline;
+  float: right;
+  text-align: right; }
+
+.aligncenter, img.aligncenter {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+  clear: both;
+  text-align: center; }
+
+/**
+ * Image captions
+ * Here I'm using an inner block to let the text (<p>) align itself with the image.
+ * It's useful when the image has a caption and is aligned center or right.
+ */
+.wp-caption--inner {
+  display: inline-block;
+  text-align: left; }
+
 /**
  * Contact information in the header
  */

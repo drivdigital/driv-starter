@@ -50,7 +50,7 @@ module.exports = function(grunt) {
         },
         files: [
           {
-            src: '<%= config.scssDir %><%= config.sassMainFileName %>.scss',
+            src: '<%= config.scssDir %><%= config.scssMainFileName %>.scss',
             dest: '<%= config.cssDir %><%= config.cssMainFileName %>.css'
           }
         ]
@@ -63,12 +63,12 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: '<%= config.scssDir %>',
-            src: ['**/*.scss', '!<%= config.sassMainFileName %>.scss'],
+            src: ['**/*.scss', '!<%= config.scssMainFileName %>.scss'],
             dest: '<%= config.cssDir %>',
             ext: '.css'
           },
           {
-            src: '<%= config.scssDir %><%= config.sassMainFileName %>.scss',
+            src: '<%= config.scssDir %><%= config.scssMainFileName %>.scss',
             dest: '<%= config.cssDir %><%= config.cssMainFileName %>.css'
           }
         ]
@@ -81,12 +81,12 @@ module.exports = function(grunt) {
           {
             expand: true,
             cwd: '<%= config.scssDir %>',
-            src: ['**/*.scss', '!<%= config.sassMainFileName %>.scss'],
+            src: ['**/*.scss', '!<%= config.scssMainFileName %>.scss'],
             dest: '<%= config.cssDir %>',
             ext: '.min.css'
           },
           {
-            src: '<%= config.scssDir %><%= config.sassMainFileName %>.scss',
+            src: '<%= config.scssDir %><%= config.scssMainFileName %>.scss',
             dest: '<%= config.cssDir %><%= config.cssMainFileName %>.min.css'
           }
         ]

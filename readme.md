@@ -15,14 +15,16 @@ This theme uses [Grunt](http://gruntjs.com/) for the assets, it compiles scss, m
 To begin:
 
 1. Go into the theme `cd driv-starter`
-2. Install packages with `sudo npm install`
-3. Finally, run `grunt`
+2. Install all NPM packages with `sudo npm install`
+3. Once installed, run one of three `grunt` commanges
 
 ### Different runtimes:
 
 `grunt` only compiles files
 `grunt dev` runs browserSync for live reloading
 `grunt slim` minifies the project
+
+![image](http://g.recordit.co/StFt7GoLzB.gif)
 
 ---
 
@@ -51,6 +53,7 @@ Here's an example of how we use it:
         @include span( 4, 12, 1rem, true )
     }
 
+
 #### Scaling elements
 
 There's a mixing called `modular` which gives you the ability to define a scale for `font-size`. Allowing typography to be more fluid with your device.
@@ -69,11 +72,12 @@ You can customise this by added an addition scale unit to the mixing:
         @include modular( 4rem, 1.05 );
     }
 
-This will scale the 4rem by 1.05 `( 4rem / 1.05 = 3.8rem)`. This allows you to scale different elements to keep the flow of your type.
+This will scale the 4rem by 1.05 per mediaquery: `( 4rem / 1.05 = 3.8rem)`.
+This allows you to scale different elements to keep the flow of your type.
 
-#### There's more!
+#### oh, there's more?
 
-You can also use this for elements! Seriously. Let me show you how:
+You can also use this specific elements:
 
     h1{
         @include modular-element( padding-bottom, 5rem );
