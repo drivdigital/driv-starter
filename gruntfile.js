@@ -50,14 +50,7 @@ module.exports = function(grunt) {
         },
         files: [
           {
-            expand: true,
-            cwd: '<%= config.sassDir %>',
-            src: ['**/*.scss', '!<%= config.sassMainFileName %>.scss'],
-            dest: '<%= config.cssDir %>',
-            ext: '.css'
-          },
-          {
-            src: '<%= config.sassDir %><%= config.sassMainFileName %>.scss',
+            src: '<%= config.scssDir %><%= config.sassMainFileName %>.scss',
             dest: '<%= config.cssDir %><%= config.cssMainFileName %>.css'
           }
         ]
@@ -69,31 +62,31 @@ module.exports = function(grunt) {
         files: [
           {
             expand: true,
-            cwd: '<%= config.sassDir %>',
+            cwd: '<%= config.scssDir %>',
             src: ['**/*.scss', '!<%= config.sassMainFileName %>.scss'],
             dest: '<%= config.cssDir %>',
             ext: '.css'
           },
           {
-            src: '<%= config.sassDir %><%= config.sassMainFileName %>.scss',
+            src: '<%= config.scssDir %><%= config.sassMainFileName %>.scss',
             dest: '<%= config.cssDir %><%= config.cssMainFileName %>.css'
           }
         ]
       },
       min: {
         options: {
-          style: 'compressed'
+          Style: 'compressed'
         },
         files: [
           {
             expand: true,
-            cwd: '<%= config.sassDir %>',
+            cwd: '<%= config.scssDir %>',
             src: ['**/*.scss', '!<%= config.sassMainFileName %>.scss'],
             dest: '<%= config.cssDir %>',
             ext: '.min.css'
           },
           {
-            src: '<%= config.sassDir %><%= config.sassMainFileName %>.scss',
+            src: '<%= config.scssDir %><%= config.sassMainFileName %>.scss',
             dest: '<%= config.cssDir %><%= config.cssMainFileName %>.min.css'
           }
         ]
@@ -173,7 +166,7 @@ module.exports = function(grunt) {
       css: {
         // Watch sass changes, merge mqs & run bs
         files: ['<%= config.scssDir %>*.scss', '<%= config.scssDir %>**/*.scss'],
-        tasks: ['sass_globbing:target', 'sass:dev', 'postcss:dist' ]
+        tasks: ['sass_globbing:target', 'sass:dist', 'postcss:dist' ]
       },
       dev: {
         // Watch sass changes, merge mqs & run bs
@@ -189,7 +182,7 @@ module.exports = function(grunt) {
   // Standard grunt task – compile css and watch
   grunt.registerTask('default', [
     'sass_globbing:target', // Glob together needed folders
-    'sass:dev', // Run sass
+    'sass:dist', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix
     'uglify', // minify javascript
     'watch:css' // Keep watching for any changes
