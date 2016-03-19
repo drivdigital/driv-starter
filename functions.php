@@ -119,6 +119,14 @@ class drivdigital_ {
       if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
         wp_enqueue_script( 'comment-reply' );
       }
+
+      // remove query string from scripts ?=4.4.2
+      function _remove_script_version( $src ){
+        $parts = explode( '?', $src );
+        return $parts[0];
+      }
+      add_filter( 'script_loader_src', '_remove_script_version', 15, 1 );
+      add_filter( 'style_loader_src', '_remove_script_version', 15, 1 );
     }
   }
 

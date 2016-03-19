@@ -20,9 +20,9 @@ To begin:
 
 ### Different runtimes:
 
-`grunt` only compiles files
-`grunt dev` runs browserSync for live reloading
-`grunt slim` minifies the project
+1. `grunt` only compiles files
+2. `grunt dev` runs browserSync for live reloading
+3. `grunt slim` minifies the project
 
 ![image](http://g.recordit.co/StFt7GoLzB.gif)
 
