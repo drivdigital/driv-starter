@@ -10,7 +10,7 @@
   <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> itemscope="" itemtype="http://schema.org/WebPage">
   <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'drivdigital' ); ?></a>
 
   <div class="container">
