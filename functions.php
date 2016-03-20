@@ -74,8 +74,8 @@ class drivdigital_ {
     // Menus
     add_theme_support( 'menus' );
     // Woocommerce
-    require_once( 'classes/class-drivdigital-woocommerce.php' );
-    drivdigital__Woocommerce::woocommerce_support();
+    // require_once( 'classes/class-drivdigital-woocommerce.php' );
+    // drivdigital__Woocommerce::woocommerce_support();
     // Let WordPress handle the title
     add_theme_support( 'title-tag' );
     // Add HTML5 support

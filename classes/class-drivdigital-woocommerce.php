@@ -40,10 +40,10 @@ class drivdigital__Woocommerce {
   static function scripts_and_styles() {
     if ( !is_admin() ) {
       // Register styles
-      wp_register_style( 'drivdigital-woocommerce-stylesheet', $GLOBALS['drivdigital']->scry( '/assets/css/woocommerce.css' ), array(), '', 'all' );
+      // wp_register_style( 'drivdigital-woocommerce-stylesheet', $GLOBALS['drivdigital']->scry( '/assets/css/woocommerce.css' ), array(), '', 'all' );
 
       // Enqueue styles
-      wp_enqueue_style( 'drivdigital-woocommerce-stylesheet' );
+      // wp_enqueue_style( 'drivdigital-woocommerce-stylesheet' );
     }
   }
 
