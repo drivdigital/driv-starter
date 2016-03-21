@@ -3,16 +3,18 @@
 
 Written as just the size. This allows combining of these queries
 into something like "only screen and landscape and tablet-down"
+
+Good read: http://zellwk.com/blog/media-query-units/
 ******************************************************************/
 
-$landscape:        30.0625rem;
-$mobile-only:      37.9375rem;
-$tablet:           48rem;
-$tablet-down:      47.9rem;
-$tablet-landscape: 64rem;
-$laptop:           64.0625rem;
-$desktop:          77.5rem;
-$cinema:           103.75rem;
+$landscape:        30em;
+$mobile-only:      38em;
+$tablet:           48em;
+$tablet-down:      47.9em;
+$tablet-landscape: 64em;
+$laptop:           64em;
+$desktop:          77.5em;
+$cinema:           103.75em;
 
 /* 	This mixin will help you nest mediaqueries easier.
 	@Usage:
