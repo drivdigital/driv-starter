@@ -40,6 +40,10 @@ class drivdigital_ {
     require_once( 'classes/class-drivdigital-post.php' );
     add_action( 'drivdigital-time', 'drivdigital__Post::print_time' );
 
+    // Custom Demo Page
+    require_once( 'classes/class-drivdigital-demo.php' );
+    drivdigital_activation_page::demo_front_page();
+
     // Remove WP (generator) from rss feeds
     add_filter( 'the_generator', array( $this, 'return_empty' ) );
 
