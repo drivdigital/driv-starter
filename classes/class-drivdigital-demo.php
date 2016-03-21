@@ -8,7 +8,7 @@ class drivdigital_activation_page {
      */
     if ( isset( $_GET['activated'] ) && is_admin() ) {
       $driv_theme_page_title    = 'Driv Theme Styleguide';
-      $content = wp_remote_get( 'https://raw.githubusercontent.com/drivdigital/driv-starter/master/readme.md' );
+      $content = wp_remote_get( 'http://drivdigital.github.io/driv-starter/' );
       if( is_array($content) ) {
         $body = $content['body']; // use the content
       } else{
