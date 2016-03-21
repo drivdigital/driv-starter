@@ -7,11 +7,12 @@ class drivdigital_activation_page {
      * Installing a page for us to set as the home page
      */
     if ( isset( $_GET['activated'] ) && is_admin() ) {
-      $driv_theme_page_title    = 'Driv Theme Styleguide';
       $content = wp_remote_get( 'http://drivdigital.github.io/driv-starter/' );
       if( is_array($content) ) {
-        $body = $content['body']; // use the content
-      } else{
+        $driv_theme_page_title    = 'Driv Theme Readme';
+        $body = $content['body']; // use the content from drivdigital.github.io
+      } else {
+        $driv_theme_page_title    = 'Driv Theme Styleguide';
         $body = file_get_contents( get_stylesheet_directory_uri() . '/includes/_html-elements.html' );
       }
       $driv_theme_page_content  = $body;

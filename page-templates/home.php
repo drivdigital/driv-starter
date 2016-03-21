@@ -2,7 +2,7 @@
 
 <div id="content" class="cf w">
 
-  <main id="main" class="">
+  <main id="main" class="w cf">
 
     <?php do_action( 'drivdigital_archive_before' ); ?>
 
