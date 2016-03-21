@@ -15,7 +15,7 @@
 
   <div class="container" role="document">
 
-    <header class="header" role="banner">
+    <header class="header">
       <div class="header--inner w cf">
         <a class="site-title" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
       </div>
