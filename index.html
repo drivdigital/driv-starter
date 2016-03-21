@@ -1,0 +1,100 @@
+<p><img src="https://www.drivdigital.no/wp-content/themes/drivdigital/library/images/logo.svg" alt="image" /></p>
+
+<hr />
+
+<h1>Base Theme</h1>
+
+<p>This theme is stripped back and is designed with helpers. This theme will help you build a responsive website that scales exceptionally.</p>
+
+<hr />
+
+<h3>How do I get it running?</h3>
+
+<p>This theme uses <a href="http://gruntjs.com/">Grunt</a> for the assets, it compiles scss, minifies images and does some other neat little tricks.</p>
+
+<p>To begin:</p>
+
+<ol>
+<li>Go into the theme <code>cd driv-starter</code></li>
+<li>Install all NPM packages with <code>sudo npm install</code></li>
+<li>Once installed, run one of three <code>grunt</code> commanges</li>
+</ol>
+
+
+<h3>Different runtimes:</h3>
+
+<ol>
+<li><code>grunt</code> only compiles files</li>
+<li><code>grunt dev</code> runs browserSync for live reloading</li>
+<li><code>grunt slim</code> minifies the project</li>
+</ol>
+
+
+<p><img src="http://g.recordit.co/StFt7GoLzB.gif" alt="image" /></p>
+
+<hr />
+
+<h3>Mixins</h3>
+
+<p>We've written some basic mixing for grids and adaptive scaling.</p>
+
+<h4>Grid</h4>
+
+<p>For the grid, we use the mixing <code>span()</code>. It has four arguments:</p>
+
+<ul>
+<li><code>How many columns the element is</code></li>
+<li><code>How many columns in total</code></li>
+<li><code>The gutter between these columns</code></li>
+<li><code>Is this the last element?</code></li>
+</ul>
+
+
+<p>Here's an example of how we use it:</p>
+
+<p>.main {
+// Covers 8 of 12 columns across
+@include span( 8, 12, 1rem );
+}</p>
+
+<p>.aside {
+// Four columns, last element in the grid
+@include span( 4, 12, 1rem, true )
+}</p>
+
+<h4>Scaling elements</h4>
+
+<p>There's a mixing called <code>modular</code> which gives you the ability to define a scale for <code>font-size</code>. Allowing typography to be more fluid with your device.</p>
+
+<p>Usage:</p>
+
+<p>h1 {
+@include modular( 4rem );
+}</p>
+
+<p>This will output a few <code>mediaqueries</code> that define the font size in a scale, as you view the the on different sized devices, the font size will scale with it.</p>
+
+<p>You can customise this by added an addition scale unit to the mixing:</p>
+
+<p>h1 {
+@include modular( 4rem, 1.05 );
+}</p>
+
+<p>This will scale the 4rem by 1.05 per mediaquery: <code>( 4rem / 1.05 = 3.8rem)</code>.
+This allows you to scale different elements to keep the flow of your type.</p>
+
+<h4>oh, there's more?</h4>
+
+<p>You can also use this specific elements:</p>
+
+<p>h1{
+@include modular-element( padding-bottom, 5rem );
+}</p>
+
+<p>This will give you a <code>padding-bottom</code> on your <code>h1</code> that will scale with your devices.</p>
+
+<p>From here, you can write other mixing that utilise these technique, allowing you to write variables that change the vertical rhythm of the page.</p>
+
+<hr />
+
+<p>This theme is under constant development. If you find any issues with it, please <a href="https://github.com/drivdigital/driv-starter/issues">file an issue</a></p>
