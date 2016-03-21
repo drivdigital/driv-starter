@@ -2,11 +2,11 @@
 
 <div id="content" class="cf w">
 
-  <main id="main" class="t-8" role="main">
+  <main id="main" class="">
 
     <?php do_action( 'drivdigital_archive_before' ); ?>
     <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
-      <article id="post-<?php the_ID(); ?>" <?php post_class( 'article' ); ?> role="article">
+      <article id="post-<?php the_ID(); ?>" <?php post_class( 'article' ); ?>>
         <div class="article--inner cf w">
           <header class="article--header">
             <a href="<?php the_permalink(); ?>">

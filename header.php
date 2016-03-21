@@ -13,7 +13,7 @@
 <body <?php body_class(); ?> itemscope="" itemtype="http://schema.org/WebPage">
   <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'drivdigital' ); ?></a>
 
-  <div class="container">
+  <div class="container" role="document">
 
     <header class="header" role="banner">
       <div class="header--inner w cf">
