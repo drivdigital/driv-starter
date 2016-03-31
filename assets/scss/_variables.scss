@@ -5,55 +5,37 @@ Variables written throughout the site. Everything on this page
 should decide every colour on the site.
 ******************************************************************/
 
-/* Link colours */
-$link-color:        #999999;
-$link-hover:        darken($link-color, 10%);
-
 
 /* Alerts */
-$alert-green:       #02951E;  // Alert state green
-$alert-red:         #EB5453;  // Alert state red
-$alert-grey:        #999999;  // Alert state grey
-$alert-blue:        #1D59A1;  // Alert state blue
+$alert-green:       #5fb207;
+$alert-red:         #fb1a2c;
+$alert-grey:        #9aacb5;
+$alert-blue:        #1D59A1;
 
-/* Misc */
-$paragraph-size:    1rem;
 
 $grey:              #f3f3f3;
-$grey-light:        #f9f9f9;
-$grey-dark:         #DDDDDD;
+$grey-light:        #F5F5F5;
+$grey-dark:         #2A2A2A;
 $grey-darker:       #AAAAAA;
 
 /* General colours */
-$text:              #222222;    // Deep grey
-$text-light:        #444444;    // Lighter grey
-$text-overprint:    #595959;  // A strange dark muddy grey
+$text:              #000;     // Deep grey
+$text-light:        #444444;  // Lighter grey
 
 /* Brand colours */
-$green:             #9EC105;  // Main Brand colour
-$green-dark:        #88A40D;  // Hover state
-$green-faded:       #f5f8e6;  // Featured chef green
+
+$red:               #FC5844;  // Main Brand colour
+$red-dark:          #D44432;  // Hover state
 
 $blue:              #1D59A1;  // Faceobook colour
 $blue-dark:         #113661;  // Hover state
 
 /* Using these doesn't tie us down to naming conventions */
-$brand-colour:      $green;
-$brand-colour-dark: $green-dark;
+$brand-colour:      $red;
+$brand-colour-dark: $red-dark;
+
 $brand-alt:         $blue;
 $brand-alt-dark:    $blue-dark;
-
-
-
-/* Element colours */
-$background-color:  $grey-light;
-$menu-color:        white;
-$menu-current:      $text;
-$price-color:       $alert-red;
-$footer-color:      $grey;
-$badge-color:       $blue;
-$star-color:        #f2a536;
-
 
 /******************************************************************
 /* Animation
