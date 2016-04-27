@@ -53,6 +53,25 @@ Here's an example of how we use it:
         @include span( 4, 12, 1rem, true )
     }
 
+#### Media Queries
+
+Things need to be simple when writing media queries, none of that nonse about `@media #{tablet}`. It tells us nothing about what it's doing other than there's a tablet involved.
+
+To make this process easier, you can do your mediaqueries like so:
+
+    @include wider-than ( tablet ){
+        /* This is now content that will only show
+        when we're wider than a tablet device */
+    }
+
+Obviously, you can do the opposite too
+
+    @include not-wider-than ( tablet ){
+        /* This is now content that will only show
+        when we're not wider than a tablet device */
+    }
+
+To find more about your devices list, you can view them here: [Mediaqueries](https://github.com/drivdigital/driv-starter/blob/master/assets/scss/partials/mixins/_0_mediaqueries.scss)
 
 #### Scaling elements
 
