@@ -19,6 +19,9 @@
         navigation.toggleClass( 'hide' );
         // Add a class to the body to allow css targeting. @see issue #8
         body.toggleClass( 'menu-active' ).toggleClass( 'menu-inactive' );
+        $(this).text(function(i, text){
+            return text === "<?php _e( 'Menu', 'drivdigital' ); ?>" ? "<?php _e( 'Close', 'drivdigital' ); ?>" : "<?php _e( 'Menu', 'drivdigital' ); ?>";
+        })
       } );
       // Add the buttons to the wrapper
       menu_bar.append( btn_menu );
