@@ -75,7 +75,7 @@ module.exports = function(grunt) {
       },
       min: {
         options: {
-          Style: 'compressed'
+          style: 'compressed'
         },
         files: [
           {
@@ -112,6 +112,19 @@ module.exports = function(grunt) {
     /**
      * Minifications
      */
+
+    // Refactor CSS incase anything duplicates
+    csso: {
+      restructure: {
+        options: {
+          restructure: true,
+          report: 'min'
+        },
+        files: {
+          '<%= config.cssDir %><%= config.cssMainFileName %>.min.css': ['<%= config.cssDir %><%= config.cssMainFileName %>.min.css']
+        }
+      },
+    },
 
     // Make JS tiny
     uglify: {
@@ -203,7 +216,8 @@ module.exports = function(grunt) {
   grunt.registerTask('slim', [
     'uglify', // minify javascript
     'sass_globbing:target', // Glob together needed folders
-    'sass:min', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix
+    'sass:min', // Run sass
+    'csso', // Run sass
     ]);
 };

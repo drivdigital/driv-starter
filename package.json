@@ -12,6 +12,7 @@
     "grunt-contrib-sass": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-watch": "latest",
+    "grunt-csso": "^1.0.0",
     "grunt-newer": "latest",
     "grunt-postcss": "latest",
     "grunt-prompt": "^1.3.3",
