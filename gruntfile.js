@@ -124,6 +124,14 @@ module.exports = function(grunt) {
           '<%= config.cssDir %><%= config.cssMainFileName %>.min.css': ['<%= config.cssDir %><%= config.cssMainFileName %>.min.css']
         }
       },
+      compress: {
+        options: {
+          report: 'gzip'
+        },
+        files: {
+          '<%= config.cssDir %><%= config.cssMainFileName %>.min.css': ['<%= config.cssDir %><%= config.cssMainFileName %>.min.css']
+        }
+      },
     },
 
     // Make JS tiny
