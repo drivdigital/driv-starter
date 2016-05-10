@@ -90,3 +90,15 @@ $small_gutter:  3.5rem;
     margin-right: calc(#{$guttering});
   }
 }
+
+@function offset( $i, $max: 12, $guttering: 1.875rem, $last: null){
+  $percentage: $i * 100% / $max;
+  $percentage: $percentage - 0.001%;
+  $num: $max / $i - 1;
+  $margin-right: ($num * $guttering / ($num +1));
+  @if $last == null {
+    @return calc(#{$percentage} + #{$margin-right});
+  } @else {
+    @return calc(#{$percentage} - #{$margin-right});
+  }
+}

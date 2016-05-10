@@ -796,7 +796,7 @@ h5 {
   color: #000;
   font-weight: 400;
   text-transform: uppercase;
-  font: 0.875rem;
+  font-size: 0.875rem;
   line-height: 1.125rem; }
   @media (min-width: 64em) {
     h5 {

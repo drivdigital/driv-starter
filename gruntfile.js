@@ -205,8 +205,6 @@ module.exports = function(grunt) {
     'sass_globbing:target', // Glob together needed folders
     'sass:dist', // Run sass
     'postcss:dist', // Post Process with Auto-Prefix
-    'uglify', // minify javascript
-    'watch:css' // Keep watching for any changes
   ]);
 
   // Standard grunt task – compile css and watch
